@@ -1,20 +1,55 @@
 {
   "name": "yroam-admin",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "release:major": "standard-version --release-as major",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:premajor": "standard-version --release-as premajor",
+    "release:preminor": "standard-version --release-as preminor",
+    "release:prepatch": "standard-version --release-as prepatch"
   },
   "dependencies": {
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vitejs/plugin-vue": "^3.1.0",
-    "typescript": "^4.6.4",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.6.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "standard-version": "^9.5.0",
+    "typescript": "*",
     "vite": "^3.1.0",
     "vue-tsc": "^0.40.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   }
 }
