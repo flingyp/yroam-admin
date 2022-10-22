@@ -17,3 +17,4 @@ Dockerfile
 package.json
 tsconfig.json
 tsconfig.node.json
+.eslintrc.js

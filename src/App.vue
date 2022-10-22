@@ -1,5 +1,5 @@
 <template>
-  <div>Hello World</div>
+  <ViconsIcon icon="Accessibility"></ViconsIcon>
 </template>
 
 <script setup lang="ts"></script>

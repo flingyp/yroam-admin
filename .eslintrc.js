@@ -5,11 +5,17 @@ module.exports = {
   },
   extends: ['plugin:vue/vue3-essential', 'standard-with-typescript', 'plugin:prettier/recommended'],
   overrides: [],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json', 'tsconfig.node.json']
+    parser: '@typescript-eslint/parser',
+    project: ['./tsconfig.json'],
+    ecmaFeatures: true,
+    tsconfigRootDir: __dirname
   },
-  plugins: ['vue'],
-  rules: {}
+  plugins: ['@typescript-eslint', 'vue'],
+  rules: {
+    '@typescript-eslint/explicit-function-return-type': 0
+  }
 }
