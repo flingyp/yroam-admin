@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -14,7 +15,30 @@
       "ESNext",
       "DOM"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@https/*": [
+        "src/https/*"
+      ],
+      "@layout/*": [
+        "src/layout/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+    }
   },
   "include": [
     "src/**/*",

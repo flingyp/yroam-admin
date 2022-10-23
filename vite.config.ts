@@ -13,7 +13,8 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
         '@https': resolve(__dirname, 'src/https'),
         '@styles': resolve(__dirname, 'src/styles'),
         '@layout': resolve(__dirname, 'src/layout'),
-        '@store': resolve(__dirname, 'src/store')
+        '@store': resolve(__dirname, 'src/store'),
+        '@hooks': resolve(__dirname, 'src/hooks')
       }
     },
     css: {
