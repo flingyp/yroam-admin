@@ -1,0 +1,89 @@
+.login-page-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('@assets/Svg/LoginBg.svg');
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.03;
+    z-index: -1;
+  }
+}
+
+.login-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 50%;
+  height: 500px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background-color: var(--background-color);
+  border: 1px solid var(--background-color);
+
+  .form-container-left {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    & > svg {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  .form-container-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    & > h1 {
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    & > .form-container {
+      width: 70%;
+    }
+  }
+
+  // 中等屏幕
+  @media (min-width: 768px) and (max-width: 1200px) {
+    .form-container-left {
+      display: none;
+    }
+    .form-container-right {
+      .login-form {
+        width: 80%;
+      }
+    }
+  }
+  // 小屏幕
+  @media (max-width: 768px) {
+    width: 400px;
+
+    .form-container-left {
+      display: none;
+    }
+    .form-container-right {
+      .login-form {
+        width: 80%;
+      }
+    }
+  }
+}

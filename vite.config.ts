@@ -14,7 +14,8 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
         '@styles': resolve(__dirname, 'src/styles'),
         '@layout': resolve(__dirname, 'src/layout'),
         '@store': resolve(__dirname, 'src/store'),
-        '@hooks': resolve(__dirname, 'src/hooks')
+        '@hooks': resolve(__dirname, 'src/hooks'),
+        '@router': resolve(__dirname, 'src/router')
       }
     },
     css: {

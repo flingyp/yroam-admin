@@ -38,6 +38,9 @@
       "@hooks/*": [
         "src/hooks/*"
       ],
+      "@router/*": [
+        "src/router/*"
+      ],
     }
   },
   "include": [
