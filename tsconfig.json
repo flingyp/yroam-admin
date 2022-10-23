@@ -17,8 +17,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "./src/**/*",
-    "src/yroam.config.ts",
+    "src/**/*",
     "configs/**/*",
   ],
   "references": [

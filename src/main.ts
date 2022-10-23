@@ -1,3 +1,4 @@
+import 'virtual:svg-icons-register'
 import { createApp } from 'vue'
 import App from './App.vue'
 import { registerGlobalComponent } from './components/index'
