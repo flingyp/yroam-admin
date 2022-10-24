@@ -10,7 +10,7 @@ export const useSwitchTheme = () => {
   const HtmlElement = document.querySelector('html')!
   // 获取本地默认主题
   const getThemeMode = () => {
-    return getLocalKey('theme') as ThemeModeType
+    return (getLocalKey('theme') as ThemeModeType) || 'LIGHT'
   }
   // 设置主题
   const setThemeMode = (Theme: ThemeModeType) => {

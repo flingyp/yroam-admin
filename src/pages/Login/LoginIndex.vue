@@ -41,8 +41,13 @@
 </template>
 
 <script setup lang="ts">
-  import { FormInst, FormRules, NButton, NForm, NFormItem, NInput } from 'naive-ui'
+  import { userLoginHttp } from '@https/SystemHttps'
+  import { setLocalKey } from '@utils/LocalStorage'
+  import { FormInst, FormRules, NButton, NForm, NFormItem, NInput, useNotification } from 'naive-ui'
   import { reactive, ref } from 'vue'
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
 
   const LoginFormData = reactive({
     username: 'admin',
@@ -68,10 +73,32 @@
   const FormSize = ref<'small' | 'medium' | 'large'>('large')
   const formRef = ref<FormInst | null>(null)
 
+  const notification = useNotification()
+
   const handlerUserLogin = () => {
     // 验证
     formRef.value?.validate(async errors => {
-      // if (errors) return
+      if (errors) return
+
+      const loginResData = await userLoginHttp(LoginFormData.username, LoginFormData.password)
+
+      if (loginResData) {
+        setLocalKey('access-token', loginResData?.token)
+        notification.success({
+          content: '提示：',
+          meta: '登录成功！ 即将进行系统，请稍等',
+          duration: 2000,
+          onAfterLeave: () => {
+            router.push({ name: 'PermissionCommonIndex' })
+          }
+        })
+      } else {
+        notification.error({
+          content: '提示：',
+          meta: '用户名或密码错误',
+          duration: 3000
+        })
+      }
     })
   }
 </script>

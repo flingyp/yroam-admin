@@ -22,6 +22,7 @@ module.exports = {
     'no-unused-vars': 0,
     'no-plusplus': 0,
     'import/prefer-default-export': 0,
+    'no-return-await': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {

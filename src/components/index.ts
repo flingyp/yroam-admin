@@ -10,3 +10,5 @@ export const registerGlobalComponent = (app: App) => {
     app.component(component.name, component)
   })
 }
+
+export * from './RenderIcon'

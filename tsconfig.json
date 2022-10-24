@@ -41,6 +41,9 @@
       "@router/*": [
         "src/router/*"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
     }
   },
   "include": [

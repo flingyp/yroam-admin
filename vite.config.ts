@@ -1,6 +1,7 @@
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import type { ConfigEnv, UserConfigExport } from 'vite'
+import { viteMockServe } from 'vite-plugin-mock'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 export default ({ mode, command }: ConfigEnv): UserConfigExport => {
@@ -15,7 +16,8 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
         '@layout': resolve(__dirname, 'src/layout'),
         '@store': resolve(__dirname, 'src/store'),
         '@hooks': resolve(__dirname, 'src/hooks'),
-        '@router': resolve(__dirname, 'src/router')
+        '@router': resolve(__dirname, 'src/router'),
+        '@components': resolve(__dirname, 'src/components')
       }
     },
     css: {
@@ -30,6 +32,16 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/Svg')],
         symbolId: 'icon-[dir]-[name]'
+      }),
+      viteMockServe({
+        mockPath: 'mock',
+        localEnabled: command === 'serve',
+        injectCode: `
+          import { setupProdMockServer } from './mockProdServer';
+          setupProdMockServer();
+        `,
+        watchFiles: true,
+        logger: true
       })
     ]
   }

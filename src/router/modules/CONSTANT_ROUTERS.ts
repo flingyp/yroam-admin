@@ -10,5 +10,28 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     meta: {
       isShow: false
     }
+  },
+  {
+    path: '/layout',
+    name: 'LayoutIndex',
+    component: '@pages/Layout/LayoutIndex.vue',
+    meta: {
+      isShow: false
+    }
+  },
+  {
+    path: '/common',
+    name: 'PermissionCommon',
+    component: 'Layout',
+    children: [
+      {
+        path: '',
+        name: 'PermissionCommonIndex',
+        component: '@pages/Permission/CommonIndex.vue',
+        meta: {
+          label: '均可访问权限页面'
+        }
+      }
+    ]
   }
 ]
