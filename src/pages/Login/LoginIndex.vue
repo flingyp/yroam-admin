@@ -34,6 +34,9 @@
         </n-form>
       </div>
     </main>
+    <div class="theme-switch-container">
+      <ThemeSwitch></ThemeSwitch>
+    </div>
   </div>
 </template>
 
