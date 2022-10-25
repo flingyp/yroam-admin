@@ -4,6 +4,7 @@
       <GlobalLogoTitle></GlobalLogoTitle>
     </div>
     <div class="top-sider-header-right">
+      <GlobalSiderCollapse></GlobalSiderCollapse>
       <GlobalSettingIcon></GlobalSettingIcon>
       <GlobalUserCenter></GlobalUserCenter>
     </div>
@@ -13,6 +14,7 @@
 <script setup lang="ts">
   import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
+  import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'
   import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue'
 </script>
 
@@ -38,6 +40,7 @@
     align-items: center;
 
     & > *:not(:last-child) {
+      cursor: pointer;
       margin-right: 20px;
     }
   }

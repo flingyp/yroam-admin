@@ -1,6 +1,7 @@
 <template>
   <div class="sider-top-header-container">
     <div class="sider-top-header-left">
+      <GlobalSiderCollapse></GlobalSiderCollapse>
       <GlobalLogoTitle></GlobalLogoTitle>
     </div>
     <div class="sider-top-header-right">
@@ -13,6 +14,7 @@
 <script setup lang="ts">
   import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
+  import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'
   import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue'
 </script>
 
@@ -30,6 +32,11 @@
     height: 100%;
     display: flex;
     align-items: center;
+
+    & > *:not(:last-child) {
+      cursor: pointer;
+      margin-right: 20px;
+    }
   }
 
   .sider-top-header-right {
@@ -38,6 +45,7 @@
     align-items: center;
 
     & > *:not(:last-child) {
+      cursor: pointer;
       margin-right: 20px;
     }
   }

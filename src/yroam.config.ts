@@ -4,6 +4,7 @@ export default (): SystemConfig => {
   return {
     ThemeMode: 'LIGHT',
     LayoutMode: 'SIDER_TOP_MODE',
-    SettingDrawer: false
+    SettingDrawer: false,
+    SiderCollapse: false
   }
 }

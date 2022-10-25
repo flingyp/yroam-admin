@@ -5,7 +5,7 @@
       <slot name="header">默认头部</slot>
     </NLayoutHeader>
 
-    <NLayoutSider bordered collapse-mode="width" v-if="isSiderTopMode">
+    <NLayoutSider bordered collapse-mode="width" :collapsed="SystemConfigStore.SiderCollapse" v-if="isSiderTopMode">
       <slot name="sider">默认侧边栏</slot>
     </NLayoutSider>
 
@@ -18,7 +18,7 @@
         <slot name="header">默认头部</slot>
       </NLayoutHeader>
 
-      <NLayoutSider bordered collapse-mode="width" v-if="isTopSiderMode">
+      <NLayoutSider bordered collapse-mode="width" :collapsed="SystemConfigStore.SiderCollapse" v-if="isTopSiderMode">
         <slot name="sider">默认侧边栏</slot>
       </NLayoutSider>
 
@@ -75,7 +75,7 @@
   }
 
   .n-layout-sider {
-    transition: width 0.5s linear;
+    transition: all 0.2s linear;
     height: v-bind(isSiderHeight);
   }
 

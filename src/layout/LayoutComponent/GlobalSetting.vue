@@ -9,12 +9,12 @@
     <NDrawerContent title="系统设置" closable>
       <GlobalSettingContainer title="主题模式">
         <div>
-          <NSwitch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
+          <NSwitch v-model:value="ThemeModeActive" size="large" @update:value="changeThemeMode">
             <template #checked>
-              <ViconsIcon icon="Moon"></ViconsIcon>
+              <ViconsIcon icon="MoonOutline" :size="18"></ViconsIcon>
             </template>
             <template #unchecked>
-              <ViconsIcon icon="PartlySunny"></ViconsIcon>
+              <ViconsIcon icon="PartlySunnyOutline" :size="18"></ViconsIcon>
             </template>
           </NSwitch>
         </div>

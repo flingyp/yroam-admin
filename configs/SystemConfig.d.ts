@@ -5,4 +5,5 @@ export interface SystemConfig {
   ThemeMode: ThemeModeType
   LayoutMode: LayoutModeType
   SettingDrawer: boolean
+  SiderCollapse: boolean
 }
