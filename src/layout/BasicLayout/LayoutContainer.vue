@@ -18,12 +18,15 @@
       <Component :is="GlobalFooter"></Component>
     </template>
   </BasicLayout>
+
+  <GlobalSetting></GlobalSetting>
 </template>
 
 <script setup lang="ts">
   import CommonFooter from '@layout/DifLayoutMode/CommonFooter.vue'
   import TopSiderHeader from '@layout/DifLayoutMode/TopSiderMode/TopSiderHeader.vue'
   import TopSiderSider from '@layout/DifLayoutMode/TopSiderMode/TopSiderSider.vue'
+  import GlobalSetting from '@layout/LayoutComponent/GlobalSetting.vue'
   import { useSystemConfigStore } from '@store/index'
   import { computed } from 'vue'
   import BasicLayout from './BasicLayout.vue'
