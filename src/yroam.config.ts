@@ -3,7 +3,7 @@ import { SystemConfig } from 'configs'
 export default (): SystemConfig => {
   return {
     ThemeMode: 'LIGHT',
-    LayoutMode: 'TOP_SIDER_MODE',
+    LayoutMode: 'SIDER_TOP_MODE',
     SettingDrawer: false
   }
 }

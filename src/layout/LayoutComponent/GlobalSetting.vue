@@ -19,17 +19,31 @@
           </NSwitch>
         </div>
       </GlobalSettingContainer>
+
+      <GlobalSettingContainer title="系统布局模式">
+        <div class="global-setting-layout-container">
+          <NButton
+            class="overflow-hidden"
+            v-for="item in LayoutItemsArray"
+            :key="item.key"
+            :type="SystemConfigStore.LayoutMode === item.key ? 'primary' : 'tertiary'"
+            @click="changeLayoutMode(item.key)"
+            >{{ item.value }}</NButton
+          >
+        </div>
+      </GlobalSettingContainer>
     </NDrawerContent>
   </NDrawer>
 </template>
 
 <script setup lang="ts">
   import type { DrawerPlacement } from 'naive-ui'
-  import { NDrawer, NDrawerContent, NSwitch } from 'naive-ui'
+  import { NButton, NDrawer, NDrawerContent, NSwitch } from 'naive-ui'
   import { computed, ref } from 'vue'
 
   import { useSwitchTheme } from '@hooks/index'
   import { useSystemConfigStore } from '@store/index'
+  import { LayoutModeType } from 'configs'
   import GlobalSettingContainer from './GlobalSettingContainer.vue'
 
   const placement = ref<DrawerPlacement>('right')
@@ -52,4 +66,36 @@
       setThemeMode('LIGHT')
     }
   }
+
+  // 布局模式
+  const LayoutItemsArray: {
+    key: LayoutModeType
+    value: string
+  }[] = [
+    {
+      key: 'SIDER_TOP_MODE',
+      value: '左侧菜单'
+    },
+    {
+      key: 'TOP_MODE',
+      value: '顶部菜单'
+    },
+    {
+      key: 'TOP_SIDER_MODE',
+      value: '顶部菜单混合'
+    }
+  ]
+
+  const changeLayoutMode = (mode: LayoutModeType) => {
+    SystemConfigStore.LayoutMode = mode
+  }
 </script>
+
+<style scoped lang="scss">
+  .global-setting-layout-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 8px 8px;
+  }
+</style>
