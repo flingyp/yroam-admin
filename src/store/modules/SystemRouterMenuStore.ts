@@ -12,7 +12,7 @@ export interface SystemRouterMenuStoreState {
   SystemMenus: MenuOption[]
 }
 
-export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStoreState', {
+export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
   state: (): SystemRouterMenuStoreState => {
     const systemRouterMenuStoreState: SystemRouterMenuStoreState = {
       IsMountedRouter: false,

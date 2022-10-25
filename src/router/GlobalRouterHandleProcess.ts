@@ -1,9 +1,14 @@
 import { useCommonType } from '@flypeng/tool'
 import { userInfoHttp } from '@https/SystemHttps'
-import { SystemRouterMenuStoreState, useSystemRouterMenuStore } from '@store/modules/SystemRouterMenuStoreState'
+import {
+  SystemAccountInfoStoreState,
+  SystemRouterMenuStoreState,
+  useSystemAccountInfoStore,
+  useSystemRouterMenuStore
+} from '@store/index'
 import { getLocalKey } from '@utils/LocalStorage'
 import { SystemRoute } from 'configs'
-import lodash from 'lodash'
+import { cloneDeep } from 'lodash'
 import { Store } from 'pinia'
 import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
 import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
@@ -25,30 +30,33 @@ const WhiteRouteList: string[] = ['LoginIndex']
  *  5. 初始化相关状态管理
  */
 const routeHandleGenerateMenuProcess = async (
-  SystemRouterMenuStore: Store<'SystemRouterMenuStoreState', SystemRouterMenuStoreState, {}, {}>,
+  SystemRouterMenuStore: Store<'SystemRouterMenuStore', SystemRouterMenuStoreState, {}, {}>,
+  SystemAccountInfoStore: Store<'SystemAccountInfoStore', SystemAccountInfoStoreState, {}, {}>,
   RouterInstance: Router
 ) => {
   // 1. 获取用户信息
   const responseUserInfo = await userInfoHttp()
 
-  const Permissions = responseUserInfo && responseUserInfo.permissions ? responseUserInfo.permissions : []
+  let Permissions: string[] = []
+
+  if (responseUserInfo) {
+    SystemAccountInfoStore.user = responseUserInfo
+    Permissions = responseUserInfo.permissions ? responseUserInfo.permissions : []
+  }
 
   // TODO: 判断当前项目是前端控制路由权限还是后端控制（目前默认是前端控制路由）
 
   // 2. 筛选异步路由
   let SystemAsyncRouters: SystemRoute[] = []
 
-  SystemAsyncRouters = lodash.cloneDeep(ASYNC_ROUTERS)
+  SystemAsyncRouters = cloneDeep(ASYNC_ROUTERS)
 
   // 2.1 过滤成功的系统异步路由
   const FilterSuccessAsyncRouters = filterRoutes(SystemAsyncRouters, Permissions)
-  // console.log('FilterSuccessAsyncRouters->', FilterSuccessAsyncRouters)
 
   // 3. 转换为VueRouter路由
   const TransformToAsyncRouters = transformSystemRouteToRouteRecordRaw(FilterSuccessAsyncRouters)
   const TransformToConstantRouters = transformSystemRouteToRouteRecordRaw(CONSTANT_ROUTERS)
-  // console.log('TransformToAsyncRouters->', TransformToAsyncRouters)
-  // console.log('TransformToConstantRouters->', TransformToConstantRouters)
 
   // 3. 挂载路由
   TransformToAsyncRouters.forEach(AsyncRoute => {
@@ -57,7 +65,6 @@ const routeHandleGenerateMenuProcess = async (
 
   // 4. 生成菜单
   const GenerateSuccessSystemMenu = generateSystemMenu([...TransformToConstantRouters, ...TransformToAsyncRouters])
-  // console.log('GenerateSuccessSystemMenu->', GenerateSuccessSystemMenu)
 
   // 5. 初始化相关状态管理商店
   SystemRouterMenuStore.AsyncSystemRouters = FilterSuccessAsyncRouters
@@ -86,6 +93,7 @@ export default async (
   RouterInstance: Router
 ) => {
   const SystemRouterMenuStore = useSystemRouterMenuStore()
+  const SystemAccountInfoStore = useSystemAccountInfoStore()
 
   // 本地存储的AccessToken
   // TODO: access-token 建议不要写死在这个地方，全局配置KEY
@@ -97,14 +105,14 @@ export default async (
     if (from.name === 'LoginIndex' && to.name !== 'LoginIndex') {
       // 1.0.1 从登录页跳转进来
       if (!SystemRouterMenuStore.IsMountedRouter) {
-        await routeHandleGenerateMenuProcess(SystemRouterMenuStore, RouterInstance)
+        await routeHandleGenerateMenuProcess(SystemRouterMenuStore, SystemAccountInfoStore, RouterInstance)
         SystemRouterMenuStore.IsMountedRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (from.name === undefined && to.name !== 'LoginIndex') {
       // 1.0.2 不是从登录页来的，去的也不是登录页（场景：刷新页面的情况）
       if (!SystemRouterMenuStore.IsMountedRouter) {
-        await routeHandleGenerateMenuProcess(SystemRouterMenuStore, RouterInstance)
+        await routeHandleGenerateMenuProcess(SystemRouterMenuStore, SystemAccountInfoStore, RouterInstance)
         SystemRouterMenuStore.IsMountedRouter = true
         next({ path: to.fullPath, replace: true })
       }

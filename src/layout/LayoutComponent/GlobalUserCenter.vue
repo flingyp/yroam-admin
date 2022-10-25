@@ -8,18 +8,20 @@
     >
       <div class="user-info-container">
         <img src="@assets/Img/UserLogo.png" />
-        <span>普通用户</span>
+        <span>{{ SystemAccountInfoStore.user.nickname || '用户昵称' }}</span>
       </div>
     </NPopselect>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { useSystemAccountInfoStore } from '@store/index'
   import { removeLocalKey } from '@utils/index'
   import { NPopselect } from 'naive-ui'
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
 
+  const SystemAccountInfoStore = useSystemAccountInfoStore()
   const router = useRouter()
 
   const popselectOptions = [

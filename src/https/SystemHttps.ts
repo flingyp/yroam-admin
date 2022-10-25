@@ -24,7 +24,7 @@ export const userLoginHttp = async (username: string, password: string) => {
   return null
 }
 
-interface UserInfo {
+export interface UserInfo {
   id?: number
   username?: string
   nickname?: string
