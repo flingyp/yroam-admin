@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-  import { useSystemRouterMenuStore } from '@store/index'
+  import { useSystemConfigStore, useSystemRouterMenuStore } from '@store/index'
   import type { MenuOption } from 'naive-ui'
   import { NMenu } from 'naive-ui'
   import { computed, ref, watchEffect } from 'vue'
@@ -21,20 +21,19 @@
 
   const route = useRoute()
   const router = useRouter()
+  const SystemConfigStore = useSystemConfigStore()
   const SystemRouterMenuStore = useSystemRouterMenuStore()
 
   // 监听路由的变化，更改菜单当前选中值
   const routeKey = ref(route.name as string)
   watchEffect(() => {
     //  当发现路由跳转了，及时修改页面标题的Title
-    // TODO: YRoam Admin 不嫩写死
-    const pageTitle = `${route.meta.label} | YRoam Admin` || 'YRoam Admin'
+    const pageTitle = `${route.meta.label} | ${SystemConfigStore.SystemName}` || SystemConfigStore.SystemName
     document.querySelector('title')!.innerHTML = `${pageTitle}`
 
     // 切换当前菜单选择项
     routeKey.value = route.name as string
-    // TODO: 生成面包屑导航菜单
-    console.log(SystemRouterMenuStore.generateBreadCrumbMenus(routeKey.value))
+    SystemRouterMenuStore.generateBreadCrumbMenus(routeKey.value)
   })
 
   // 点击菜单

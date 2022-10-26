@@ -2,6 +2,7 @@ import { SystemConfig } from 'configs'
 
 export default (): SystemConfig => {
   return {
+    SystemName: 'YRoam Admin',
     ThemeMode: 'LIGHT',
     LayoutMode: 'SIDER_TOP_MODE',
     SettingDrawer: false,
