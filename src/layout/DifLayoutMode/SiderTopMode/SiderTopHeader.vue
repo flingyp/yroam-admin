@@ -2,6 +2,7 @@
   <div class="sider-top-header-container">
     <div class="sider-top-header-left">
       <GlobalSiderCollapse></GlobalSiderCollapse>
+      <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
     <div class="sider-top-header-right">
       <GlobalSettingIcon></GlobalSettingIcon>
@@ -11,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+  import GlobalBreadCrumb from '@layout/LayoutComponent/GlobalBreadCrumb.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
   import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'
   import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue'

@@ -1,7 +1,8 @@
 <template>
   <div class="top-sider-header-container">
     <div class="top-sider-header-left">
-      <GlobalLogoTitle></GlobalLogoTitle>
+      <GlobalLogoTitle style="margin-right: 70px"></GlobalLogoTitle>
+      <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
     <div class="top-sider-header-right">
       <GlobalSiderCollapse></GlobalSiderCollapse>
@@ -12,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+  import GlobalBreadCrumb from '@layout/LayoutComponent/GlobalBreadCrumb.vue'
   import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
   import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'

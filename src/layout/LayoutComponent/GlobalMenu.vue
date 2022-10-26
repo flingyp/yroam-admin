@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+  import { useSystemRouterMenuStore } from '@store/index'
   import type { MenuOption } from 'naive-ui'
   import { NMenu } from 'naive-ui'
   import { computed, ref, watchEffect } from 'vue'
@@ -20,6 +21,7 @@
 
   const route = useRoute()
   const router = useRouter()
+  const SystemRouterMenuStore = useSystemRouterMenuStore()
 
   // 监听路由的变化，更改菜单当前选中值
   const routeKey = ref(route.name as string)
@@ -31,6 +33,8 @@
 
     // 切换当前菜单选择项
     routeKey.value = route.name as string
+    // TODO: 生成面包屑导航菜单
+    console.log(SystemRouterMenuStore.generateBreadCrumbMenus(routeKey.value))
   })
 
   // 点击菜单
