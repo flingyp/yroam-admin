@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/flingyp/yroam-admin/compare/v0.1.0...v0.2.0) (2022-10-26)
+
+
+### ✨ Features | 新功能
+
+* **components:** 新增GlobalBreadCrumb布局组件 ([d07877e](https://github.com/flingyp/yroam-admin/commit/d07877eccc24aee5f98839738f0f6e34c2e86873))
+* **projects:** 控制侧边栏缩放，新增@vicons/antd图标库，优化主题切换图标 ([2a249c3](https://github.com/flingyp/yroam-admin/commit/2a249c342f5e1052d9872c4cac4139a5692e32ab))
+* **projects:** 添加SystemAccountInfoStore模块 ([ffbb6dc](https://github.com/flingyp/yroam-admin/commit/ffbb6dc0fa717930f6b9859ade6bff21f1eff2c0))
+
 ## 0.1.0 (2022-10-25)
 
 
