@@ -9,6 +9,7 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => {
     base: './',
     resolve: {
       alias: {
+        '@': resolve(__dirname, 'src/'),
         '@assets': resolve(__dirname, 'src/assets'),
         '@utils': resolve(__dirname, 'src/utils'),
         '@https': resolve(__dirname, 'src/https'),

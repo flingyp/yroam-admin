@@ -15,6 +15,8 @@ import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
 import { CONSTANT_ROUTERS } from './modules/CONSTANT_ROUTERS'
 import { filterRoutes, generateSystemMenu, mountRoute, transformSystemRouteToRouteRecordRaw } from './utils'
 
+import { AuthKey } from '@/CONSTANT'
+
 // TODO: 白名单后期放置在系统配置中
 const WhiteRouteList: string[] = ['LoginIndex']
 
@@ -96,8 +98,7 @@ export default async (
   const SystemAccountInfoStore = useSystemAccountInfoStore()
 
   // 本地存储的AccessToken
-  // TODO: access-token 建议不要写死在这个地方，全局配置KEY
-  const UserLocalToken = getLocalKey('access-token')?.trim()
+  const UserLocalToken = getLocalKey(AuthKey)?.trim()
 
   // 1.0 有AccessToken的情况
   if (!useCommonType.isUndefined(UserLocalToken)) {

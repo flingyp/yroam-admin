@@ -47,6 +47,8 @@
   import { reactive, ref } from 'vue'
   import { useRouter } from 'vue-router'
 
+  import { AuthKey } from '@/CONSTANT'
+
   const router = useRouter()
 
   const LoginFormData = reactive({
@@ -83,7 +85,7 @@
       const loginResData = await userLoginHttp(LoginFormData.username, LoginFormData.password)
 
       if (loginResData) {
-        setLocalKey('access-token', loginResData?.token)
+        setLocalKey(AuthKey, loginResData?.token)
         notification.success({
           content: '提示：',
           meta: '登录成功！ 即将进行系统，请稍等',

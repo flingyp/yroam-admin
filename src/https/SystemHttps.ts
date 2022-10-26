@@ -1,6 +1,8 @@
 import { getLocalKey, httpRequest } from '@utils/index'
 import { SystemRoute } from 'configs'
 
+import { AuthKey } from '@/CONSTANT'
+
 interface UserLoginResponse {
   token: string
 }
@@ -42,7 +44,7 @@ export const userInfoHttp = async () => {
     url: '/auth/info',
     method: 'post',
     headers: {
-      token: getLocalKey('access-token') as string
+      token: getLocalKey(AuthKey) as string
     }
   })
   if (response.code === 200) return response.data
@@ -58,7 +60,7 @@ export const userAsyncRouters = async () => {
     url: '/auth/asyncRouters',
     method: 'post',
     headers: {
-      token: getLocalKey('access-token') as string
+      token: getLocalKey(AuthKey) as string
     }
   })
   if (response.code === 200) return response.data

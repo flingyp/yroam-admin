@@ -21,6 +21,8 @@
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
 
+  import { AuthKey } from '@/CONSTANT'
+
   const SystemAccountInfoStore = useSystemAccountInfoStore()
   const router = useRouter()
 
@@ -35,7 +37,7 @@
 
   // 退出系统需要做的事情
   const exitSystemFun = async () => {
-    removeLocalKey('access-token')
+    removeLocalKey(AuthKey)
   }
 
   const clickPopselect = async (value: string) => {
