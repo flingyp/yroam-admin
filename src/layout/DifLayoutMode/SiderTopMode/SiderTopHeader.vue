@@ -2,7 +2,6 @@
   <div class="sider-top-header-container">
     <div class="sider-top-header-left">
       <GlobalSiderCollapse></GlobalSiderCollapse>
-      <GlobalLogoTitle></GlobalLogoTitle>
     </div>
     <div class="sider-top-header-right">
       <GlobalSettingIcon></GlobalSettingIcon>
@@ -12,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
   import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'
   import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue'
