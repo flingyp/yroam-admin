@@ -1,3 +1,7 @@
+@import './Reset.scss';
+@import './LightTheme.scss';
+@import './DarkTheme.scss';
+
 :root {
   font-size: 14px;
   color: var(--color);
