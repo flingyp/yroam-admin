@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/flingyp/yroam-admin/compare/v0.2.0...v0.2.1) (2022-10-27)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 添加一个新配置项 SystemConfig.SystemName 来定义系统名称 ([83322c4](https://github.com/flingyp/yroam-admin/commit/83322c4d0112e8cc0cbeadfc7bc35744ef6a0f27))
+* **projects:** 添加CONSTANT文件，用来记录系统相关常量 ([f75f847](https://github.com/flingyp/yroam-admin/commit/f75f847d1b760f3436242a2aea1c39ee52577a38))
+
 ## [0.2.0](https://github.com/flingyp/yroam-admin/compare/v0.1.0...v0.2.0) (2022-10-26)
 
 
