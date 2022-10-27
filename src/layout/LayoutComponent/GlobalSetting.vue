@@ -51,8 +51,11 @@
 
   import { useSwitchTheme } from '@hooks/index'
   import { useSystemConfigStore } from '@store/index'
+  import { setLocalKey } from '@utils/index'
   import { LayoutModeType } from 'configs'
   import GlobalSettingContainer from './GlobalSettingContainer.vue'
+
+  import { ThemePrimaryColorKey } from '@/CONSTANT'
 
   const placement = ref<DrawerPlacement>('right')
 
@@ -101,6 +104,7 @@
   // 系统主题色
   const modifyPrimaryColor = (value: string) => {
     SystemConfigStore.PrimaryColor = value
+    setLocalKey(ThemePrimaryColorKey, value)
   }
 </script>
 

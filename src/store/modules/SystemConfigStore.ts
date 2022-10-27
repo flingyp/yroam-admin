@@ -5,7 +5,7 @@ import { defineStore } from 'pinia'
 
 import { getDifSceneColor } from '@store/utils/index'
 
-import { ThemeKey } from '@/CONSTANT'
+import { ThemeKey, ThemePrimaryColorKey } from '@/CONSTANT'
 import defineConfig from '@/yroam.config'
 
 const InfoColorMap = getDifSceneColor('#687FFF', 'info')
@@ -19,6 +19,9 @@ export const useSystemConfigStore = defineStore('SystemConfigStore', {
     // 本地有主题模式修改默认配置
     const LocalThemeMode = getLocalKey(ThemeKey) as ThemeModeType
     if (LocalThemeMode) DefaultSystemConfig.ThemeMode = LocalThemeMode
+    // 本地有主题色值缓存修改默认配置
+    const LocalThemePrimaryColor = getLocalKey(ThemePrimaryColorKey)
+    if (LocalThemePrimaryColor) DefaultSystemConfig.PrimaryColor = LocalThemePrimaryColor
 
     return DefaultSystemConfig
   },
