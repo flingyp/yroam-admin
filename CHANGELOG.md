@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/flingyp/yroam-admin/compare/v0.2.1...v0.3.0) (2022-10-27)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 编写关于页面 ([673ded0](https://github.com/flingyp/yroam-admin/commit/673ded0aff41406f0923aba4825f667779284167))
+* **projects:** 实现系统主题色在线切换功能 ([c57277e](https://github.com/flingyp/yroam-admin/commit/c57277e2fc5cf12e10649855a80b35fcbcd43a4c))
+* **projects:** 系统主题色支持本地缓存 ([ce9e1b2](https://github.com/flingyp/yroam-admin/commit/ce9e1b242e2f114f2009dbc03b39c2a801a7d74c))
+
 ### [0.2.1](https://github.com/flingyp/yroam-admin/compare/v0.2.0...v0.2.1) (2022-10-27)
 
 
