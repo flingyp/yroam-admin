@@ -39,6 +39,7 @@
   // 点击菜单
   const clickMenu = (key: string, menu: MenuOption) => {
     router.push({ name: key })
+    SystemRouterMenuStore.addTabMenuKey(key)
   }
 
   const isInverted = computed(() => {

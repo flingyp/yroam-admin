@@ -3,6 +3,9 @@ import type { MenuOption } from 'naive-ui'
 import { defineStore } from 'pinia'
 import { RouteRecordRaw } from 'vue-router'
 
+import { TabMenuKey } from '@/CONSTANT'
+import { getLocalKey, setLocalKey } from '@/utils'
+
 export interface SystemRouterMenuStoreState {
   IsMountedRouter: boolean
   ConstantSystemRouters: SystemRoute[]
@@ -11,6 +14,7 @@ export interface SystemRouterMenuStoreState {
   AsyncRouters: RouteRecordRaw[]
   SystemMenus: MenuOption[]
   BreadCrumbMenus: MenuOption[]
+  TabMenusKey: string[]
 }
 
 export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
@@ -22,9 +26,37 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
       ConstantRouters: [],
       AsyncRouters: [],
       SystemMenus: [],
-      BreadCrumbMenus: []
+      BreadCrumbMenus: [],
+      TabMenusKey: []
     }
+
+    const LocalTabMenusKey = getLocalKey(TabMenuKey)?.split(',')
+    if (LocalTabMenusKey) systemRouterMenuStoreState.TabMenusKey = LocalTabMenusKey
+
     return systemRouterMenuStoreState
+  },
+  getters: {
+    SystemMenuByFlat: state => {
+      const Menus = state.SystemMenus
+      const MenusByFlat: MenuOption[] = []
+      const toFlat = (HandleMenus: MenuOption[]) => {
+        HandleMenus.forEach(Menu => {
+          if (Menu.children) toFlat(Menu.children)
+          else MenusByFlat.push(Menu)
+        })
+      }
+      // @ts-expect-error
+      toFlat(Menus)
+      return MenusByFlat
+    },
+    SystemTabMenus(state) {
+      const TabMenuKeys = state.TabMenusKey
+      const MenuByFlat = this.SystemMenuByFlat as MenuOption[]
+      return MenuByFlat.filter((item: MenuOption) => {
+        if (TabMenuKeys.includes(item.key as string)) return true
+        return false
+      })
+    }
   },
   actions: {
     // 判断当前的RouteKey是否包含在此Menu中
@@ -55,12 +87,12 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
       getTheseMenuByKey(ParentMenu)
       return BreadCrumbMenu
     },
+    // 生成面包屑导航菜单
     generateBreadCrumbMenus(RouteKey: string) {
       // 当前的父菜单
       let CurrentParentMenu: MenuOption = {}
       const CurrentSystemMenus = this.SystemMenus
       for (let index = 0; index < CurrentSystemMenus.length; index++) {
-        // @ts-expect-error
         const isIncludeRouteKey = this.judgeIsIncludeMenuByRouteKey(RouteKey, CurrentSystemMenus[index])
         if (isIncludeRouteKey) {
           CurrentParentMenu = CurrentSystemMenus[index]
@@ -68,6 +100,17 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
       }
       this.BreadCrumbMenus = this.getBreadCrumbMenu(RouteKey, CurrentParentMenu)
       return this.BreadCrumbMenus
+    },
+    // 添加一个Tab菜单
+    addTabMenuKey(Key: string) {
+      if (!this.TabMenusKey.includes(Key)) {
+        this.TabMenusKey.push(Key)
+        if (!getLocalKey(TabMenuKey)) {
+          setLocalKey(TabMenuKey, Key)
+        } else {
+          setLocalKey(TabMenuKey, `${Key},${getLocalKey(TabMenuKey)}`)
+        }
+      }
     }
   }
 })

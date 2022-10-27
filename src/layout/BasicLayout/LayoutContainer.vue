@@ -11,6 +11,7 @@
     </template>
 
     <template #content>
+      <GlobalTab></GlobalTab>
       <main class="layout-container-main">
         <RouterView></RouterView>
       </main>
@@ -29,6 +30,7 @@
   import TopSiderHeader from '@layout/DifLayoutMode/TopSiderMode/TopSiderHeader.vue'
   import TopSiderSider from '@layout/DifLayoutMode/TopSiderMode/TopSiderSider.vue'
   import GlobalSetting from '@layout/LayoutComponent/GlobalSetting.vue'
+  import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue'
 
   import SiderTopHeader from '@layout/DifLayoutMode/SiderTopMode/SiderTopHeader.vue'
   import SiderTopSider from '@layout/DifLayoutMode/SiderTopMode/SiderTopSider.vue'
