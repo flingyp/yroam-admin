@@ -7,4 +7,5 @@ export interface SystemConfig {
   LayoutMode: LayoutModeType
   SettingDrawer: boolean
   SiderCollapse: boolean
+  PrimaryColor: string
 }

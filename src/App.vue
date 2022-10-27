@@ -1,12 +1,11 @@
 <template>
   <NNotificationProvider>
-    <NConfigProvider :theme="ThemeMode">
+    <NConfigProvider :theme="ThemeMode" :theme-overrides="SystemConfigStore.NaiveUiGlobalThemeOverrides">
       <Suspense>
         <NMessageProvider>
           <RouterView></RouterView>
         </NMessageProvider>
       </Suspense>
-      <!-- <NButton @click="toggleThemeMode">切换主题</NButton> -->
     </NConfigProvider>
   </NNotificationProvider>
 </template>
@@ -27,13 +26,6 @@
     return darkTheme
   })
 
-  const toggleThemeMode = () => {
-    if (getThemeMode() === 'LIGHT') {
-      setThemeMode('DARK')
-    } else {
-      setThemeMode('LIGHT')
-    }
-  }
   setThemeMode(getThemeMode())
 </script>
 

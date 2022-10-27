@@ -32,13 +32,21 @@
           >
         </div>
       </GlobalSettingContainer>
+
+      <GlobalSettingContainer title="系统主题色">
+        <NColorPicker
+          :defaultValue="SystemConfigStore.PrimaryColor"
+          size="small"
+          @update:value="modifyPrimaryColor"
+        ></NColorPicker>
+      </GlobalSettingContainer>
     </NDrawerContent>
   </NDrawer>
 </template>
 
 <script setup lang="ts">
   import type { DrawerPlacement } from 'naive-ui'
-  import { NButton, NDrawer, NDrawerContent, NSwitch } from 'naive-ui'
+  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch } from 'naive-ui'
   import { computed, ref } from 'vue'
 
   import { useSwitchTheme } from '@hooks/index'
@@ -88,6 +96,11 @@
 
   const changeLayoutMode = (mode: LayoutModeType) => {
     SystemConfigStore.LayoutMode = mode
+  }
+
+  // 系统主题色
+  const modifyPrimaryColor = (value: string) => {
+    SystemConfigStore.PrimaryColor = value
   }
 </script>
 

@@ -12,14 +12,6 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     }
   },
   {
-    path: '/layout',
-    name: 'LayoutIndex',
-    component: '@pages/Layout/LayoutIndex.vue',
-    meta: {
-      isShow: false
-    }
-  },
-  {
     path: '/common',
     name: 'PermissionCommon',
     component: 'Layout',

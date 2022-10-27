@@ -6,6 +6,7 @@ export default (): SystemConfig => {
     ThemeMode: 'LIGHT',
     LayoutMode: 'SIDER_TOP_MODE',
     SettingDrawer: false,
-    SiderCollapse: false
+    SiderCollapse: false,
+    PrimaryColor: '#7B1FA2'
   }
 }
