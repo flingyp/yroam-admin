@@ -21,7 +21,7 @@
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
 
-  import { AuthKey } from '@/CONSTANT'
+  import { AuthKey, LoginRouteKey } from '@/CONSTANT'
 
   const SystemAccountInfoStore = useSystemAccountInfoStore()
   const router = useRouter()
@@ -43,7 +43,7 @@
   const clickPopselect = async (value: string) => {
     if (value === 'ExitSystem') {
       await exitSystemFun()
-      router.push({ name: 'LoginIndex' })
+      router.push({ name: LoginRouteKey })
     }
   }
 </script>

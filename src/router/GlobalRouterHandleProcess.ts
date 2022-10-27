@@ -15,10 +15,10 @@ import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
 import { CONSTANT_ROUTERS } from './modules/CONSTANT_ROUTERS'
 import { filterRoutes, generateSystemMenu, mountRoute, transformSystemRouteToRouteRecordRaw } from './utils'
 
-import { AuthKey } from '@/CONSTANT'
+import { AuthKey, LoginRouteKey } from '@/CONSTANT'
 
 // TODO: 白名单后期放置在系统配置中
-const WhiteRouteList: string[] = ['LoginIndex']
+const WhiteRouteList: string[] = [LoginRouteKey]
 
 // TODO: 后期需要在文档中接受相关逻辑
 
@@ -102,22 +102,21 @@ export default async (
 
   // 1.0 有AccessToken的情况
   if (!useCommonType.isUndefined(UserLocalToken)) {
-    // TODO: LoginIndex 也不能写死，在系统配置中进行配置，Store中提供默认值
-    if (from.name === 'LoginIndex' && to.name !== 'LoginIndex') {
+    if (from.name === LoginRouteKey && to.name !== LoginRouteKey) {
       // 1.0.1 从登录页跳转进来
       if (!SystemRouterMenuStore.IsMountedRouter) {
         await routeHandleGenerateMenuProcess(SystemRouterMenuStore, SystemAccountInfoStore, RouterInstance)
         SystemRouterMenuStore.IsMountedRouter = true
         next({ path: to.fullPath, replace: true })
       }
-    } else if (from.name === undefined && to.name !== 'LoginIndex') {
+    } else if (from.name === undefined && to.name !== LoginRouteKey) {
       // 1.0.2 不是从登录页来的，去的也不是登录页（场景：刷新页面的情况）
       if (!SystemRouterMenuStore.IsMountedRouter) {
         await routeHandleGenerateMenuProcess(SystemRouterMenuStore, SystemAccountInfoStore, RouterInstance)
         SystemRouterMenuStore.IsMountedRouter = true
         next({ path: to.fullPath, replace: true })
       }
-    } else if (to.name === 'LoginIndex') {
+    } else if (to.name === LoginRouteKey) {
       // 1.0.3 想手动跳转登录页面，返回到指定页面
       next({ name: 'LayoutIndex' })
     }
@@ -133,7 +132,7 @@ export default async (
     if (isAccess) {
       next()
     } else {
-      next({ name: 'LoginIndex' })
+      next({ name: LoginRouteKey })
     }
   }
 }
