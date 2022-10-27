@@ -17,12 +17,14 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
       if (handleRoute.children && handleRoute.children.length > 1) {
         menu.children = generateSystemMenu(handleRoute.children)
       } else if (handleRoute.children && handleRoute.children.length === 1) {
+        // 处理单一路由
         // eslint-disable-next-line prefer-destructuring
         handleRoute = handleRoute.children[0]
       }
       menu.label = handleRoute.meta?.label
       menu.key = handleRoute.name as string
-      menu.icon = renderIcon(route.meta?.icon || 'Person')
+      // TODO: 默认图标也许应该提供自定义
+      menu.icon = renderIcon(handleRoute.meta?.icon || 'Person')
 
       menus.push(menu)
     }

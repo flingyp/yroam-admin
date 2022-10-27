@@ -15,9 +15,11 @@ const transform = (Route: SystemRoute): RouteRecordRaw => {
     path: Route.path,
     name: Route.name,
     meta: Route.meta,
+    // TODO: 没有定义的页面，统一返回404组件
     component: globFileModule(Route.component as string),
     redirect: Route.redirect as RouteRecordRedirectOption
   }
+
   if (Route.children) {
     // eslint-disable-next-line no-use-before-define
     CurrentRouteRecordRaw.children = transformSystemRouteToRouteRecordRaw(Route.children)

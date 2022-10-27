@@ -25,5 +25,21 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         }
       }
     ]
+  },
+  {
+    path: '/about',
+    name: 'AboutPage',
+    component: 'Layout',
+    children: [
+      {
+        path: '',
+        name: 'AboutPageIndex',
+        component: '@pages/SystemAbout.vue',
+        meta: {
+          label: '关于',
+          icon: 'Bookmarks'
+        }
+      }
+    ]
   }
 ]
