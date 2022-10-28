@@ -66,7 +66,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--color);
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
   }
 
   .global-tab-left-container {
