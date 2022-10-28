@@ -5,7 +5,7 @@
         v-for="item in SystemRouterMenuStore.SystemTabMenus"
         :key="item.key"
         :menu="item"
-        @click="clickTabMenu(item.key as string)"
+        @click.stop="clickTabMenu(item.key as string)"
       ></GlobalTabItem>
     </div>
     <div class="global-tab-right-container">
@@ -20,10 +20,11 @@
   import { useSystemRouterMenuStore } from '@store/index'
   import type { DropdownOption } from 'naive-ui'
   import { NDropdown } from 'naive-ui'
-  import { reactive } from 'vue'
-  import { useRouter } from 'vue-router'
+  import { onMounted, reactive } from 'vue'
+  import { useRoute, useRouter } from 'vue-router'
   import GlobalTabItem from './GlobalTabItem.vue'
 
+  const route = useRoute()
   const router = useRouter()
   const SystemRouterMenuStore = useSystemRouterMenuStore()
 
@@ -44,13 +45,15 @@
     }
   ])
 
-  const clickTabMenu = (Key: string) => {
-    router.push({ name: Key })
-  }
+  const clickTabMenu = (Key: string) => router.push({ name: Key })
 
   const selectTabSetting = (key: string) => {
     console.log('key->', key)
   }
+
+  onMounted(() => {
+    SystemRouterMenuStore.addTabMenuKey(route.name as string)
+  })
 </script>
 
 <style scoped lang="scss">

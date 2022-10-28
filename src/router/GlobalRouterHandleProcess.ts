@@ -118,11 +118,11 @@ export default async (
       }
     } else if (to.name === LoginRouteKey) {
       // 1.0.3 想手动跳转登录页面，返回到指定页面
-      next({ name: 'LayoutIndex' })
+      // TODO: 返回指定页面也不能写死
+      next({ name: 'AboutPageIndex' })
     }
 
     // TODO: 挂载404通用路由
-
     next()
   } else {
     // 1.1：没有AccessToken的情况

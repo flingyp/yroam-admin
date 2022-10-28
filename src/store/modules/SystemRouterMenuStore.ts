@@ -41,8 +41,9 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
       const MenusByFlat: MenuOption[] = []
       const toFlat = (HandleMenus: MenuOption[]) => {
         HandleMenus.forEach(Menu => {
+          MenusByFlat.push(Menu)
+
           if (Menu.children) toFlat(Menu.children)
-          else MenusByFlat.push(Menu)
         })
       }
       // @ts-expect-error
@@ -51,11 +52,12 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
     },
     SystemTabMenus(state) {
       const TabMenuKeys = state.TabMenusKey
-      const MenuByFlat = this.SystemMenuByFlat as MenuOption[]
-      return MenuByFlat.filter((item: MenuOption) => {
-        if (TabMenuKeys.includes(item.key as string)) return true
-        return false
-      })
+      const MenuByFlat: MenuOption[] = []
+      for (let i = 0; i < TabMenuKeys.length; i++) {
+        const TabMenu = this.SystemMenuByFlat.find(item => item.key === TabMenuKeys[i])
+        if (TabMenu) MenuByFlat.push(TabMenu)
+      }
+      return MenuByFlat
     }
   },
   actions: {
@@ -110,6 +112,14 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
         } else {
           setLocalKey(TabMenuKey, `${Key},${getLocalKey(TabMenuKey)}`)
         }
+      }
+    },
+    // 删除一个Tab菜单
+    deleteTabMenuKey(Key: string) {
+      const deleteIndex = this.TabMenusKey.indexOf(Key)
+      if (deleteIndex !== -1) {
+        this.TabMenusKey.splice(deleteIndex, 1)
+        setLocalKey(TabMenuKey, this.TabMenusKey.join(','))
       }
     }
   }

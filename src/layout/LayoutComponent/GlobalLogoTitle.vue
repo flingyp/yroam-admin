@@ -6,6 +6,8 @@
 </template>
 
 <script setup lang="ts">
+  // TODO: 优化 TopSiderMode 模式下 宽度要和侧边栏宽度一直 好水平居中（目前是没有居中的）
+
   import { useSystemConfigStore } from '@store/index'
   import { computed } from 'vue'
 
