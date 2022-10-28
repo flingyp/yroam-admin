@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/flingyp/yroam-admin/compare/v0.3.0...v0.4.0) (2022-10-28)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 添加Tab菜单 ([9b16ed8](https://github.com/flingyp/yroam-admin/commit/9b16ed838e251988eae7517e08cffbeb69928617))
+* **projects:** tab菜单跳转，删除菜单功能 ([2825146](https://github.com/flingyp/yroam-admin/commit/282514670a29cdcdcd6c4db08615889ebd2183d3))
+* **projects:** tab菜单支持关闭当前页、关闭其他页和重新加载页面功能 ([6c6b1e6](https://github.com/flingyp/yroam-admin/commit/6c6b1e6c28c7dcf813f00dd15a5ab09928211967))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **styles:** 修复重新加载容器高度问题 ([18110bd](https://github.com/flingyp/yroam-admin/commit/18110bdcfd4d02cf5ccecadf986edce8e357067b))
+
 ## [0.3.0](https://github.com/flingyp/yroam-admin/compare/v0.2.1...v0.3.0) (2022-10-27)
 
 
