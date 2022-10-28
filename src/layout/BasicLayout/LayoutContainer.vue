@@ -73,7 +73,8 @@
 
   .content-loading-container {
     width: 100%;
-    height: 100%;
+    // TODO: 不能写死
+    height: calc(100vh - 64px - 64px - 48px);
     display: flex;
     align-items: center;
     justify-content: center;

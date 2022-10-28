@@ -5,11 +5,17 @@
       <slot name="header">默认头部</slot>
     </NLayoutHeader>
 
-    <NLayoutSider bordered collapse-mode="width" :collapsed="SystemConfigStore.SiderCollapse" v-if="isSiderTopMode">
+    <NLayoutSider
+      bordered
+      collapse-mode="width"
+      :collapsed="SystemConfigStore.SiderCollapse"
+      :native-scrollbar="false"
+      v-if="isSiderTopMode"
+    >
       <slot name="sider">默认侧边栏</slot>
     </NLayoutSider>
 
-    <NLayoutContent bordered v-if="isTopMode">
+    <NLayoutContent bordered :native-scrollbar="false" v-if="isTopMode">
       <slot name="content">默认内容</slot>
     </NLayoutContent>
 
@@ -18,11 +24,17 @@
         <slot name="header">默认头部</slot>
       </NLayoutHeader>
 
-      <NLayoutSider bordered collapse-mode="width" :collapsed="SystemConfigStore.SiderCollapse" v-if="isTopSiderMode">
+      <NLayoutSider
+        bordered
+        collapse-mode="width"
+        :collapsed="SystemConfigStore.SiderCollapse"
+        :native-scrollbar="false"
+        v-if="isTopSiderMode"
+      >
         <slot name="sider">默认侧边栏</slot>
       </NLayoutSider>
 
-      <NLayoutContent bordered v-if="isTopSiderMode || isSiderTopMode">
+      <NLayoutContent bordered :native-scrollbar="false" v-if="isTopSiderMode || isSiderTopMode">
         <slot name="content">默认内容</slot>
       </NLayoutContent>
 
