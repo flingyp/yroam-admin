@@ -41,5 +41,21 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         }
       }
     ]
+  },
+  {
+    path: '/naive',
+    name: 'NaiveUI-Component',
+    component: 'Layout',
+    children: [
+      {
+        path: 'component',
+        name: 'NaiveUI-ComponentIndex',
+        component: '@pages/NaiveComponent.vue',
+        meta: {
+          label: 'NaiveUI 示例',
+          icon: 'LogoWebComponent'
+        }
+      }
+    ]
   }
 ]

@@ -73,7 +73,7 @@ const routeHandleGenerateMenuProcess = async (
   SystemRouterMenuStore.ConstantSystemRouters = CONSTANT_ROUTERS
   SystemRouterMenuStore.AsyncRouters = TransformToAsyncRouters
   SystemRouterMenuStore.ConstantRouters = TransformToConstantRouters
-  // @ts-expect-error
+  // @ts-ignore
   SystemRouterMenuStore.SystemMenus = GenerateSuccessSystemMenu
 }
 
