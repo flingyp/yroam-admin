@@ -15,6 +15,7 @@ export interface SystemRouterMenuStoreState {
   SystemMenus: MenuOption[]
   BreadCrumbMenus: MenuOption[]
   TabMenusKey: string[]
+  IsReloadPage: boolean
 }
 
 export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
@@ -27,7 +28,8 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
       AsyncRouters: [],
       SystemMenus: [],
       BreadCrumbMenus: [],
-      TabMenusKey: []
+      TabMenusKey: [],
+      IsReloadPage: false
     }
 
     const LocalTabMenusKey = getLocalKey(TabMenuKey)?.split(',')
@@ -110,7 +112,7 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
         if (!getLocalKey(TabMenuKey)) {
           setLocalKey(TabMenuKey, Key)
         } else {
-          setLocalKey(TabMenuKey, `${Key},${getLocalKey(TabMenuKey)}`)
+          setLocalKey(TabMenuKey, `${getLocalKey(TabMenuKey)},${Key}`)
         }
       }
     },
