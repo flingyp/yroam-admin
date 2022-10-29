@@ -1,5 +1,5 @@
 <template>
-  <n-menu :inverted="isInverted" :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
+  <NMenu :inverted="isInverted" :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
 </template>
 
 <script setup lang="ts">

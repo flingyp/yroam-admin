@@ -7,13 +7,15 @@
 <script setup lang="ts">
   import * as $IconAntd from '@vicons/antd'
   import * as $IonIcons5 from '@vicons/ionicons5'
+  import * as $IconMaterial from '@vicons/material'
   import { Icon } from '@vicons/utils'
   import { computed } from 'vue'
 
   // 注：如果想使用vicons的其他的系列的图标，先安装然后进行注册
   const IconList = {
     ...$IonIcons5,
-    ...$IconAntd
+    ...$IconAntd,
+    ...$IconMaterial
   }
 
   interface ViconsIconProps {

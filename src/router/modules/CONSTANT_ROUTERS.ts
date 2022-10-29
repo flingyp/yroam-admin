@@ -57,5 +57,33 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         }
       }
     ]
+  },
+  {
+    path: '/common',
+    name: 'Common-Page',
+    component: 'Layout',
+    meta: {
+      label: '常用页面'
+    },
+    children: [
+      {
+        path: '404',
+        name: 'Common-NotFound',
+        component: '@pages/Common/NotFound.vue',
+        meta: {
+          label: '404 页面',
+          icon: 'FileExclamationOutlined'
+        }
+      },
+      {
+        path: '500',
+        name: 'Common-ServeError',
+        component: '@pages/Common/ServeError.vue',
+        meta: {
+          label: '500 页面',
+          icon: 'ErrorFilled'
+        }
+      }
+    ]
   }
 ]
