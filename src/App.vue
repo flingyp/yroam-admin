@@ -29,4 +29,9 @@
   setThemeMode(getThemeMode())
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+  .n-config-provider {
+    width: 100vw;
+    height: 100vh;
+  }
+</style>

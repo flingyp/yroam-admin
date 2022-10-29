@@ -3,6 +3,7 @@
 @import './DarkTheme.scss';
 
 :root {
+  box-sizing: border-box;
   font-size: 14px;
   color: var(--color);
   background-color: var(--background-color);

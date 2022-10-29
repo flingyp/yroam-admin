@@ -11,15 +11,7 @@
     </template>
 
     <template #content>
-      <GlobalTab></GlobalTab>
-      <main class="layout-container-main" v-if="!SystemRouterMenuStore.IsReloadPage">
-        <RouterView></RouterView>
-      </main>
-      <div class="content-loading-container" v-else>
-        <NSpin :show="SystemRouterMenuStore.IsReloadPage" size="medium">
-          <template #description> 重新加载中... </template>
-        </NSpin>
-      </div>
+      <CommonMain></CommonMain>
     </template>
 
     <template #footer>
@@ -32,23 +24,22 @@
 
 <script setup lang="ts">
   import CommonFooter from '@layout/DifLayoutMode/CommonFooter.vue'
+  import CommonMain from '@layout/DifLayoutMode/CommonMain.vue'
+  import GlobalSetting from '@layout/LayoutComponent/GlobalSetting.vue'
+
   import TopSiderHeader from '@layout/DifLayoutMode/TopSiderMode/TopSiderHeader.vue'
   import TopSiderSider from '@layout/DifLayoutMode/TopSiderMode/TopSiderSider.vue'
-  import GlobalSetting from '@layout/LayoutComponent/GlobalSetting.vue'
-  import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue'
-  import { NSpin } from 'naive-ui'
 
   import SiderTopHeader from '@layout/DifLayoutMode/SiderTopMode/SiderTopHeader.vue'
   import SiderTopSider from '@layout/DifLayoutMode/SiderTopMode/SiderTopSider.vue'
 
   import TopHeader from '@layout/DifLayoutMode/TopMode/TopHeader.vue'
 
-  import { useSystemConfigStore, useSystemRouterMenuStore } from '@store/index'
+  import { useSystemConfigStore } from '@store/index'
   import { computed } from 'vue'
   import BasicLayout from './BasicLayout.vue'
 
   const SystemConfigStore = useSystemConfigStore()
-  const SystemRouterMenuStore = useSystemRouterMenuStore()
 
   const GlobalHeader = computed(() => {
     if (SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE') return TopSiderHeader
@@ -65,18 +56,3 @@
 
   const GlobalFooter = computed(() => CommonFooter)
 </script>
-
-<style scoped lang="scss">
-  .layout-container-main {
-    padding: 10px;
-  }
-
-  .content-loading-container {
-    width: 100%;
-    // TODO: 不能写死
-    height: calc(100vh - 64px - 64px - 48px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
