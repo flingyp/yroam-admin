@@ -34,11 +34,22 @@
       </GlobalSettingContainer>
 
       <GlobalSettingContainer title="系统主题色">
-        <NColorPicker
-          :defaultValue="SystemConfigStore.PrimaryColor"
-          size="small"
-          @update:value="modifyPrimaryColor"
-        ></NColorPicker>
+        <div>
+          <div class="global-primary-container">
+            <span
+              v-for="(item, index) in PrimaryColorList"
+              :key="index"
+              :style="{ backgroundColor: item }"
+              :class="[SystemConfigStore.PrimaryColor === item ? 'primary-active' : '']"
+              @click="modifyPrimaryColor(item)"
+            ></span>
+          </div>
+          <NColorPicker
+            :value="SystemConfigStore.PrimaryColor"
+            size="small"
+            @update:value="modifyPrimaryColor"
+          ></NColorPicker>
+        </div>
       </GlobalSettingContainer>
     </NDrawerContent>
   </NDrawer>
@@ -102,6 +113,27 @@
   }
 
   // 系统主题色
+  const PrimaryColorList = [
+    '#f44336',
+    '#e91e63',
+    '#9c27b0',
+    '#673ab7',
+    '#3f51b5',
+    '#03a9f4',
+    '#00bcd4',
+    '#009688',
+    '#4caf50',
+    '#8bc34a',
+    '#cddc39',
+    '#ffeb3b',
+    '#ffc107',
+    '#ff9800',
+    '#ff5722',
+    '#795548',
+    '#9e9e9e',
+    '#607d8b'
+  ]
+
   const modifyPrimaryColor = (value: string) => {
     SystemConfigStore.PrimaryColor = value
     setLocalKey(ThemePrimaryColorKey, value)
@@ -114,5 +146,32 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 8px 8px;
+  }
+
+  .global-primary-container {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 10px 10px;
+
+    & > span {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    & > .primary-active {
+      position: relative;
+    }
+    & > .primary-active::after {
+      content: '✓';
+      position: absolute;
+      color: #ffffff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 </style>
