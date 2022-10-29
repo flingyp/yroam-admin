@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/flingyp/yroam-admin/compare/v0.4.0...v0.5.0) (2022-10-29)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 404、500静态页面编写 ([97299e3](https://github.com/flingyp/yroam-admin/commit/97299e3e63bfc8b20e6987acad068a4f65f07595))
+* **projects:** 挂载通用404页面 ([2238770](https://github.com/flingyp/yroam-admin/commit/223877071fdab936b8fc58ba0e42969809e44d8a))
+* **projects:** 添加静态NaiveUI 示例页面 ([3726845](https://github.com/flingyp/yroam-admin/commit/37268450caced820a8c85d84f0727c2eca50bdd2))
+
 ## [0.4.0](https://github.com/flingyp/yroam-admin/compare/v0.3.0...v0.4.0) (2022-10-28)
 
 
