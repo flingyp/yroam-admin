@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/flingyp/yroam-admin">
-    <img alt="YRoam Admin Logo" width="200" src="https://s1.ax1x.com/2022/10/29/x5lPv8.png">
+    <img alt="YRoam Admin Logo" width="140" src="https://s1.ax1x.com/2022/10/29/x5lPv8.png">
   </a>
 </p>
 
