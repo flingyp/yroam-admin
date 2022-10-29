@@ -12,6 +12,14 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     }
   },
   {
+    path: '/404',
+    name: 'NotFound',
+    component: '@pages/Common/NotFound.vue',
+    meta: {
+      isShow: false
+    }
+  },
+  {
     path: '/common',
     name: 'PermissionCommon',
     component: 'Layout',
@@ -87,3 +95,12 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     ]
   }
 ]
+
+export const RedirectNotFoundRoute: SystemRoute = {
+  path: '/:catchAll(.*)',
+  redirect: '/404',
+  name: 'CatchAll',
+  meta: {
+    isShow: false
+  }
+}

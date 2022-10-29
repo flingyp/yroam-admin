@@ -1,19 +1,25 @@
 <template>
   <div class="not-found-container">
     <SvgIcon name="NotFound"></SvgIcon>
-    <NButton type="primary">回首页</NButton>
+    <NButton type="primary" @click="geMain">回首页</NButton>
   </div>
 </template>
 
 <script setup lang="ts">
   import { NButton } from 'naive-ui'
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
+
+  // TODO: 回首页路由也需要配置
+  const geMain = () => router.push({ name: 'AboutPageIndex' })
 </script>
 
 <style scoped lang="scss">
   .not-found-container {
     box-sizing: border-box;
-    width: 100%;
-    height: calc(100vh - 64px - 64px - 48px);
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;

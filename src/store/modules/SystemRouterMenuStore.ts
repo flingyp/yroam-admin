@@ -8,6 +8,7 @@ import { getLocalKey, setLocalKey } from '@/utils'
 
 export interface SystemRouterMenuStoreState {
   IsMountedRouter: boolean
+  IsMountedNotFoundRouter: boolean
   ConstantSystemRouters: SystemRoute[]
   AsyncSystemRouters: SystemRoute[]
   ConstantRouters: RouteRecordRaw[]
@@ -22,6 +23,7 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
   state: (): SystemRouterMenuStoreState => {
     const systemRouterMenuStoreState: SystemRouterMenuStoreState = {
       IsMountedRouter: false,
+      IsMountedNotFoundRouter: false,
       ConstantSystemRouters: [],
       AsyncSystemRouters: [],
       ConstantRouters: [],
@@ -48,7 +50,7 @@ export const useSystemRouterMenuStore = defineStore('SystemRouterMenuStore', {
           if (Menu.children) toFlat(Menu.children)
         })
       }
-      // @ts-expect-error
+      // @ts-ignore
       toFlat(Menus)
       return MenusByFlat
     },

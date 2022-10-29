@@ -1,12 +1,18 @@
 <template>
   <div class="server-error-container">
     <SvgIcon name="ServerError"></SvgIcon>
-    <NButton type="primary">回首页</NButton>
+    <NButton type="primary" @click="geMain">回首页</NButton>
   </div>
 </template>
 
 <script setup lang="ts">
   import { NButton } from 'naive-ui'
+  import { useRouter } from 'vue-router'
+
+  const router = useRouter()
+
+  // TODO: 回首页路由也需要配置
+  const geMain = () => router.push({ name: 'AboutPageIndex' })
 </script>
 
 <style scoped lang="scss">

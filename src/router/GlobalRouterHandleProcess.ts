@@ -12,8 +12,8 @@ import { cloneDeep } from 'lodash'
 import { Store } from 'pinia'
 import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
 import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
-import { CONSTANT_ROUTERS } from './modules/CONSTANT_ROUTERS'
-import { filterRoutes, generateSystemMenu, mountRoute, transformSystemRouteToRouteRecordRaw } from './utils'
+import { CONSTANT_ROUTERS, RedirectNotFoundRoute } from './modules/CONSTANT_ROUTERS'
+import { filterRoutes, generateSystemMenu, mountRoute, transform, transformSystemRouteToRouteRecordRaw } from './utils'
 
 import { AuthKey, LoginRouteKey } from '@/CONSTANT'
 
@@ -122,7 +122,11 @@ export default async (
       next({ name: 'AboutPageIndex' })
     }
 
-    // TODO: 挂载404通用路由
+    if (!SystemRouterMenuStore.IsMountedNotFoundRouter) {
+      mountRoute(transform(RedirectNotFoundRoute), RouterInstance)
+      SystemRouterMenuStore.IsMountedNotFoundRouter = true
+    }
+
     next()
   } else {
     // 1.1：没有AccessToken的情况
