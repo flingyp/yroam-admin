@@ -15,10 +15,10 @@ import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
 import { CONSTANT_ROUTERS, RedirectNotFoundRoute } from './modules/CONSTANT_ROUTERS'
 import { filterRoutes, generateSystemMenu, mountRoute, transform, transformSystemRouteToRouteRecordRaw } from './utils'
 
-import { AuthKey, LoginRouteKey } from '@/CONSTANT'
+import { AuthKey, LoginRouteKey, NotFoundRouteKey, SystemHomeKey } from '@/CONSTANT'
 
 // TODO: 白名单后期放置在系统配置中
-const WhiteRouteList: string[] = [LoginRouteKey]
+const WhiteRouteList: string[] = [LoginRouteKey, NotFoundRouteKey]
 
 // TODO: 后期需要在文档中接受相关逻辑
 
@@ -118,8 +118,7 @@ export default async (
       }
     } else if (to.name === LoginRouteKey) {
       // 1.0.3 想手动跳转登录页面，返回到指定页面
-      // TODO: 返回指定页面也不能写死
-      next({ name: 'AboutPageIndex' })
+      next({ name: SystemHomeKey })
     }
 
     if (!SystemRouterMenuStore.IsMountedNotFoundRouter) {

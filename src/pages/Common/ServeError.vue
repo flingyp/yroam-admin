@@ -9,10 +9,11 @@
   import { NButton } from 'naive-ui'
   import { useRouter } from 'vue-router'
 
+  import { SystemHomeKey } from '@/CONSTANT'
+
   const router = useRouter()
 
-  // TODO: 回首页路由也需要配置
-  const geMain = () => router.push({ name: 'AboutPageIndex' })
+  const geMain = () => router.push({ name: SystemHomeKey })
 </script>
 
 <style scoped lang="scss">

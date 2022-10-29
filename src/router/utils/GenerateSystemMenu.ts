@@ -3,6 +3,8 @@ import { cloneDeep } from 'lodash'
 import { MenuOption } from 'naive-ui'
 import { RouteRecordRaw } from 'vue-router'
 
+import { DefaultMenuIcon } from '@/CONSTANT'
+
 /**
  * 生成菜单方法
  * @param routes
@@ -23,8 +25,7 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
       }
       menu.label = handleRoute.meta?.label
       menu.key = handleRoute.name as string
-      // TODO: 默认图标也许应该提供自定义
-      menu.icon = renderIcon(handleRoute.meta?.icon || 'Person')
+      menu.icon = renderIcon(handleRoute.meta?.icon || DefaultMenuIcon)
 
       menus.push(menu)
     }
