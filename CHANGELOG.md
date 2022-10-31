@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/flingyp/yroam-admin/compare/v0.5.0...v0.6.0) (2022-10-31)
+
+
+### ✨ Features | 新功能
+
+* **components:** 创建GlobalFullyScreen布局组件，实现页面全屏功能 ([aadb18a](https://github.com/flingyp/yroam-admin/commit/aadb18a2d7a0aa6fc60f2526fc63122b64f66d2a))
+* **projects:** 系统内置颜色色值列表功能 ([f1af606](https://github.com/flingyp/yroam-admin/commit/f1af606176e1de4d583705962a6162621b31a3bf))
+* **projects:** 引入nprogress进度条 ([65bc08c](https://github.com/flingyp/yroam-admin/commit/65bc08c6226b0bb0d0557032c368576ccf46f6c4))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **components:** 优化ViconsIcon组件，修改系统相关图标根据图标源来引入防止图标覆盖问题 ([ec86bdc](https://github.com/flingyp/yroam-admin/commit/ec86bdc4f8fbe51bae2c9b15e2505d42a4aee4ec))
+
 ## [0.5.0](https://github.com/flingyp/yroam-admin/compare/v0.4.0...v0.5.0) (2022-10-29)
 
 
