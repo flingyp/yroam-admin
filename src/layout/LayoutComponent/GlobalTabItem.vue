@@ -5,6 +5,7 @@
       v-show="SystemRouterMenuStore.TabMenusKey.length > 1"
       class="item-icon"
       icon="CloseOutlined"
+      source="material"
       :size="14"
       @click.stop="deleteTabItem(menu.key as string)"
     ></ViconsIcon>

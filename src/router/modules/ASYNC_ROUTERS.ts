@@ -7,7 +7,7 @@ export const ASYNC_ROUTERS: SystemRoute[] = [
     component: 'Layout',
     meta: {
       label: '前端权限测试',
-      icon: 'Alarm'
+      icon: 'material-AccessAlarmOutlined'
     },
     children: [
       {
@@ -26,7 +26,7 @@ export const ASYNC_ROUTERS: SystemRoute[] = [
         meta: {
           label: '超级管理员权限页面',
           permissions: ['sys:root:*'],
-          icon: 'BagCheck'
+          icon: 'ionicons5-BagCheck'
         }
       },
       {

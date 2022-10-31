@@ -1,5 +1,11 @@
 <template>
-  <ViconsIcon icon="SettingsOutline" :size="18" style="cursor: pointer" @click="toggleDrawer"></ViconsIcon>
+  <ViconsIcon
+    icon="SettingsOutline"
+    source="ionicons5"
+    :size="18"
+    style="cursor: pointer"
+    @click="toggleDrawer"
+  ></ViconsIcon>
 </template>
 
 <script setup lang="ts">

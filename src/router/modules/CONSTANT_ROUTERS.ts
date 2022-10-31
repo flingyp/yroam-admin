@@ -1,6 +1,7 @@
 import { SystemRoute } from 'configs'
 
 // TODO: 在编写路由配置的时候 component 是用 @pages/ 的方式，但是是没有IDEA路径提示的，所以这一点需要在文档声明的
+// TODO:  meta.icon 引用图标时的写法 source-iconLabel （source：图标源、iconLabel：图标名称）这一点需要在文档声明的
 
 export const CONSTANT_ROUTERS: SystemRoute[] = [
   {
@@ -45,7 +46,7 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/SystemAbout.vue',
         meta: {
           label: '关于',
-          icon: 'Bookmarks'
+          icon: 'material-AcUnitRound'
         }
       }
     ]
@@ -61,7 +62,7 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/NaiveComponent.vue',
         meta: {
           label: 'NaiveUI 示例',
-          icon: 'LogoWebComponent'
+          icon: 'ionicons5-LogoWebComponent'
         }
       }
     ]
@@ -80,7 +81,7 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/Common/NotFound.vue',
         meta: {
           label: '404 页面',
-          icon: 'FileExclamationOutlined'
+          icon: 'antd-FileExclamationOutlined'
         }
       },
       {
@@ -89,7 +90,7 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/Common/ServeError.vue',
         meta: {
           label: '500 页面',
-          icon: 'ErrorFilled'
+          icon: 'material-ErrorFilled'
         }
       }
     ]

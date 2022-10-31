@@ -1,9 +1,8 @@
-import { renderIcon } from '@components/index'
 import { cloneDeep } from 'lodash'
 import { MenuOption } from 'naive-ui'
 import { RouteRecordRaw } from 'vue-router'
 
-import { DefaultMenuIcon } from '@/CONSTANT'
+import { renderIcon } from '@/components'
 
 /**
  * 生成菜单方法
@@ -25,7 +24,14 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
       }
       menu.label = handleRoute.meta?.label
       menu.key = handleRoute.name as string
-      menu.icon = renderIcon(handleRoute.meta?.icon || DefaultMenuIcon)
+
+      if (!handleRoute.meta?.icon) {
+        console.log('11111111111')
+        menu.icon = renderIcon('Person', 'ionicons5')
+      } else {
+        const [source, iconLabel] = handleRoute.meta.icon.split('-')
+        menu.icon = renderIcon(iconLabel, source)
+      }
 
       menus.push(menu)
     }
