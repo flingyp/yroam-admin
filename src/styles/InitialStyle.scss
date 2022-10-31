@@ -1,6 +1,7 @@
 @import './Reset.scss';
 @import './LightTheme.scss';
 @import './DarkTheme.scss';
+@import 'nprogress/nprogress.css';
 
 :root {
   box-sizing: border-box;
@@ -10,4 +11,14 @@
   transition-property: background, color;
   transition-duration: 0.2s;
   transition-timing-function: linear;
+}
+
+/* 重写进度条颜色，跟随系统主题色 */
+#nprogress .bar {
+  background: var(--primaryColor);
+}
+
+#nprogress .spinner-icon {
+  border-top-color: var(--primaryColor);
+  border-left-color: var(--primaryColor);
 }

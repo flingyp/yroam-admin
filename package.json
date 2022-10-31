@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "naive-ui": "^2.33.5",
+    "nprogress": "^0.2.0",
     "pinia": "^2.0.23",
     "vue": "^3.2.37",
     "vue-router": "4"
@@ -29,6 +30,7 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/lodash": "^4.14.186",
+    "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
     "@vicons/antd": "^0.12.0",
