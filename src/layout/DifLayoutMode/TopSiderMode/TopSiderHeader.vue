@@ -5,6 +5,7 @@
       <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
     <div class="top-sider-header-right">
+      <GlobalFullyScreen></GlobalFullyScreen>
       <GlobalSiderCollapse></GlobalSiderCollapse>
       <GlobalSettingIcon></GlobalSettingIcon>
       <GlobalUserCenter></GlobalUserCenter>
@@ -14,6 +15,7 @@
 
 <script setup lang="ts">
   import GlobalBreadCrumb from '@layout/LayoutComponent/GlobalBreadCrumb.vue'
+  import GlobalFullyScreen from '@layout/LayoutComponent/GlobalFullyScreen.vue'
   import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
   import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'

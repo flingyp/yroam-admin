@@ -7,6 +7,7 @@
       <GlobalMenu mode="horizontal" :menuOptions="SystemRouterMenuStore.SystemMenus"></GlobalMenu>
     </div>
     <div class="top-header-right">
+      <GlobalFullyScreen></GlobalFullyScreen>
       <GlobalSettingIcon></GlobalSettingIcon>
       <GlobalUserCenter></GlobalUserCenter>
     </div>
@@ -14,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+  import GlobalFullyScreen from '@layout/LayoutComponent/GlobalFullyScreen.vue'
   import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
   import GlobalMenu from '@layout/LayoutComponent/GlobalMenu.vue'
   import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'

@@ -14,8 +14,8 @@
   // 注：如果想使用vicons的其他的系列的图标，先安装然后进行注册
   const IconList = {
     ...$IonIcons5,
-    ...$IconAntd,
-    ...$IconMaterial
+    ...$IconMaterial,
+    ...$IconAntd
   }
 
   interface ViconsIconProps {
