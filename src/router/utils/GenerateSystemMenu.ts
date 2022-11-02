@@ -26,7 +26,6 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
       menu.key = handleRoute.name as string
 
       if (!handleRoute.meta?.icon) {
-        console.log('11111111111')
         menu.icon = renderIcon('Person', 'ionicons5')
       } else {
         const [source, iconLabel] = handleRoute.meta.icon.split('-')
