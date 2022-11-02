@@ -62,6 +62,7 @@ const routeHandleGenerateMenuProcess = async (
 
   // 3. 挂载路由
   TransformToAsyncRouters.forEach(AsyncRoute => {
+    // TODO: 过滤掉外链的路由不让被挂载
     mountRoute(AsyncRoute, RouterInstance)
   })
 

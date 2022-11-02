@@ -38,8 +38,12 @@
 
   // 点击菜单
   const clickMenu = (key: string, menu: MenuOption) => {
-    router.push({ name: key })
-    SystemRouterMenuStore.addTabMenuKey(key)
+    if (menu.link === 'EXTERNAL_LINK' && menu.url) {
+      window.open(menu.url as string)
+    } else {
+      router.push({ name: key })
+      SystemRouterMenuStore.addTabMenuKey(key)
+    }
   }
 
   const isInverted = computed(() => {

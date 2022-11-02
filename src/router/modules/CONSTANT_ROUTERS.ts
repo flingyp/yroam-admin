@@ -94,6 +94,46 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         }
       }
     ]
+  },
+  {
+    path: '/docs',
+    name: 'Docs-Page',
+    component: 'Layout',
+    meta: {
+      label: '相关文档'
+    },
+    children: [
+      {
+        path: 'vite',
+        name: 'Vite-Vue',
+        meta: {
+          label: 'Vite中文文档',
+          icon: 'antd-FileExclamationOutlined',
+          link: 'INTERNAL_LINK',
+          url: 'https://cn.vitejs.dev'
+        }
+      },
+      {
+        path: 'vue',
+        name: 'Docs-Vue',
+        meta: {
+          label: 'Vue.js中文文档',
+          icon: 'antd-FileExclamationOutlined',
+          link: 'INTERNAL_LINK',
+          url: 'https://cn.vuejs.org'
+        }
+      },
+      {
+        path: 'naive',
+        name: 'Naive-Vue',
+        meta: {
+          label: 'NaiveUI文档（外链）',
+          icon: 'antd-FileExclamationOutlined',
+          link: 'EXTERNAL_LINK',
+          url: 'https://www.naiveui.com'
+        }
+      }
+    ]
   }
 ]
 

@@ -32,6 +32,12 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
         menu.icon = renderIcon(iconLabel, source)
       }
 
+      // 外链地址
+      if (route.meta?.link === 'EXTERNAL_LINK' && route.meta.url) {
+        menu.link = route.meta.link
+        menu.url = route.meta.url
+      }
+
       menus.push(menu)
     }
   })

@@ -4,6 +4,8 @@ import { cloneDeep } from 'lodash'
 import { RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
 import { globFileModule } from '.'
 
+import NotFound from '@/pages/Common/NotFound.vue'
+
 /**
  * 转换函数 SystemRoute => RouteRecordRaw
  * @param Route
@@ -15,7 +17,7 @@ export const transform = (Route: SystemRoute): RouteRecordRaw => {
     path: Route.path,
     name: Route.name,
     meta: Route.meta,
-    component: (Route.component && globFileModule(Route.component as string)) || undefined,
+    component: (Route.component && globFileModule(Route.component as string)) || NotFound,
     redirect: Route.redirect as RouteRecordRedirectOption
   }
 
