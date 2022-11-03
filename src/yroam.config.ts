@@ -7,6 +7,9 @@ export default (): SystemConfig => {
     LayoutMode: 'SIDER_TOP_MODE',
     SettingDrawer: false,
     SiderCollapse: false,
-    PrimaryColor: '#7B1FA2'
+    PrimaryColor: '#7B1FA2',
+    SiderInverted: false,
+    HeaderInverted: false,
+    FooterInverted: false
   }
 }

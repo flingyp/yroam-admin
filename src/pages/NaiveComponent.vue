@@ -108,8 +108,7 @@
 </script>
 
 <style scoped lang="scss">
-  .n-card {
-    border-radius: 20 px;
+  .n-card:not(:last-child) {
     margin-bottom: 12px;
   }
 

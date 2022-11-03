@@ -51,6 +51,23 @@
           ></NColorPicker>
         </div>
       </GlobalSettingContainer>
+
+      <GlobalSettingContainer title="系统界面功能">
+        <div class="global-page-container">
+          <div class="global-page-item">
+            <span>侧边栏反转色</span>
+            <NSwitch v-model:value="SystemConfigStore.SiderInverted"></NSwitch>
+          </div>
+          <div class="global-page-item">
+            <span>顶部栏反转色</span>
+            <NSwitch v-model:value="SystemConfigStore.HeaderInverted"></NSwitch>
+          </div>
+          <div class="global-page-item">
+            <span>底部栏反转色</span>
+            <NSwitch v-model:value="SystemConfigStore.FooterInverted"></NSwitch>
+          </div>
+        </div>
+      </GlobalSettingContainer>
     </NDrawerContent>
   </NDrawer>
 </template>
@@ -172,6 +189,16 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+  }
+
+  .global-page-container {
+    width: 100%;
+    .global-page-item {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 </style>

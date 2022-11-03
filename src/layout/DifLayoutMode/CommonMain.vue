@@ -25,13 +25,13 @@
 
 <style scoped lang="scss">
   .layout-container-main {
-    padding: 10px;
+    padding: 8px;
   }
 
   .content-loading-container {
     width: 100%;
     // TODO: 不能写死
-    height: calc(100vh - 64px - 64px - 70px);
+    height: calc(100vh - 64px - 64px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@
 
   iframe {
     width: 100%;
-    height: calc(100vh - 64px - 64px - 70px);
+    height: calc(100vh - 64px - 64px);
     border-radius: 4px;
   }
 </style>

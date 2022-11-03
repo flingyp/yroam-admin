@@ -8,4 +8,7 @@ export interface SystemConfig {
   SettingDrawer: boolean
   SiderCollapse: boolean
   PrimaryColor: string
+  SiderInverted: boolean
+  HeaderInverted: boolean
+  FooterInverted: boolean
 }

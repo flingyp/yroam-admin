@@ -1,5 +1,5 @@
 <template>
-  <div class="m-[2rem]">
+  <div>
     <NCard title="YRoam Admin" bordered hoverable>
       YRoam Admin 是一款基于Vue3 + TypeScript + NaiveUI等技术栈搭建的后台系统
     </NCard>
@@ -62,6 +62,6 @@
 
 <style scoped lang="scss">
   .n-card:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 </style>

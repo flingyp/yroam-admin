@@ -1,5 +1,5 @@
 <template>
-  <NMenu :inverted="isInverted" :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
+  <NMenu :inverted="MenuInverted" :value="routeKey" :mode="mode" :options="menuOptions" @update:value="clickMenu" />
 </template>
 
 <script setup lang="ts">
@@ -14,7 +14,7 @@
     menuOptions: MenuOption[]
   }
 
-  withDefaults(defineProps<GlobalMenuProps>(), {
+  const props = withDefaults(defineProps<GlobalMenuProps>(), {
     mode: 'vertical',
     menuOptions: () => []
   })
@@ -46,7 +46,8 @@
     }
   }
 
-  const isInverted = computed(() => {
-    return false
+  const MenuInverted = computed(() => {
+    if (props.mode === 'horizontal') return SystemConfigStore.HeaderInverted
+    return SystemConfigStore.SiderInverted
   })
 </script>

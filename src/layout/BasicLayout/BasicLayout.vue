@@ -1,7 +1,7 @@
 <template>
   <!-- 'TOP_MODE' | 'TOP_SIDER_MODE' | 'SIDER_TOP_MODE' -->
   <NLayout :has-sider="isSiderTopMode">
-    <NLayoutHeader bordered v-if="isTopMode || isTopSiderMode">
+    <NLayoutHeader bordered :inverted="SystemConfigStore.HeaderInverted" v-if="isTopMode || isTopSiderMode">
       <slot name="header">默认头部</slot>
     </NLayoutHeader>
 
@@ -10,6 +10,7 @@
       collapse-mode="width"
       :collapsed="SystemConfigStore.SiderCollapse"
       :native-scrollbar="false"
+      :inverted="SystemConfigStore.SiderInverted"
       v-if="isSiderTopMode"
     >
       <slot name="sider">默认侧边栏</slot>
@@ -20,7 +21,7 @@
     </NLayoutContent>
 
     <NLayout v-if="!isTopMode" :has-sider="isTopSiderMode">
-      <NLayoutHeader bordered v-if="isSiderTopMode">
+      <NLayoutHeader bordered :inverted="SystemConfigStore.HeaderInverted" v-if="isSiderTopMode">
         <slot name="header">默认头部</slot>
       </NLayoutHeader>
 
@@ -29,6 +30,7 @@
         collapse-mode="width"
         :collapsed="SystemConfigStore.SiderCollapse"
         :native-scrollbar="false"
+        :inverted="SystemConfigStore.SiderInverted"
         v-if="isTopSiderMode"
       >
         <slot name="sider">默认侧边栏</slot>
@@ -38,12 +40,12 @@
         <slot name="content">默认内容</slot>
       </NLayoutContent>
 
-      <NLayoutFooter bordered v-if="isSiderTopMode">
+      <NLayoutFooter bordered :inverted="SystemConfigStore.FooterInverted" v-if="isSiderTopMode">
         <slot name="footer">默认底部</slot>
       </NLayoutFooter>
     </NLayout>
 
-    <NLayoutFooter bordered v-if="isTopMode || isTopSiderMode">
+    <NLayoutFooter bordered :inverted="SystemConfigStore.FooterInverted" v-if="isTopMode || isTopSiderMode">
       <slot name="footer">默认底部</slot>
     </NLayoutFooter>
   </NLayout>
