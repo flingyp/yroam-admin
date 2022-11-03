@@ -20,15 +20,12 @@
   .not-found-container {
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    // TODO: 高度不能写死
+    height: calc(100vh - 64px - 64px - 48px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     & > svg {
       width: 500px;

@@ -69,7 +69,7 @@
       transition: width 0.25s linear;
     }
 
-    &:hover .item-icon {
+    &:hover > .item-icon {
       width: 14px;
     }
   }
