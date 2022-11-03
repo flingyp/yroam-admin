@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/flingyp/yroam-admin/compare/v0.6.0...v0.7.0) (2022-11-03)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **projects:** 处理404页面导致GlobalTab样式失效问题 ([cad6ec6](https://github.com/flingyp/yroam-admin/commit/cad6ec6587df5dd7ffc68e4e582ef0c0855e9612))
+* **projects:** globalTab操作图标source错误 ([7385026](https://github.com/flingyp/yroam-admin/commit/738502689542da61f624f052ba1424d0e370687a))
+
+
+### ✨ Features | 新功能
+
+* **projects:** 系统菜单支持配置内链和外链 ([9d8d11d](https://github.com/flingyp/yroam-admin/commit/9d8d11d5f641f09be3379b1661dc2350fa99209b))
+* **projects:** 系统设置添加系统界面功能，添加侧边栏、顶部栏和底部栏反转功能 ([a916e30](https://github.com/flingyp/yroam-admin/commit/a916e305b4428d610cf697ce1844ad32208efdbb))
+
 ## [0.6.0](https://github.com/flingyp/yroam-admin/compare/v0.5.0...v0.6.0) (2022-10-31)
 
 
