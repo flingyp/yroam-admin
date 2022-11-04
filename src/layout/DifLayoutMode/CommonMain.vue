@@ -13,14 +13,14 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue'
-  import { NSpin } from 'naive-ui'
-  import { useRoute } from 'vue-router'
+import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue';
+import { NSpin } from 'naive-ui';
+import { useRoute } from 'vue-router';
 
-  import { useSystemRouterMenuStore } from '@store/index'
+import { useSystemRouterMenuStore } from '@store/index';
 
-  const route = useRoute()
-  const SystemRouterMenuStore = useSystemRouterMenuStore()
+const route = useRoute();
+const SystemRouterMenuStore = useSystemRouterMenuStore();
 </script>
 
 <style scoped lang="scss">

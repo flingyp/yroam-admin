@@ -6,14 +6,14 @@
 </template>
 
 <script setup lang="ts">
-  import { NButton } from 'naive-ui'
-  import { useRouter } from 'vue-router'
+import { NButton } from 'naive-ui';
+import { useRouter } from 'vue-router';
 
-  import { SystemHomeKey } from '@/CONSTANT'
+import { SystemHomeKey } from '@/CONSTANT';
 
-  const router = useRouter()
+const router = useRouter();
 
-  const geMain = () => router.push({ name: SystemHomeKey })
+const geMain = () => router.push({ name: SystemHomeKey });
 </script>
 
 <style scoped lang="scss">

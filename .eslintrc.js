@@ -31,5 +31,6 @@ module.exports = {
       }
     ],
     'no-param-reassign': ['error', { props: false }],
+    'max-len': 0
   }
 }

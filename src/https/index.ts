@@ -5,4 +5,4 @@ export interface HttpResponse<T> {
   data: T
 }
 
-export * from './SystemHttps'
+export * from './SystemHttps';

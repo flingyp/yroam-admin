@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalMenu from '@layout/LayoutComponent/GlobalMenu.vue'
-  import { useSystemRouterMenuStore } from '@store/index'
+import GlobalMenu from '@layout/LayoutComponent/GlobalMenu.vue';
+import { useSystemRouterMenuStore } from '@store/index';
 
-  const SystemRouterMenuStore = useSystemRouterMenuStore()
+const SystemRouterMenuStore = useSystemRouterMenuStore();
 </script>

@@ -73,88 +73,90 @@
 </template>
 
 <script setup lang="ts">
-  import type { DrawerPlacement } from 'naive-ui'
-  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch } from 'naive-ui'
-  import { computed, ref } from 'vue'
+import type { DrawerPlacement } from 'naive-ui';
+import {
+  NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch,
+} from 'naive-ui';
+import { computed, ref } from 'vue';
 
-  import { useSwitchTheme } from '@hooks/index'
-  import { useSystemConfigStore } from '@store/index'
-  import { setLocalKey } from '@utils/index'
-  import { LayoutModeType } from 'configs'
-  import GlobalSettingContainer from './GlobalSettingContainer.vue'
+import { useSwitchTheme } from '@hooks/index';
+import { useSystemConfigStore } from '@store/index';
+import { setLocalKey } from '@utils/index';
+import { LayoutModeType } from 'configs';
+import GlobalSettingContainer from './GlobalSettingContainer.vue';
 
-  import { ThemePrimaryColorKey } from '@/CONSTANT'
+import { ThemePrimaryColorKey } from '@/CONSTANT';
 
-  const placement = ref<DrawerPlacement>('right')
+const placement = ref<DrawerPlacement>('right');
 
-  const SystemConfigStore = useSystemConfigStore()
-  const { setThemeMode } = useSwitchTheme()
+const SystemConfigStore = useSystemConfigStore();
+const { setThemeMode } = useSwitchTheme();
 
-  const closeDrawerAfter = () => {
-    if (SystemConfigStore.SettingDrawer) {
-      SystemConfigStore.SettingDrawer = false
-    }
+const closeDrawerAfter = () => {
+  if (SystemConfigStore.SettingDrawer) {
+    SystemConfigStore.SettingDrawer = false;
   }
+};
 
-  // 主题模式
-  const ThemeModeActive = computed(() => SystemConfigStore.ThemeMode === 'DARK')
-  const changeThemeMode = (value: boolean) => {
-    if (value) {
-      setThemeMode('DARK')
-    } else {
-      setThemeMode('LIGHT')
-    }
+// 主题模式
+const ThemeModeActive = computed(() => SystemConfigStore.ThemeMode === 'DARK');
+const changeThemeMode = (value: boolean) => {
+  if (value) {
+    setThemeMode('DARK');
+  } else {
+    setThemeMode('LIGHT');
   }
+};
 
-  // 布局模式
-  const LayoutItemsArray: {
+// 布局模式
+const LayoutItemsArray: {
     key: LayoutModeType
     value: string
   }[] = [
     {
       key: 'SIDER_TOP_MODE',
-      value: '左侧菜单'
+      value: '左侧菜单',
     },
     {
       key: 'TOP_MODE',
-      value: '顶部菜单'
+      value: '顶部菜单',
     },
     {
       key: 'TOP_SIDER_MODE',
-      value: '顶部菜单混合'
-    }
-  ]
+      value: '顶部菜单混合',
+    },
+  ];
 
-  const changeLayoutMode = (mode: LayoutModeType) => {
-    SystemConfigStore.LayoutMode = mode
-  }
+const changeLayoutMode = (mode: LayoutModeType) => {
+  SystemConfigStore.LayoutMode = mode;
+};
 
-  // 系统主题色
-  const PrimaryColorList = [
-    '#f44336',
-    '#e91e63',
-    '#9c27b0',
-    '#673ab7',
-    '#3f51b5',
-    '#03a9f4',
-    '#00bcd4',
-    '#009688',
-    '#4caf50',
-    '#8bc34a',
-    '#cddc39',
-    '#ffeb3b',
-    '#ffc107',
-    '#ff9800',
-    '#ff5722',
-    '#795548',
-    '#9e9e9e',
-    '#607d8b'
-  ]
+// 系统主题色
+const PrimaryColorList = [
+  '#f44336',
+  '#e91e63',
+  '#9c27b0',
+  '#673ab7',
+  '#3f51b5',
+  '#03a9f4',
+  '#00bcd4',
+  '#009688',
+  '#4caf50',
+  '#8bc34a',
+  '#cddc39',
+  '#ffeb3b',
+  '#ffc107',
+  '#ff9800',
+  '#ff5722',
+  '#795548',
+  '#9e9e9e',
+  '#607d8b',
+];
 
-  const modifyPrimaryColor = (value: string) => {
-    SystemConfigStore.PrimaryColor = value
-    setLocalKey(ThemePrimaryColorKey, value)
-  }
+const modifyPrimaryColor = (value: string) => {
+  SystemConfigStore.PrimaryColor = value;
+  setLocalKey(ThemePrimaryColorKey, value);
+};
 </script>
 
 <style scoped lang="scss">

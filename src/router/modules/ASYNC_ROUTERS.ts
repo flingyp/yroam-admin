@@ -1,4 +1,4 @@
-import { SystemRoute } from 'configs'
+import { SystemRoute } from 'configs';
 
 export const ASYNC_ROUTERS: SystemRoute[] = [
   {
@@ -7,7 +7,7 @@ export const ASYNC_ROUTERS: SystemRoute[] = [
     component: 'Layout',
     meta: {
       label: '前端权限测试',
-      icon: 'material-AccessAlarmOutlined'
+      icon: 'material-AccessAlarmOutlined',
     },
     children: [
       {
@@ -16,8 +16,8 @@ export const ASYNC_ROUTERS: SystemRoute[] = [
         component: '@pages/Permission/UserIndex.vue',
         meta: {
           label: '普通用户权限页面',
-          permissions: ['sys:user:*']
-        }
+          permissions: ['sys:user:*'],
+        },
       },
       {
         path: 'role',
@@ -26,17 +26,17 @@ export const ASYNC_ROUTERS: SystemRoute[] = [
         meta: {
           label: '超级管理员权限页面',
           permissions: ['sys:root:*'],
-          icon: 'ionicons5-BagCheck'
-        }
+          icon: 'ionicons5-BagCheck',
+        },
       },
       {
         path: 'button',
         name: 'Permission-Button',
         component: '@pages/Permission/ButtonIndex.vue',
         meta: {
-          label: '按钮级权限指令控制'
-        }
-      }
-    ]
-  }
-]
+          label: '按钮级权限指令控制',
+        },
+      },
+    ],
+  },
+];

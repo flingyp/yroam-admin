@@ -1,7 +1,7 @@
-import { getLocalKey, httpRequest } from '@utils/index'
-import { SystemRoute } from 'configs'
+import { getLocalKey, httpRequest } from '@utils/index';
+import { SystemRoute } from 'configs';
 
-import { AuthKey } from '@/CONSTANT'
+import { AuthKey } from '@/CONSTANT';
 
 interface UserLoginResponse {
   token: string
@@ -19,12 +19,12 @@ export const userLoginHttp = async (username: string, password: string) => {
     method: 'post',
     data: {
       username,
-      password
-    }
-  })
-  if (response.code === 200) return response.data
-  return null
-}
+      password,
+    },
+  });
+  if (response.code === 200) return response.data;
+  return null;
+};
 
 export interface UserInfo {
   id?: number
@@ -44,12 +44,12 @@ export const userInfoHttp = async () => {
     url: '/auth/info',
     method: 'post',
     headers: {
-      token: getLocalKey(AuthKey) as string
-    }
-  })
-  if (response.code === 200) return response.data
-  return null
-}
+      token: getLocalKey(AuthKey) as string,
+    },
+  });
+  if (response.code === 200) return response.data;
+  return null;
+};
 
 /**
  * 获取异步路由表
@@ -60,9 +60,9 @@ export const userAsyncRouters = async () => {
     url: '/auth/asyncRouters',
     method: 'post',
     headers: {
-      token: getLocalKey(AuthKey) as string
-    }
-  })
-  if (response.code === 200) return response.data
-  return null
-}
+      token: getLocalKey(AuthKey) as string,
+    },
+  });
+  if (response.code === 200) return response.data;
+  return null;
+};

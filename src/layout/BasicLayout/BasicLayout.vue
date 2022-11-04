@@ -1,7 +1,8 @@
 <template>
   <!-- 'TOP_MODE' | 'TOP_SIDER_MODE' | 'SIDER_TOP_MODE' -->
   <NLayout :has-sider="isSiderTopMode">
-    <NLayoutHeader bordered :inverted="SystemConfigStore.HeaderInverted" v-if="isTopMode || isTopSiderMode">
+    <NLayoutHeader bordered :inverted="SystemConfigStore.HeaderInverted"
+      v-if="isTopMode || isTopSiderMode">
       <slot name="header">默认头部</slot>
     </NLayoutHeader>
 
@@ -45,38 +46,41 @@
       </NLayoutFooter>
     </NLayout>
 
-    <NLayoutFooter bordered :inverted="SystemConfigStore.FooterInverted" v-if="isTopMode || isTopSiderMode">
+    <NLayoutFooter bordered :inverted="SystemConfigStore.FooterInverted"
+      v-if="isTopMode || isTopSiderMode">
       <slot name="footer">默认底部</slot>
     </NLayoutFooter>
   </NLayout>
 </template>
 
 <script setup lang="ts">
-  import { useSystemConfigStore } from '@store/index'
-  import { NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider } from 'naive-ui'
-  import { computed, ref } from 'vue'
+import { useSystemConfigStore } from '@store/index';
+import {
+  NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider,
+} from 'naive-ui';
+import { computed, ref } from 'vue';
 
-  const SystemConfigStore = useSystemConfigStore()
+const SystemConfigStore = useSystemConfigStore();
 
-  const isTopMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_MODE')
-  const isTopSiderMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE')
-  const isSiderTopMode = computed(() => SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE')
+const isTopMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_MODE');
+const isTopSiderMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE');
+const isSiderTopMode = computed(() => SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE');
 
-  const isHeaderHeight = ref(64)
-  const isFooterHeight = ref(64)
+const isHeaderHeight = ref(64);
+const isFooterHeight = ref(64);
 
-  const isSiderHeight = computed(() => {
-    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
-    if (isSiderTopMode.value) return `100vh`
-    return 0
-  })
+const isSiderHeight = computed(() => {
+  if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+  if (isSiderTopMode.value) return '100vh';
+  return 0;
+});
 
-  const isContentHeight = computed(() => {
-    if (isTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
-    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
-    if (isSiderTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
-    return 0
-  })
+const isContentHeight = computed(() => {
+  if (isTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+  if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+  if (isSiderTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+  return 0;
+});
 </script>
 
 <style scoped>

@@ -1,4 +1,4 @@
-import { RouteMeta } from 'vue-router'
+import { RouteMeta } from 'vue-router';
 
 export interface SystemRoute {
   path: string

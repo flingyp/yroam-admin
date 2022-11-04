@@ -1,1 +1,1 @@
-export * from './PrimaryColor'
+export * from './PrimaryColor';

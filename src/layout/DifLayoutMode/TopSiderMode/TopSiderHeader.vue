@@ -14,12 +14,12 @@
 </template>
 
 <script setup lang="ts">
-  import GlobalBreadCrumb from '@layout/LayoutComponent/GlobalBreadCrumb.vue'
-  import GlobalFullyScreen from '@layout/LayoutComponent/GlobalFullyScreen.vue'
-  import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
-  import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
-  import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue'
-  import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue'
+import GlobalBreadCrumb from '@layout/LayoutComponent/GlobalBreadCrumb.vue';
+import GlobalFullyScreen from '@layout/LayoutComponent/GlobalFullyScreen.vue';
+import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue';
+import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue';
+import GlobalSiderCollapse from '@layout/LayoutComponent/GlobalSiderCollapse.vue';
+import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue';
 </script>
 
 <style scoped lang="scss">

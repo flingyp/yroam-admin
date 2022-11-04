@@ -1,4 +1,4 @@
-import { SystemRoute } from 'configs'
+import { SystemRoute } from 'configs';
 
 // TODO: 在编写路由配置的时候 component 是用 @pages/ 的方式，但是是没有IDEA路径提示的，所以这一点需要在文档声明的
 // TODO:  meta.icon 引用图标时的写法 source-iconLabel （source：图标源、iconLabel：图标名称）这一点需要在文档声明的
@@ -9,16 +9,16 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     name: 'LoginIndex',
     component: '@pages/Login/LoginIndex.vue',
     meta: {
-      isShow: false
-    }
+      isShow: false,
+    },
   },
   {
     path: '/404',
     name: 'NotFound',
     component: '@pages/Common/NotFound.vue',
     meta: {
-      isShow: false
-    }
+      isShow: false,
+    },
   },
   {
     path: '/common',
@@ -30,10 +30,10 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         name: 'PermissionCommonIndex',
         component: '@pages/Permission/CommonIndex.vue',
         meta: {
-          label: '均可访问权限页面'
-        }
-      }
-    ]
+          label: '均可访问权限页面',
+        },
+      },
+    ],
   },
   {
     path: '/about',
@@ -46,10 +46,10 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/SystemAbout.vue',
         meta: {
           label: '关于',
-          icon: 'material-AcUnitRound'
-        }
-      }
-    ]
+          icon: 'material-AcUnitRound',
+        },
+      },
+    ],
   },
   {
     path: '/naive',
@@ -62,17 +62,17 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/NaiveComponent.vue',
         meta: {
           label: 'NaiveUI 示例',
-          icon: 'ionicons5-LogoWebComponent'
-        }
-      }
-    ]
+          icon: 'ionicons5-LogoWebComponent',
+        },
+      },
+    ],
   },
   {
     path: '/common',
     name: 'Common-Page',
     component: 'Layout',
     meta: {
-      label: '常用页面'
+      label: '常用页面',
     },
     children: [
       {
@@ -81,8 +81,8 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/Common/NotFound.vue',
         meta: {
           label: '404 页面',
-          icon: 'antd-FileExclamationOutlined'
-        }
+          icon: 'antd-FileExclamationOutlined',
+        },
       },
       {
         path: '500',
@@ -90,17 +90,17 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/Common/ServeError.vue',
         meta: {
           label: '500 页面',
-          icon: 'material-ErrorFilled'
-        }
-      }
-    ]
+          icon: 'material-ErrorFilled',
+        },
+      },
+    ],
   },
   {
     path: '/docs',
     name: 'Docs-Page',
     component: 'Layout',
     meta: {
-      label: '相关文档'
+      label: '相关文档',
     },
     children: [
       {
@@ -110,8 +110,8 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
           label: 'Vite中文文档',
           icon: 'antd-FileExclamationOutlined',
           link: 'INTERNAL_LINK',
-          url: 'https://cn.vitejs.dev'
-        }
+          url: 'https://cn.vitejs.dev',
+        },
       },
       {
         path: 'vue',
@@ -120,8 +120,8 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
           label: 'Vue.js中文文档',
           icon: 'antd-FileExclamationOutlined',
           link: 'INTERNAL_LINK',
-          url: 'https://cn.vuejs.org'
-        }
+          url: 'https://cn.vuejs.org',
+        },
       },
       {
         path: 'naive',
@@ -130,18 +130,18 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
           label: 'NaiveUI文档（外链）',
           icon: 'antd-FileExclamationOutlined',
           link: 'EXTERNAL_LINK',
-          url: 'https://www.naiveui.com'
-        }
-      }
-    ]
-  }
-]
+          url: 'https://www.naiveui.com',
+        },
+      },
+    ],
+  },
+];
 
 export const RedirectNotFoundRoute: SystemRoute = {
   path: '/:catchAll(.*)',
   redirect: '/404',
   name: 'CatchAll',
   meta: {
-    isShow: false
-  }
-}
+    isShow: false,
+  },
+};

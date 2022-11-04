@@ -13,42 +13,43 @@
 </template>
 
 <script setup lang="ts">
-  import { useSystemRouterMenuStore } from '@store/index'
-  import { MenuOption } from 'naive-ui'
-  import { computed } from 'vue'
-  import { useRoute, useRouter } from 'vue-router'
+import { useSystemRouterMenuStore } from '@store/index';
+import { MenuOption } from 'naive-ui';
+import { computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
   interface GlobalTabItem {
     menu: MenuOption
   }
 
-  const props = defineProps<GlobalTabItem>()
+const props = defineProps<GlobalTabItem>();
 
-  const route = useRoute()
-  const router = useRouter()
-  const SystemRouterMenuStore = useSystemRouterMenuStore()
+const route = useRoute();
+const router = useRouter();
+const SystemRouterMenuStore = useSystemRouterMenuStore();
 
-  const ActiveKey = computed(() => {
-    if (props.menu.key === route.name) return true
-    return false
-  })
-  const ActiveTabStyle = {
-    border: '1px solid var(--primaryColor)',
-    background: 'var(--primaryColor)',
-    color: '#FFFFFF'
+const ActiveKey = computed(() => {
+  if (props.menu.key === route.name) return true;
+  return false;
+});
+const ActiveTabStyle = {
+  border: '1px solid var(--primaryColor)',
+  background: 'var(--primaryColor)',
+  color: '#FFFFFF',
+};
+const deleteTabItem = (Key: string) => {
+  // 判断下SystemTabMenus是不是就一个
+  if (SystemRouterMenuStore.TabMenusKey.length === 1) return;
+  // 判断删除的是不是当前所在路由，如果是则需要去另外跳转其它的页面
+  if (route.name === Key) {
+    const TabMenuIndex = SystemRouterMenuStore.SystemTabMenus.findIndex((item) => item.key === Key);
+    // 需要跳转的路由名称
+    const NavRouteName = SystemRouterMenuStore.SystemTabMenus[
+      TabMenuIndex === 0 ? 1 : TabMenuIndex - 1];
+    router.push({ name: NavRouteName.key as string });
   }
-  const deleteTabItem = (Key: string) => {
-    // 判断下SystemTabMenus是不是就一个
-    if (SystemRouterMenuStore.TabMenusKey.length === 1) return
-    // 判断删除的是不是当前所在路由，如果是则需要去另外跳转其它的页面
-    if (route.name === Key) {
-      const TabMenuIndex = SystemRouterMenuStore.SystemTabMenus.findIndex(item => item.key === Key)
-      // 需要跳转的路由名称
-      const NavRouteName = SystemRouterMenuStore.SystemTabMenus[TabMenuIndex === 0 ? 1 : TabMenuIndex - 1]
-      router.push({ name: NavRouteName.key as string })
-    }
-    SystemRouterMenuStore.deleteTabMenuKey(Key)
-  }
+  SystemRouterMenuStore.deleteTabMenuKey(Key);
+};
 </script>
 
 <style scoped lang="scss">

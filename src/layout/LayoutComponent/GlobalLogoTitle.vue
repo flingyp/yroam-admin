@@ -6,17 +6,17 @@
 </template>
 
 <script setup lang="ts">
-  // TODO: 优化 TopSiderMode 模式下 宽度要和侧边栏宽度一直 好水平居中（目前是没有居中的）
+// TODO: 优化 TopSiderMode 模式下 宽度要和侧边栏宽度一直 好水平居中（目前是没有居中的）
 
-  import { useSystemConfigStore } from '@store/index'
-  import { computed } from 'vue'
+import { useSystemConfigStore } from '@store/index';
+import { computed } from 'vue';
 
-  const SystemConfigStore = useSystemConfigStore()
+const SystemConfigStore = useSystemConfigStore();
 
-  const isCollapse = computed(() => {
-    if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE' && SystemConfigStore.SiderCollapse) return false
-    return true
-  })
+const isCollapse = computed(() => {
+  if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE' && SystemConfigStore.SiderCollapse) return false;
+  return true;
+});
 </script>
 
 <style scoped lang="scss">
