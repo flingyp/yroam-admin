@@ -29,57 +29,57 @@ const SystemConfigStore = useSystemConfigStore();
 const SystemRouterMenuStore = useSystemRouterMenuStore();
 
 const isDisabled = computed(() => {
-  if (SystemRouterMenuStore.TabMenusKey.length <= 1) return true;
-  return false;
+    if (SystemRouterMenuStore.TabMenusKey.length <= 1) return true;
+    return false;
 });
 
 const isFixed = computed(() => SystemConfigStore.TabIsFixed);
 const TabHeight = computed(() => SystemConfigStore.TabHeight);
 
 const TabMenuSettingOptions: DropdownOption[] = reactive([
-  {
-    label: '重新加载页面',
-    key: 'reload',
-  },
-  {
-    label: '关闭当前页面',
-    key: 'closeCurrentTab',
-    disabled: isDisabled,
-  },
-  {
-    label: '关闭其他标签',
-    key: 'closeOtherTabMenu',
-    disabled: isDisabled,
-  },
+    {
+        label: '重新加载页面',
+        key: 'reload',
+    },
+    {
+        label: '关闭当前页面',
+        key: 'closeCurrentTab',
+        disabled: isDisabled,
+    },
+    {
+        label: '关闭其他标签',
+        key: 'closeOtherTabMenu',
+        disabled: isDisabled,
+    },
 ]);
 
 const clickTabMenu = (Key: string) => router.push({ name: Key });
 
 const selectTabSetting = (key: string) => {
-  if (key === 'reload') {
-    SystemRouterMenuStore.IsReloadPage = true;
-    setTimeout(() => {
-      SystemRouterMenuStore.IsReloadPage = false;
-    }, 2000);
-  } else if (key === 'closeCurrentTab') {
-    // 判断删除的是不是当前所在路由，如果是则需要去另外跳转其它的页面
-    const TabMenuIndex = SystemRouterMenuStore.SystemTabMenus.findIndex(
-      (item) => item.key === route.name,
-    );
-    // 需要跳转的路由名称
-    const NavRouteName = SystemRouterMenuStore.SystemTabMenus[
-      TabMenuIndex === 0 ? 1 : TabMenuIndex - 1];
-    router.push({ name: NavRouteName.key as string });
-    SystemRouterMenuStore.deleteTabMenuKey(route.name as string);
-  } else if (key === 'closeOtherTabMenu') {
-    // 关闭其他的标签页
-    SystemRouterMenuStore.TabMenusKey = [route.name as string];
-    setLocalKey(TabMenuKey, route.name);
-  }
+    if (key === 'reload') {
+        SystemRouterMenuStore.IsReloadPage = true;
+        setTimeout(() => {
+            SystemRouterMenuStore.IsReloadPage = false;
+        }, 2000);
+    } else if (key === 'closeCurrentTab') {
+        // 判断删除的是不是当前所在路由，如果是则需要去另外跳转其它的页面
+        const TabMenuIndex = SystemRouterMenuStore.SystemTabMenus.findIndex(
+            (item) => item.key === route.name,
+        );
+        // 需要跳转的路由名称
+        const NavRouteName = SystemRouterMenuStore.SystemTabMenus[
+            TabMenuIndex === 0 ? 1 : TabMenuIndex - 1];
+        router.push({ name: NavRouteName.key as string });
+        SystemRouterMenuStore.deleteTabMenuKey(route.name as string);
+    } else if (key === 'closeOtherTabMenu') {
+        // 关闭其他的标签页
+        SystemRouterMenuStore.TabMenusKey = [route.name as string];
+        setLocalKey(TabMenuKey, route.name);
+    }
 };
 
 onMounted(() => {
-  SystemRouterMenuStore.addTabMenuKey(route.name as string);
+    SystemRouterMenuStore.addTabMenuKey(route.name as string);
 });
 </script>
 

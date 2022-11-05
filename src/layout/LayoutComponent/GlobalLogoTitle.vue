@@ -14,8 +14,8 @@ import { computed } from 'vue';
 const SystemConfigStore = useSystemConfigStore();
 
 const isCollapse = computed(() => {
-  if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE' && SystemConfigStore.SiderCollapse) return false;
-  return true;
+    if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE' && SystemConfigStore.SiderCollapse) return false;
+    return true;
 });
 </script>
 

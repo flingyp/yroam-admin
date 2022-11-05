@@ -42,16 +42,16 @@ import BasicLayout from './BasicLayout.vue';
 const SystemConfigStore = useSystemConfigStore();
 
 const GlobalHeader = computed(() => {
-  if (SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE') return TopSiderHeader;
-  if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE') return SiderTopHeader;
-  if (SystemConfigStore.LayoutMode === 'TOP_MODE') return TopHeader;
-  return null;
+    if (SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE') return TopSiderHeader;
+    if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE') return SiderTopHeader;
+    if (SystemConfigStore.LayoutMode === 'TOP_MODE') return TopHeader;
+    return null;
 });
 
 const GlobalSider = computed(() => {
-  if (SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE') return TopSiderSider;
-  if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE') return SiderTopSider;
-  return null;
+    if (SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE') return TopSiderSider;
+    if (SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE') return SiderTopSider;
+    return null;
 });
 
 const GlobalFooter = computed(() => CommonFooter);

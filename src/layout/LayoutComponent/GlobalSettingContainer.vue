@@ -15,7 +15,7 @@ import { NDivider } from 'naive-ui';
   }
 
 withDefaults(defineProps<BasicContainerBox>(), {
-  title: '默认标题',
+    title: '默认标题',
 });
 </script>
 

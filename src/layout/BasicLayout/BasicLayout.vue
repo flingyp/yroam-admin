@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { useSystemConfigStore } from '@store/index';
 import {
-  NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider,
+    NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider,
 } from 'naive-ui';
 import { computed, ref } from 'vue';
 
@@ -57,16 +57,16 @@ const isFooterHeight = computed(() => SystemConfigStore.FooterHeight);
 
 const isSiderWidth = computed(() => SystemConfigStore.SiderWidth);
 const isSiderHeight = computed(() => {
-  if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-  if (isSiderTopMode.value) return '100vh';
-  return 0;
+    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+    if (isSiderTopMode.value) return '100vh';
+    return 0;
 });
 
 const isContentHeight = computed(() => {
-  if (isTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-  if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-  if (isSiderTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-  return 0;
+    if (isTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+    if (isSiderTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
+    return 0;
 });
 </script>
 

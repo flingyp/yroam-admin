@@ -86,26 +86,26 @@
 
 <script setup lang="ts">
 import {
-  NAlert, NButton, NCard, NCarousel, NDatePicker, NProgress, NSpin, NTag, useMessage,
+    NAlert, NButton, NCard, NCarousel, NDatePicker, NProgress, NSpin, NTag, useMessage,
 } from 'naive-ui';
 
 const message = useMessage();
 const info = () => {
-  message.info("I don't know why nobody told you how to unfold your love", {
-    keepAliveOnHover: true,
-  });
+    message.info("I don't know why nobody told you how to unfold your love", {
+        keepAliveOnHover: true,
+    });
 };
 const error = () => {
-  message.error('Once upon a time you dressed so fine');
+    message.error('Once upon a time you dressed so fine');
 };
 const warning = () => {
-  message.warning('How many roads must a man walk down');
+    message.warning('How many roads must a man walk down');
 };
 const success = () => {
-  message.success("'Cause you walked hand in hand With another man in my place");
+    message.success("'Cause you walked hand in hand With another man in my place");
 };
 const loading = () => {
-  message.loading('If I were you, I will realize that I love you more than any other guy');
+    message.loading('If I were you, I will realize that I love you more than any other guy');
 };
 </script>
 

@@ -16,6 +16,6 @@ import { useSystemConfigStore } from '@store/index';
 const SystemConfigStore = useSystemConfigStore();
 
 const toggleSiderCollapse = (value: boolean) => {
-  SystemConfigStore.SiderCollapse = value;
+    SystemConfigStore.SiderCollapse = value;
 };
 </script>

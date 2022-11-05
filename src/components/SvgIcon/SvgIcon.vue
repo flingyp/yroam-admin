@@ -8,23 +8,23 @@
 import { computed } from 'vue';
 
 const props = defineProps({
-  prefix: {
-    type: String,
-    default: 'icon',
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  color: {
-    type: String,
-    required: false,
-  },
+    prefix: {
+        type: String,
+        default: 'icon',
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    color: {
+        type: String,
+        required: false,
+    },
 });
 const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 </script>
 <script lang="ts">
 export default {
-  name: 'SvgIcon',
+    name: 'SvgIcon',
 };
 </script>

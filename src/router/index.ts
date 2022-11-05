@@ -7,15 +7,15 @@ import { transformSystemRouteToRouteRecordRaw } from './utils';
 NProgress.configure({ easing: 'ease', speed: 500, trickle: false });
 
 export const routerInstance = createRouter({
-  history: createWebHashHistory(),
-  routes: transformSystemRouteToRouteRecordRaw(CONSTANT_ROUTERS),
+    history: createWebHashHistory(),
+    routes: transformSystemRouteToRouteRecordRaw(CONSTANT_ROUTERS),
 });
 
 routerInstance.beforeEach(async (to, from, next) => {
-  NProgress.start();
-  await GlobalRouterHandleProcess(to, from, next, routerInstance);
+    NProgress.start();
+    await GlobalRouterHandleProcess(to, from, next, routerInstance);
 });
 
 routerInstance.afterEach(async () => {
-  NProgress.done();
+    NProgress.done();
 });

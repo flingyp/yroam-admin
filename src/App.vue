@@ -1,7 +1,6 @@
 <template>
   <NNotificationProvider>
-    <NConfigProvider :theme="ThemeMode"
-      :theme-overrides="SystemConfigStore.NaiveUiGlobalThemeOverrides">
+    <NConfigProvider :theme="ThemeMode" :theme-overrides="SystemConfigStore.NaiveUiGlobalThemeOverrides">
       <Suspense>
         <NMessageProvider>
           <RouterView></RouterView>
@@ -33,8 +32,8 @@ setThemeMode(getThemeMode());
 </script>
 
 <style scoped lang="scss">
-  .n-config-provider {
-    width: 100vw;
-    height: 100vh;
-  }
+.n-config-provider {
+  width: 100vw;
+  height: 100vh;
+}
 </style>

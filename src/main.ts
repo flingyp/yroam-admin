@@ -11,11 +11,11 @@ import '@styles/InitialStyle.scss';
 const app = createApp(RootApp);
 
 const Initial = (application: App) => {
-  registerGlobalComponent(app);
-  application.use(routerInstance);
-  application.use(piniaInstance);
+    registerGlobalComponent(app);
+    application.use(routerInstance);
+    application.use(piniaInstance);
 
-  application.mount('#app');
+    application.mount('#app');
 };
 
 // 初始化App应用

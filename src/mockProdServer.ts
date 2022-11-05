@@ -6,5 +6,5 @@ import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer';
 import LoginModule from '../mock/Login';
 
 export function setupProdMockServer() {
-  createProdMockServer([...LoginModule]);
+    createProdMockServer([...LoginModule]);
 }

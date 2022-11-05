@@ -46,17 +46,17 @@ const DependenciesArr: PackItem[] = [];
 const DevDependenciesArr: PackItem[] = [];
 
 Object.keys(dependencies).forEach((key) => {
-  const dependenciesObj: PackItem = { name: '', version: '' };
-  dependenciesObj.name = key;
-  dependenciesObj.version = dependencies[key];
-  DependenciesArr.push(dependenciesObj);
+    const dependenciesObj: PackItem = { name: '', version: '' };
+    dependenciesObj.name = key;
+    dependenciesObj.version = dependencies[key];
+    DependenciesArr.push(dependenciesObj);
 });
 
 Object.keys(devDependencies).forEach((key) => {
-  const dependenciesObj: PackItem = { name: '', version: '' };
-  dependenciesObj.name = key;
-  dependenciesObj.version = devDependencies[key];
-  DevDependenciesArr.push(dependenciesObj);
+    const dependenciesObj: PackItem = { name: '', version: '' };
+    dependenciesObj.name = key;
+    dependenciesObj.version = devDependencies[key];
+    DevDependenciesArr.push(dependenciesObj);
 });
 </script>
 

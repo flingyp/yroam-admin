@@ -6,7 +6,7 @@ import { Router, RouteRecordRaw } from 'vue-router';
  * @param routerInstance
  */
 export const mountRoute = (route: RouteRecordRaw, routerInstance: Router) => {
-  routerInstance.addRoute(route);
+    routerInstance.addRoute(route);
 };
 
 /**
@@ -15,5 +15,5 @@ export const mountRoute = (route: RouteRecordRaw, routerInstance: Router) => {
  * @param routerInstance
  */
 export const removeRoute = (route: RouteRecordRaw, routerInstance: Router) => {
-  routerInstance.removeRoute(route.name!);
+    routerInstance.removeRoute(route.name!);
 };

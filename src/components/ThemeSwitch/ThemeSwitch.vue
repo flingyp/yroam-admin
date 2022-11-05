@@ -16,11 +16,11 @@ const SystemConfigStore = useSystemConfigStore();
 const { getThemeMode, setThemeMode } = useSwitchTheme();
 
 const switchThemeMode = () => {
-  if (getThemeMode() === 'LIGHT') {
-    setThemeMode('DARK');
-  } else {
-    setThemeMode('LIGHT');
-  }
+    if (getThemeMode() === 'LIGHT') {
+        setThemeMode('DARK');
+    } else {
+        setThemeMode('LIGHT');
+    }
 };
 
 const CurrentThemeMode = computed(() => SystemConfigStore.ThemeMode);
@@ -28,6 +28,6 @@ const CurrentThemeMode = computed(() => SystemConfigStore.ThemeMode);
 
 <script lang="ts">
 export default {
-  name: 'ThemeSwitch',
+    name: 'ThemeSwitch',
 };
 </script>

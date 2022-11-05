@@ -19,7 +19,7 @@ const router = useRouter();
 
 // 点击面包屑菜单
 const clickBreadCrumbItem = (RouteKey: string) => {
-  router.push({ name: RouteKey });
-  SystemRouterMenuStore.addTabMenuKey(RouteKey);
+    router.push({ name: RouteKey });
+    SystemRouterMenuStore.addTabMenuKey(RouteKey);
 };
 </script>

@@ -6,8 +6,8 @@ const SystemRouters = import.meta.glob('../../pages/**/*.vue');
  * @returns
  */
 export const globFileModule = (component: string) => {
-  // 获取页面组件的相对路径
-  const componentAbsolutePath = component.replace('@', '../../');
+    // 获取页面组件的相对路径
+    const componentAbsolutePath = component.replace('@', '../../');
 
-  return SystemRouters[componentAbsolutePath];
+    return SystemRouters[componentAbsolutePath];
 };

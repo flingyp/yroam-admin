@@ -16,8 +16,8 @@ import { useRoute, useRouter } from 'vue-router';
   }
 
 const props = withDefaults(defineProps<GlobalMenuProps>(), {
-  mode: 'vertical',
-  menuOptions: () => [],
+    mode: 'vertical',
+    menuOptions: () => [],
 });
 
 const route = useRoute();
@@ -28,8 +28,8 @@ const SystemRouterMenuStore = useSystemRouterMenuStore();
 // 监听路由的变化，更改菜单当前选中值
 const routeKey = ref(route.name as string);
 watchEffect(() => {
-  //  当发现路由跳转了，及时修改页面标题的Title
-  const pageTitle = `${route.meta.label} | ${SystemConfigStore.SystemName}` || SystemConfigStore.SystemName;
+    //  当发现路由跳转了，及时修改页面标题的Title
+    const pageTitle = `${route.meta.label} | ${SystemConfigStore.SystemName}` || SystemConfigStore.SystemName;
     document.querySelector('title')!.innerHTML = `${pageTitle}`;
 
     // 切换当前菜单选择项
@@ -39,16 +39,16 @@ watchEffect(() => {
 
 // 点击菜单
 const clickMenu = (key: string, menu: MenuOption) => {
-  if (menu.link === 'EXTERNAL_LINK' && menu.url) {
-    window.open(menu.url as string);
-  } else {
-    router.push({ name: key });
-    SystemRouterMenuStore.addTabMenuKey(key);
-  }
+    if (menu.link === 'EXTERNAL_LINK' && menu.url) {
+        window.open(menu.url as string);
+    } else {
+        router.push({ name: key });
+        SystemRouterMenuStore.addTabMenuKey(key);
+    }
 };
 
 const MenuInverted = computed(() => {
-  if (props.mode === 'horizontal') return SystemConfigStore.HeaderInverted;
-  return SystemConfigStore.SiderInverted;
+    if (props.mode === 'horizontal') return SystemConfigStore.HeaderInverted;
+    return SystemConfigStore.SiderInverted;
 });
 </script>

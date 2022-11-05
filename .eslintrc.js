@@ -32,6 +32,6 @@ module.exports = {
     ],
     'no-param-reassign': ['error', { props: false }],
     'max-len': 0,
-    'indent': ['error', 2]
+    "indent": 0
   }
 }

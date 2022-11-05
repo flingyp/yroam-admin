@@ -14,29 +14,29 @@ const WarningColorMap = getDifSceneColor('#FFA500', 'warning');
 const ErrorColorMap = getDifSceneColor('#FF4838', 'error');
 
 export const useSystemConfigStore = defineStore('SystemConfigStore', {
-  state: (): SystemConfig => {
-    const DefaultSystemConfig = defineConfig();
-    // 本地有主题模式修改默认配置
-    const LocalThemeMode = getLocalKey(ThemeKey) as ThemeModeType;
-    if (LocalThemeMode) DefaultSystemConfig.ThemeMode = LocalThemeMode;
-    // 本地有主题色值缓存修改默认配置
-    const LocalThemePrimaryColor = getLocalKey(ThemePrimaryColorKey);
-    if (LocalThemePrimaryColor) DefaultSystemConfig.PrimaryColor = LocalThemePrimaryColor;
+    state: (): SystemConfig => {
+        const DefaultSystemConfig = defineConfig();
+        // 本地有主题模式修改默认配置
+        const LocalThemeMode = getLocalKey(ThemeKey) as ThemeModeType;
+        if (LocalThemeMode) DefaultSystemConfig.ThemeMode = LocalThemeMode;
+        // 本地有主题色值缓存修改默认配置
+        const LocalThemePrimaryColor = getLocalKey(ThemePrimaryColorKey);
+        if (LocalThemePrimaryColor) DefaultSystemConfig.PrimaryColor = LocalThemePrimaryColor;
 
-    return DefaultSystemConfig;
-  },
-  getters: {
-    NaiveUiGlobalThemeOverrides(state): GlobalThemeOverrides {
-      const PrimaryColorMap = getDifSceneColor(state.PrimaryColor, 'primary');
-      return {
-        common: {
-          ...PrimaryColorMap,
-          ...InfoColorMap,
-          ...SuccessColorMap,
-          ...WarningColorMap,
-          ...ErrorColorMap,
-        },
-      };
+        return DefaultSystemConfig;
     },
-  },
+    getters: {
+        NaiveUiGlobalThemeOverrides(state): GlobalThemeOverrides {
+            const PrimaryColorMap = getDifSceneColor(state.PrimaryColor, 'primary');
+            return {
+                common: {
+                    ...PrimaryColorMap,
+                    ...InfoColorMap,
+                    ...SuccessColorMap,
+                    ...WarningColorMap,
+                    ...ErrorColorMap,
+                },
+            };
+        },
+    },
 });

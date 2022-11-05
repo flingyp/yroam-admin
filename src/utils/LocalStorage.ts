@@ -4,11 +4,11 @@
  * @param value
  */
 export function setLocalKey(key: string, value: any): void {
-  if (typeof value === 'string') {
-    localStorage.setItem(key, value);
-  } else {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
+    if (typeof value === 'string') {
+        localStorage.setItem(key, value);
+    } else {
+        localStorage.setItem(key, JSON.stringify(value));
+    }
 }
 
 /**
@@ -17,9 +17,9 @@ export function setLocalKey(key: string, value: any): void {
  * @returns
  */
 export function getLocalKey(key: string): string | undefined {
-  const keyValue = localStorage.getItem(key);
-  if (!keyValue) return undefined;
-  return keyValue;
+    const keyValue = localStorage.getItem(key);
+    if (!keyValue) return undefined;
+    return keyValue;
 }
 
 /**
@@ -27,12 +27,12 @@ export function getLocalKey(key: string): string | undefined {
  * @param key
  */
 export function removeLocalKey(key: string): void {
-  localStorage.removeItem(key);
+    localStorage.removeItem(key);
 }
 
 /**
  * 清空本地缓存
  */
 export function clearLocalKey(): void {
-  localStorage.clear();
+    localStorage.clear();
 }

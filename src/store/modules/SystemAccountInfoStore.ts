@@ -6,10 +6,10 @@ export interface SystemAccountInfoStoreState {
 }
 
 export const useSystemAccountInfoStore = defineStore('SystemAccountInfoStore', {
-  state: (): SystemAccountInfoStoreState => {
-    const user: UserInfo = {};
-    return {
-      user,
-    };
-  },
+    state: (): SystemAccountInfoStoreState => {
+        const user: UserInfo = {};
+        return {
+            user,
+        };
+    },
 });

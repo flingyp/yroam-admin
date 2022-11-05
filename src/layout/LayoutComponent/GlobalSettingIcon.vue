@@ -14,6 +14,6 @@ import { useSystemConfigStore } from '@store/index';
 const SystemConfigStore = useSystemConfigStore();
 
 const toggleDrawer = () => {
-  SystemConfigStore.SettingDrawer = true;
+    SystemConfigStore.SettingDrawer = true;
 };
 </script>

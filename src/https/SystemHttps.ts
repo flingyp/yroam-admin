@@ -14,16 +14,16 @@ interface UserLoginResponse {
  * @returns
  */
 export const userLoginHttp = async (username: string, password: string) => {
-  const response = await httpRequest<UserLoginResponse>({
-    url: '/auth/login',
-    method: 'post',
-    data: {
-      username,
-      password,
-    },
-  });
-  if (response.code === 200) return response.data;
-  return null;
+    const response = await httpRequest<UserLoginResponse>({
+        url: '/auth/login',
+        method: 'post',
+        data: {
+            username,
+            password,
+        },
+    });
+    if (response.code === 200) return response.data;
+    return null;
 };
 
 export interface UserInfo {
@@ -40,15 +40,15 @@ export interface UserInfo {
  * @returns
  */
 export const userInfoHttp = async () => {
-  const response = await httpRequest<UserInfo>({
-    url: '/auth/info',
-    method: 'post',
-    headers: {
-      token: getLocalKey(AuthKey) as string,
-    },
-  });
-  if (response.code === 200) return response.data;
-  return null;
+    const response = await httpRequest<UserInfo>({
+        url: '/auth/info',
+        method: 'post',
+        headers: {
+            token: getLocalKey(AuthKey) as string,
+        },
+    });
+    if (response.code === 200) return response.data;
+    return null;
 };
 
 /**
@@ -56,13 +56,13 @@ export const userInfoHttp = async () => {
  * @returns
  */
 export const userAsyncRouters = async () => {
-  const response = await httpRequest<SystemRoute[]>({
-    url: '/auth/asyncRouters',
-    method: 'post',
-    headers: {
-      token: getLocalKey(AuthKey) as string,
-    },
-  });
-  if (response.code === 200) return response.data;
-  return null;
+    const response = await httpRequest<SystemRoute[]>({
+        url: '/auth/asyncRouters',
+        method: 'post',
+        headers: {
+            token: getLocalKey(AuthKey) as string,
+        },
+    });
+    if (response.code === 200) return response.data;
+    return null;
 };

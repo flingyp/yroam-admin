@@ -15,9 +15,9 @@ import { computed } from 'vue';
 
 // 注：如果想使用vicons的其他的系列的图标，先安装然后进行注册
 const IconList: Record<IconSource, any> = {
-  antd: $IconAntd,
-  ionicons5: $IonIcons5,
-  material: $IconMaterial,
+    antd: $IconAntd,
+    ionicons5: $IonIcons5,
+    material: $IconMaterial,
 };
 
   interface ViconsIconProps {
@@ -34,6 +34,6 @@ const IconComponent = computed(() => IconList[props.source][props.icon]);
 
 <script lang="ts">
 export default {
-  name: 'ViconsIcon',
+    name: 'ViconsIcon',
 };
 </script>

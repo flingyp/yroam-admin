@@ -27,24 +27,24 @@ const SystemAccountInfoStore = useSystemAccountInfoStore();
 const router = useRouter();
 
 const popselectOptions = [
-  {
-    label: '退出系统',
-    value: 'ExitSystem',
-  },
+    {
+        label: '退出系统',
+        value: 'ExitSystem',
+    },
 ];
 
 const popselectValue = ref(null);
 
 // 退出系统需要做的事情
 const exitSystemFun = async () => {
-  removeLocalKey(AuthKey);
+    removeLocalKey(AuthKey);
 };
 
 const clickPopselect = async (value: string) => {
-  if (value === 'ExitSystem') {
-    await exitSystemFun();
-    router.push({ name: LoginRouteKey });
-  }
+    if (value === 'ExitSystem') {
+        await exitSystemFun();
+        router.push({ name: LoginRouteKey });
+    }
 };
 </script>
 
