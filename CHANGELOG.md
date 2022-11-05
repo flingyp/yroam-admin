@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/flingyp/yroam-admin/compare/v0.7.0...v0.8.0) (2022-11-05)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 添加对顶部栏高度、侧边栏宽度和底部栏高度控制 ([12e502e](https://github.com/flingyp/yroam-admin/commit/12e502ef572e8609818c13a911a785598f42abbb))
+* **projects:** 添加对Tab栏高度控制和是否开启定位控制 ([3396ba6](https://github.com/flingyp/yroam-admin/commit/3396ba6af3f57fef5fe90ab489b04dc4f00bdde7))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **projects:** 顶部菜单混合LogoTitle组件宽度与侧边栏宽度自适应 ([e919863](https://github.com/flingyp/yroam-admin/commit/e919863cb45d90c5b1c766e81d38532be4952f2f))
+* **projects:** 修复菜单图标渲染出错问题 ([a56c766](https://github.com/flingyp/yroam-admin/commit/a56c766920fd96346ab3158555e94a9e81a6a504))
+
 ## [0.7.0](https://github.com/flingyp/yroam-admin/compare/v0.6.0...v0.7.0) (2022-11-03)
 
 
