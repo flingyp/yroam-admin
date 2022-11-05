@@ -1,11 +1,6 @@
 <template>
-  <NDrawer
-    v-model:show="SystemConfigStore.SettingDrawer"
-    :width="400"
-    :placement="placement"
-    native-scrollbar
-    @after-leave="closeDrawerAfter"
-  >
+  <NDrawer v-model:show="SystemConfigStore.SettingDrawer" :width="400" :placement="placement" native-scrollbar
+    @after-leave="closeDrawerAfter">
     <NDrawerContent title="系统设置" closable>
       <GlobalSettingContainer title="主题模式">
         <div>
@@ -22,33 +17,21 @@
 
       <GlobalSettingContainer title="系统布局模式">
         <div class="global-setting-layout-container">
-          <NButton
-            class="overflow-hidden"
-            v-for="item in LayoutItemsArray"
-            :key="item.key"
+          <NButton class="overflow-hidden" v-for="item in LayoutItemsArray" :key="item.key"
             :type="SystemConfigStore.LayoutMode === item.key ? 'primary' : 'tertiary'"
-            @click="changeLayoutMode(item.key)"
-            >{{ item.value }}</NButton
-          >
+            @click="changeLayoutMode(item.key)">{{ item.value }}</NButton>
         </div>
       </GlobalSettingContainer>
 
       <GlobalSettingContainer title="系统主题色">
         <div>
           <div class="global-primary-container">
-            <span
-              v-for="(item, index) in PrimaryColorList"
-              :key="index"
-              :style="{ backgroundColor: item }"
+            <span v-for="(item, index) in PrimaryColorList" :key="index" :style="{ backgroundColor: item }"
               :class="[SystemConfigStore.PrimaryColor === item ? 'primary-active' : '']"
-              @click="modifyPrimaryColor(item)"
-            ></span>
+              @click="modifyPrimaryColor(item)"></span>
           </div>
-          <NColorPicker
-            :value="SystemConfigStore.PrimaryColor"
-            size="small"
-            @update:value="modifyPrimaryColor"
-          ></NColorPicker>
+          <NColorPicker :value="SystemConfigStore.PrimaryColor" size="small" @update:value="modifyPrimaryColor">
+          </NColorPicker>
         </div>
       </GlobalSettingContainer>
 
@@ -66,6 +49,21 @@
             <span>底部栏反转色</span>
             <NSwitch v-model:value="SystemConfigStore.FooterInverted"></NSwitch>
           </div>
+          <div class="global-page-item">
+            <span>顶部栏高度</span>
+            <NInputNumber v-model:value="SystemConfigStore.HeaderHeight" placeholder="Min 44, Max 84" :min="44"
+              :max="84" />
+          </div>
+          <div class="global-page-item">
+            <span>侧边栏宽度</span>
+            <NInputNumber v-model:value="SystemConfigStore.SiderWidth" placeholder="Min 220, Max 320" :min="220"
+              :max="320" />
+          </div>
+          <div class="global-page-item">
+            <span>底部栏高度</span>
+            <NInputNumber v-model:value="SystemConfigStore.FooterHeight" placeholder="Min 44, Max 84" :min="44"
+              :max="84" />
+          </div>
         </div>
       </GlobalSettingContainer>
     </NDrawerContent>
@@ -75,7 +73,7 @@
 <script setup lang="ts">
 import type { DrawerPlacement } from 'naive-ui';
 import {
-  NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch,
+  NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch, NInputNumber,
 } from 'naive-ui';
 import { computed, ref } from 'vue';
 
@@ -101,31 +99,25 @@ const closeDrawerAfter = () => {
 // 主题模式
 const ThemeModeActive = computed(() => SystemConfigStore.ThemeMode === 'DARK');
 const changeThemeMode = (value: boolean) => {
-  if (value) {
-    setThemeMode('DARK');
-  } else {
-    setThemeMode('LIGHT');
-  }
+  if (value) setThemeMode('DARK');
+  else setThemeMode('LIGHT');
 };
 
 // 布局模式
-const LayoutItemsArray: {
-    key: LayoutModeType
-    value: string
-  }[] = [
-    {
-      key: 'SIDER_TOP_MODE',
-      value: '左侧菜单',
-    },
-    {
-      key: 'TOP_MODE',
-      value: '顶部菜单',
-    },
-    {
-      key: 'TOP_SIDER_MODE',
-      value: '顶部菜单混合',
-    },
-  ];
+const LayoutItemsArray: { key: LayoutModeType, value: string }[] = [
+  {
+    key: 'SIDER_TOP_MODE',
+    value: '左侧菜单',
+  },
+  {
+    key: 'TOP_MODE',
+    value: '顶部菜单',
+  },
+  {
+    key: 'TOP_SIDER_MODE',
+    value: '顶部菜单混合',
+  },
+];
 
 const changeLayoutMode = (mode: LayoutModeType) => {
   SystemConfigStore.LayoutMode = mode;
@@ -160,47 +152,49 @@ const modifyPrimaryColor = (value: string) => {
 </script>
 
 <style scoped lang="scss">
-  .global-setting-layout-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 8px 8px;
+.global-setting-layout-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 8px 8px;
+}
+
+.global-primary-container {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 10px 10px;
+
+  &>span {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    border-radius: 4px;
   }
 
-  .global-primary-container {
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: 10px 10px;
-
-    & > span {
-      display: inline-block;
-      width: 26px;
-      height: 26px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    & > .primary-active {
-      position: relative;
-    }
-    & > .primary-active::after {
-      content: '✓';
-      position: absolute;
-      color: #ffffff;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+  &>.primary-active {
+    position: relative;
   }
 
-  .global-page-container {
-    width: 100%;
-    .global-page-item {
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+  &>.primary-active::after {
+    content: '✓';
+    position: absolute;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+}
+
+.global-page-container {
+  width: 100%;
+
+  .global-page-item {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
 </style>

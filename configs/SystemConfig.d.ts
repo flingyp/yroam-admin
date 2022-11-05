@@ -11,4 +11,7 @@ export interface SystemConfig {
   SiderInverted: boolean
   HeaderInverted: boolean
   FooterInverted: boolean
+  HeaderHeight: number
+  SiderWidth: number
+  FooterHeight: number
 }

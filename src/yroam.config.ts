@@ -10,4 +10,7 @@ export default (): SystemConfig => ({
   SiderInverted: false,
   HeaderInverted: false,
   FooterInverted: false,
+  HeaderHeight: 64,
+  SiderWidth: 272,
+  FooterHeight: 64,
 });
