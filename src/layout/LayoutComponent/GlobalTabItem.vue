@@ -1,14 +1,8 @@
 <template>
   <div class="global-tab-item-container" :style="ActiveKey ? ActiveTabStyle : {}">
     <span>{{ menu.label }}</span>
-    <ViconsIcon
-      v-show="SystemRouterMenuStore.TabMenusKey.length > 1"
-      class="item-icon"
-      icon="CloseOutlined"
-      source="material"
-      :size="14"
-      @click.stop="deleteTabItem(menu.key as string)"
-    ></ViconsIcon>
+    <ViconsIcon v-show="SystemRouterMenuStore.TabMenusKey.length > 1" class="item-icon" icon="CloseOutlined"
+      source="material" :size="14" @click.stop="deleteTabItem(menu.key as string)"></ViconsIcon>
   </div>
 </template>
 
@@ -18,9 +12,9 @@ import { MenuOption } from 'naive-ui';
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-  interface GlobalTabItem {
-    menu: MenuOption
-  }
+interface GlobalTabItem {
+  menu: MenuOption
+}
 
 const props = defineProps<GlobalTabItem>();
 
@@ -53,25 +47,25 @@ const deleteTabItem = (Key: string) => {
 </script>
 
 <style scoped lang="scss">
-  .global-tab-item-container {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    padding: 6px 4px;
-    border-radius: 4px;
-    cursor: pointer;
+.global-tab-item-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 4px 4px;
+  border-radius: 4px;
+  cursor: pointer;
 
-    & > span {
-      margin: 2px;
-    }
-
-    & > .item-icon {
-      width: 0;
-      transition: width 0.25s linear;
-    }
-
-    &:hover > .item-icon {
-      width: 14px;
-    }
+  &>span {
+    margin: 2px;
   }
+
+  &>.item-icon {
+    width: 0;
+    transition: width 0.25s linear;
+  }
+
+  &:hover>.item-icon {
+    width: 14px;
+  }
+}
 </style>

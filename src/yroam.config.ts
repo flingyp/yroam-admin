@@ -13,4 +13,6 @@ export default (): SystemConfig => ({
   HeaderHeight: 64,
   SiderWidth: 272,
   FooterHeight: 64,
+  TabHeight: 44,
+  TabIsFixed: false,
 });

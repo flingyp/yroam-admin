@@ -1,24 +1,19 @@
 <template>
-  <div class="global-tab-container">
+  <div class="global-tab-container" :class="[isFixed ? 'is-fixed' : '']">
     <div class="global-tab-left-container">
-      <GlobalTabItem
-        v-for="item in SystemRouterMenuStore.SystemTabMenus"
-        :key="item.key"
-        :menu="item"
-        @click.stop="clickTabMenu(item.key as string)"
-      ></GlobalTabItem>
+      <GlobalTabItem v-for="item in SystemRouterMenuStore.SystemTabMenus" :key="item.key" :menu="item"
+        @click.stop="clickTabMenu(item.key as string)"></GlobalTabItem>
     </div>
     <div class="global-tab-right-container">
       <NDropdown trigger="hover" :options="TabMenuSettingOptions" @select="selectTabSetting">
-        <ViconsIcon icon="MenuOutline" source="ionicons5" :size="20"
-        style="cursor: pointer; padding: 4px" />
+        <ViconsIcon icon="MenuOutline" source="ionicons5" :size="20" style="cursor: pointer; padding: 4px" />
       </NDropdown>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useSystemRouterMenuStore } from '@store/index';
+import { useSystemRouterMenuStore, useSystemConfigStore } from '@store/index';
 import type { DropdownOption } from 'naive-ui';
 import { NDropdown } from 'naive-ui';
 import { computed, onMounted, reactive } from 'vue';
@@ -30,12 +25,16 @@ import { setLocalKey } from '@/utils';
 
 const route = useRoute();
 const router = useRouter();
+const SystemConfigStore = useSystemConfigStore();
 const SystemRouterMenuStore = useSystemRouterMenuStore();
 
 const isDisabled = computed(() => {
   if (SystemRouterMenuStore.TabMenusKey.length <= 1) return true;
   return false;
 });
+
+const isFixed = computed(() => SystemConfigStore.TabIsFixed);
+const TabHeight = computed(() => SystemConfigStore.TabHeight);
 
 const TabMenuSettingOptions: DropdownOption[] = reactive([
   {
@@ -84,29 +83,32 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
-  .global-tab-container {
-    box-sizing: border-box;
-    width: 100%;
-    height: 48px;
-    padding: 0 8px;
-    margin-bottom: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--border-color);
-  }
+<style scoped>
+.global-tab-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: v-bind(TabHeight + 'px');
+  padding: 0 8px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+}
 
-  .global-tab-left-container {
-    display: flex;
-    align-items: center;
+.global-tab-container.is-fixed {
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+}
 
-    & > *:not(:last-child) {
-      margin-right: 12px;
-    }
-  }
+.global-tab-left-container {
+  display: flex;
+  align-items: center;
+}
 
-  .global-tab-right-container {
-  }
+.global-tab-left-container>*:not(:last-child) {
+  margin-right: 12px;
+}
 </style>

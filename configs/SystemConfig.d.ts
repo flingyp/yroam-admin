@@ -14,4 +14,6 @@ export interface SystemConfig {
   HeaderHeight: number
   SiderWidth: number
   FooterHeight: number
+  TabHeight: number
+  TabIsFixed: boolean,
 }

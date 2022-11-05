@@ -50,6 +50,10 @@
             <NSwitch v-model:value="SystemConfigStore.FooterInverted"></NSwitch>
           </div>
           <div class="global-page-item">
+            <span>Tab栏是否固定</span>
+            <NSwitch v-model:value="SystemConfigStore.TabIsFixed"></NSwitch>
+          </div>
+          <div class="global-page-item">
             <span>顶部栏高度</span>
             <NInputNumber v-model:value="SystemConfigStore.HeaderHeight" placeholder="Min 44, Max 84" :min="44"
               :max="84" />
@@ -63,6 +67,11 @@
             <span>底部栏高度</span>
             <NInputNumber v-model:value="SystemConfigStore.FooterHeight" placeholder="Min 44, Max 84" :min="44"
               :max="84" />
+          </div>
+          <div class="global-page-item">
+            <span>Tab栏高度</span>
+            <NInputNumber v-model:value="SystemConfigStore.TabHeight" placeholder="Min 40, Max 60" :min="40"
+              :max="60" />
           </div>
         </div>
       </GlobalSettingContainer>
