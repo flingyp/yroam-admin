@@ -9,6 +9,7 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
     resolve: {
         alias: {
             '@': resolve(__dirname, 'src/'),
+            '@configs': resolve(__dirname, './configs'),
             '@assets': resolve(__dirname, 'src/assets'),
             '@utils': resolve(__dirname, 'src/utils'),
             '@https': resolve(__dirname, 'src/https'),
@@ -19,6 +20,10 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
             '@router': resolve(__dirname, 'src/router'),
             '@components': resolve(__dirname, 'src/components'),
         },
+    },
+    server: {
+        host: true,
+        cors: true,
     },
     css: {
         preprocessorOptions: {

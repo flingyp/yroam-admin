@@ -6,3 +6,4 @@ export interface HttpResponse<T> {
 }
 
 export * from './SystemHttps';
+export * from './SystemTableDemo';
