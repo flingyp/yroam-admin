@@ -1,13 +1,15 @@
 <template>
-  <NNotificationProvider>
+  <Suspense>
     <NConfigProvider :theme="ThemeMode" :theme-overrides="SystemConfigStore.NaiveUiGlobalThemeOverrides">
-      <Suspense>
-        <NMessageProvider>
-          <RouterView></RouterView>
-        </NMessageProvider>
-      </Suspense>
+      <NNotificationProvider>
+        <NDialogProvider>
+          <NMessageProvider>
+            <RouterView></RouterView>
+          </NMessageProvider>
+        </NDialogProvider>
+      </NNotificationProvider>
     </NConfigProvider>
-  </NNotificationProvider>
+  </Suspense>
 </template>
 
 <script setup lang="ts">
@@ -15,7 +17,7 @@ import { useSwitchTheme } from '@hooks/index';
 import { useSystemConfigStore } from '@store/index';
 import type { GlobalTheme } from 'naive-ui';
 import {
-  darkTheme, NConfigProvider, NMessageProvider, NNotificationProvider,
+  darkTheme, NConfigProvider, NMessageProvider, NNotificationProvider, NDialogProvider,
 } from 'naive-ui';
 import { computed } from 'vue';
 

@@ -1,8 +1,11 @@
 import { httpRequest } from '@utils/index';
 
 export interface UserDemo {
-    date: string
-    name: string
+    id: string
+    age: number
+    username: string
+    birthday: string
+    email: string
     address: string
     status: number
 }
