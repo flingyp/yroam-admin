@@ -1,13 +1,13 @@
-import { httpRequest } from '@utils/index';
+import { httpRequest } from '@utils/index'
 
 export interface UserDemo {
-    id: string
-    age: number
-    username: string
-    birthday: string
-    email: string
-    address: string
-    status: number
+  id: string
+  age: number
+  username: string
+  birthday: string
+  email: string
+  address: string
+  status: number
 }
 
 /**
@@ -15,10 +15,10 @@ export interface UserDemo {
  * @returns
  */
 export const tableMockHttp = async () => {
-    const response = await httpRequest<UserDemo[]>({
-        url: '/user/list',
-        method: 'post',
-    });
-    if (response.code === 200) return response.data;
-    return null;
-};
+  const response = await httpRequest<UserDemo[]>({
+    url: '/user/list',
+    method: 'post'
+  })
+  if (response.code === 200) return response.data
+  return null
+}

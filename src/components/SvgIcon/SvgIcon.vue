@@ -5,26 +5,26 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+  import { computed } from 'vue'
 
-const props = defineProps({
+  const props = defineProps({
     prefix: {
-        type: String,
-        default: 'icon',
+      type: String,
+      default: 'icon'
     },
     name: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     color: {
-        type: String,
-        required: false,
-    },
-});
-const symbolId = computed(() => `#${props.prefix}-${props.name}`);
+      type: String,
+      required: false
+    }
+  })
+  const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 </script>
 <script lang="ts">
-export default {
-    name: 'SvgIcon',
-};
+  export default {
+    name: 'SvgIcon'
+  }
 </script>

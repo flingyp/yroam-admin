@@ -15,37 +15,37 @@
 </template>
 
 <script setup lang="ts">
-import { useSystemAccountInfoStore } from '@store/index';
-import { removeLocalKey } from '@utils/index';
-import { NPopselect } from 'naive-ui';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+  import { useSystemAccountInfoStore } from '@store/index'
+  import { removeLocalKey } from '@utils/index'
+  import { NPopselect } from 'naive-ui'
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
 
-import { AuthKey, LoginRouteKey } from '@/CONSTANT';
+  import { AuthKey, LoginRouteKey } from '@/CONSTANT'
 
-const SystemAccountInfoStore = useSystemAccountInfoStore();
-const router = useRouter();
+  const SystemAccountInfoStore = useSystemAccountInfoStore()
+  const router = useRouter()
 
-const popselectOptions = [
+  const popselectOptions = [
     {
-        label: '退出系统',
-        value: 'ExitSystem',
-    },
-];
-
-const popselectValue = ref(null);
-
-// 退出系统需要做的事情
-const exitSystemFun = async () => {
-    removeLocalKey(AuthKey);
-};
-
-const clickPopselect = async (value: string) => {
-    if (value === 'ExitSystem') {
-        await exitSystemFun();
-        router.push({ name: LoginRouteKey });
+      label: '退出系统',
+      value: 'ExitSystem'
     }
-};
+  ]
+
+  const popselectValue = ref(null)
+
+  // 退出系统需要做的事情
+  const exitSystemFun = async () => {
+    removeLocalKey(AuthKey)
+  }
+
+  const clickPopselect = async (value: string) => {
+    if (value === 'ExitSystem') {
+      await exitSystemFun()
+      router.push({ name: LoginRouteKey })
+    }
+  }
 </script>
 
 <style scoped lang="scss">

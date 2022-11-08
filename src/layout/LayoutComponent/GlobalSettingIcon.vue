@@ -9,11 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import { useSystemConfigStore } from '@store/index';
+  import { useSystemConfigStore } from '@store/index'
 
-const SystemConfigStore = useSystemConfigStore();
+  const SystemConfigStore = useSystemConfigStore()
 
-const toggleDrawer = () => {
-    SystemConfigStore.SettingDrawer = true;
-};
+  const toggleDrawer = () => {
+    SystemConfigStore.SettingDrawer = true
+  }
 </script>

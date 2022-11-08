@@ -5,8 +5,14 @@
       <slot name="header">默认头部</slot>
     </NLayoutHeader>
 
-    <NLayoutSider bordered collapse-mode="width" :collapsed="SystemConfigStore.SiderCollapse" :native-scrollbar="false"
-      :inverted="SystemConfigStore.SiderInverted" v-if="isSiderTopMode">
+    <NLayoutSider
+      bordered
+      collapse-mode="width"
+      :collapsed="SystemConfigStore.SiderCollapse"
+      :native-scrollbar="false"
+      :inverted="SystemConfigStore.SiderInverted"
+      v-if="isSiderTopMode"
+    >
       <slot name="sider">默认侧边栏</slot>
     </NLayoutSider>
 
@@ -19,8 +25,14 @@
         <slot name="header">默认头部</slot>
       </NLayoutHeader>
 
-      <NLayoutSider bordered collapse-mode="width" :collapsed="SystemConfigStore.SiderCollapse"
-        :native-scrollbar="false" :inverted="SystemConfigStore.SiderInverted" v-if="isTopSiderMode">
+      <NLayoutSider
+        bordered
+        collapse-mode="width"
+        :collapsed="SystemConfigStore.SiderCollapse"
+        :native-scrollbar="false"
+        :inverted="SystemConfigStore.SiderInverted"
+        v-if="isTopSiderMode"
+      >
         <slot name="sider">默认侧边栏</slot>
       </NLayoutSider>
 
@@ -40,52 +52,50 @@
 </template>
 
 <script setup lang="ts">
-import { useSystemConfigStore } from '@store/index';
-import {
-    NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider,
-} from 'naive-ui';
-import { computed, ref } from 'vue';
+  import { useSystemConfigStore } from '@store/index'
+  import { NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider } from 'naive-ui'
+  import { computed, ref } from 'vue'
 
-const SystemConfigStore = useSystemConfigStore();
+  const SystemConfigStore = useSystemConfigStore()
 
-const isTopMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_MODE');
-const isTopSiderMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE');
-const isSiderTopMode = computed(() => SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE');
+  const isTopMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_MODE')
+  const isTopSiderMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE')
+  const isSiderTopMode = computed(() => SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE')
 
-const isHeaderHeight = computed(() => SystemConfigStore.HeaderHeight);
-const isFooterHeight = computed(() => SystemConfigStore.FooterHeight);
+  const isHeaderHeight = computed(() => SystemConfigStore.HeaderHeight)
+  const isFooterHeight = computed(() => SystemConfigStore.FooterHeight)
 
-const isSiderWidth = computed(() => SystemConfigStore.SiderWidth);
-const isSiderHeight = computed(() => {
-    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-    if (isSiderTopMode.value) return '100vh';
-    return 0;
-});
+  const isSiderWidth = computed(() => SystemConfigStore.SiderWidth)
+  const isSiderHeight = computed(() => {
+    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
+    if (isSiderTopMode.value) return '100vh'
+    return 0
+  })
 
-const isContentHeight = computed(() => {
-    if (isTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-    if (isSiderTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`;
-    return 0;
-});
+  const isContentHeight = computed(() => {
+    if (isTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
+    if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
+    if (isSiderTopMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
+    return 0
+  })
 </script>
 
 <style scoped>
-.n-layout-header {
-  height: v-bind(isHeaderHeight + 'px');
-}
+  .n-layout-header {
+    height: v-bind(isHeaderHeight + 'px');
+  }
 
-.n-layout-footer {
-  height: v-bind(isFooterHeight + 'px');
-}
+  .n-layout-footer {
+    height: v-bind(isFooterHeight + 'px');
+  }
 
-.n-layout-sider {
-  transition: all 0.2s linear;
-  width: v-bind(isSiderWidth + 'px') !important;
-  height: v-bind(isSiderHeight);
-}
+  .n-layout-sider {
+    transition: all 0.2s linear;
+    width: v-bind(isSiderWidth + 'px') !important;
+    height: v-bind(isSiderHeight);
+  }
 
-.n-layout-content {
-  height: v-bind(isContentHeight);
-}
+  .n-layout-content {
+    height: v-bind(isContentHeight);
+  }
 </style>

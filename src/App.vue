@@ -13,29 +13,27 @@
 </template>
 
 <script setup lang="ts">
-import { useSwitchTheme } from '@hooks/index';
-import { useSystemConfigStore } from '@store/index';
-import type { GlobalTheme } from 'naive-ui';
-import {
-  darkTheme, NConfigProvider, NMessageProvider, NNotificationProvider, NDialogProvider,
-} from 'naive-ui';
-import { computed } from 'vue';
+  import { useSwitchTheme } from '@hooks/index'
+  import { useSystemConfigStore } from '@store/index'
+  import type { GlobalTheme } from 'naive-ui'
+  import { darkTheme, NConfigProvider, NMessageProvider, NNotificationProvider, NDialogProvider } from 'naive-ui'
+  import { computed } from 'vue'
 
-const SystemConfigStore = useSystemConfigStore();
+  const SystemConfigStore = useSystemConfigStore()
 
-const { getThemeMode, setThemeMode } = useSwitchTheme();
+  const { getThemeMode, setThemeMode } = useSwitchTheme()
 
-const ThemeMode = computed<GlobalTheme | null>(() => {
-  if (SystemConfigStore.ThemeMode === 'LIGHT') return null;
-  return darkTheme;
-});
+  const ThemeMode = computed<GlobalTheme | null>(() => {
+    if (SystemConfigStore.ThemeMode === 'LIGHT') return null
+    return darkTheme
+  })
 
-setThemeMode(getThemeMode());
+  setThemeMode(getThemeMode())
 </script>
 
 <style scoped lang="scss">
-.n-config-provider {
-  width: 100vw;
-  height: 100vh;
-}
+  .n-config-provider {
+    width: 100vw;
+    height: 100vh;
+  }
 </style>

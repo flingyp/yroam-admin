@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['plugin:vue/vue3-essential', 'airbnb-base'],
+  extends: ['plugin:vue/vue3-essential', 'airbnb-base', 'plugin:prettier/recommended'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -32,6 +32,6 @@ module.exports = {
     ],
     'no-param-reassign': ['error', { props: false }],
     'max-len': 0,
-    "indent": 0
+    indent: 0
   }
 }

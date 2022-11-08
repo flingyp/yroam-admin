@@ -85,66 +85,64 @@
 </template>
 
 <script setup lang="ts">
-import {
-  NAlert, NButton, NCard, NCarousel, NDatePicker, NProgress, NSpin, NTag, useMessage,
-} from 'naive-ui';
+  import { NAlert, NButton, NCard, NCarousel, NDatePicker, NProgress, NSpin, NTag, useMessage } from 'naive-ui'
 
-const message = useMessage();
-const info = () => {
-  message.info("I don't know why nobody told you how to unfold your love", {
-    keepAliveOnHover: true,
-  });
-};
-const error = () => {
-  message.error('Once upon a time you dressed so fine');
-};
-const warning = () => {
-  message.warning('How many roads must a man walk down');
-};
-const success = () => {
-  message.success("'Cause you walked hand in hand With another man in my place");
-};
-const loading = () => {
-  message.loading('If I were you, I will realize that I love you more than any other guy');
-};
+  const message = useMessage()
+  const info = () => {
+    message.info("I don't know why nobody told you how to unfold your love", {
+      keepAliveOnHover: true
+    })
+  }
+  const error = () => {
+    message.error('Once upon a time you dressed so fine')
+  }
+  const warning = () => {
+    message.warning('How many roads must a man walk down')
+  }
+  const success = () => {
+    message.success("'Cause you walked hand in hand With another man in my place")
+  }
+  const loading = () => {
+    message.loading('If I were you, I will realize that I love you more than any other guy')
+  }
 </script>
 
 <style scoped lang="scss">
-.n-card:not(:last-child) {
-  margin-bottom: 12px;
-}
+  .n-card:not(:last-child) {
+    margin-bottom: 12px;
+  }
 
-.n-tag {
-  margin-right: 10px;
-}
+  .n-tag {
+    margin-right: 10px;
+  }
 
-.n-alert:not(:last-child) {
-  margin-bottom: 10px;
-}
+  .n-alert:not(:last-child) {
+    margin-bottom: 10px;
+  }
 
-.carousel-img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 5px;
-}
+  .carousel-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
-.naive-component-container {
-  display: flex;
-  flex-direction: column;
-}
+  .naive-component-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-.naive-component-button {
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 15px 15px;
-}
+  .naive-component-button {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px 15px;
+  }
 
-.naive-component-date {
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px 15px;
-}
+  .naive-component-date {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px 15px;
+  }
 </style>

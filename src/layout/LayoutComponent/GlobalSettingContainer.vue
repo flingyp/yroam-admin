@@ -8,15 +8,15 @@
 </template>
 
 <script setup lang="ts">
-import { NDivider } from 'naive-ui';
+  import { NDivider } from 'naive-ui'
 
   interface BasicContainerBox {
     title: string
   }
 
-withDefaults(defineProps<BasicContainerBox>(), {
-    title: '默认标题',
-});
+  withDefaults(defineProps<BasicContainerBox>(), {
+    title: '默认标题'
+  })
 </script>
 
 <style scoped lang="scss">

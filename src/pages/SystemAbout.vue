@@ -23,45 +23,45 @@
 </template>
 
 <script setup lang="ts">
-import { NCard, NDescriptions, NDescriptionsItem } from 'naive-ui';
+  import { NCard, NDescriptions, NDescriptionsItem } from 'naive-ui'
 
-import projectConfigJson from '../../package.json';
+  import projectConfigJson from '../../package.json'
 
-interface PackJson {
-  name: string
-  version: string
-  dependencies: Record<string, string>
-  devDependencies: Record<string, string>
-  [key: string]: any
-}
+  interface PackJson {
+    name: string
+    version: string
+    dependencies: Record<string, string>
+    devDependencies: Record<string, string>
+    [key: string]: any
+  }
 
-interface PackItem {
-  name: string
-  version: string
-}
+  interface PackItem {
+    name: string
+    version: string
+  }
 
-const { dependencies, devDependencies } = projectConfigJson as PackJson;
+  const { dependencies, devDependencies } = projectConfigJson as PackJson
 
-const DependenciesArr: PackItem[] = [];
-const DevDependenciesArr: PackItem[] = [];
+  const DependenciesArr: PackItem[] = []
+  const DevDependenciesArr: PackItem[] = []
 
-Object.keys(dependencies).forEach((key) => {
-  const dependenciesObj: PackItem = { name: '', version: '' };
-  dependenciesObj.name = key;
-  dependenciesObj.version = dependencies[key];
-  DependenciesArr.push(dependenciesObj);
-});
+  Object.keys(dependencies).forEach(key => {
+    const dependenciesObj: PackItem = { name: '', version: '' }
+    dependenciesObj.name = key
+    dependenciesObj.version = dependencies[key]
+    DependenciesArr.push(dependenciesObj)
+  })
 
-Object.keys(devDependencies).forEach((key) => {
-  const dependenciesObj: PackItem = { name: '', version: '' };
-  dependenciesObj.name = key;
-  dependenciesObj.version = devDependencies[key];
-  DevDependenciesArr.push(dependenciesObj);
-});
+  Object.keys(devDependencies).forEach(key => {
+    const dependenciesObj: PackItem = { name: '', version: '' }
+    dependenciesObj.name = key
+    dependenciesObj.version = devDependencies[key]
+    DevDependenciesArr.push(dependenciesObj)
+  })
 </script>
 
 <style scoped lang="scss">
-.n-card:not(:last-child) {
-  margin-bottom: 10px;
-}
+  .n-card:not(:last-child) {
+    margin-bottom: 10px;
+  }
 </style>

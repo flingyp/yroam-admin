@@ -5,5 +5,5 @@ export interface HttpResponse<T> {
   data: T
 }
 
-export * from './SystemHttps';
-export * from './SystemTableDemo';
+export * from './SystemHttps'
+export * from './SystemTableDemo'

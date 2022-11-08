@@ -41,70 +41,68 @@
 </template>
 
 <script setup lang="ts">
-import { userLoginHttp } from '@https/SystemHttps';
-import { setLocalKey } from '@utils/LocalStorage';
-import {
-    FormInst, FormRules, NButton, NForm, NFormItem, NInput, useNotification,
-} from 'naive-ui';
-import { reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
+  import { userLoginHttp } from '@https/SystemHttps'
+  import { setLocalKey } from '@utils/LocalStorage'
+  import { FormInst, FormRules, NButton, NForm, NFormItem, NInput, useNotification } from 'naive-ui'
+  import { reactive, ref } from 'vue'
+  import { useRouter } from 'vue-router'
 
-import { AuthKey } from '@/CONSTANT';
+  import { AuthKey } from '@/CONSTANT'
 
-const router = useRouter();
+  const router = useRouter()
 
-const LoginFormData = reactive({
+  const LoginFormData = reactive({
     username: 'admin',
-    password: '123456',
-});
+    password: '123456'
+  })
 
-const LoginRules: FormRules = {
+  const LoginRules: FormRules = {
     username: [
-        {
-            required: true,
-            message: '请输入用户名',
-            trigger: ['input', 'blur'],
-        },
+      {
+        required: true,
+        message: '请输入用户名',
+        trigger: ['input', 'blur']
+      }
     ],
     password: [
-        {
-            required: true,
-            message: '请输入密码',
-            trigger: ['blur'],
-        },
-    ],
-};
-const FormSize = ref<'small' | 'medium' | 'large'>('large');
-const formRef = ref<FormInst | null>(null);
+      {
+        required: true,
+        message: '请输入密码',
+        trigger: ['blur']
+      }
+    ]
+  }
+  const FormSize = ref<'small' | 'medium' | 'large'>('large')
+  const formRef = ref<FormInst | null>(null)
 
-const notification = useNotification();
+  const notification = useNotification()
 
-const handlerUserLogin = () => {
+  const handlerUserLogin = () => {
     // 验证
-    formRef.value?.validate(async (errors) => {
-        if (errors) return;
+    formRef.value?.validate(async errors => {
+      if (errors) return
 
-        const loginResData = await userLoginHttp(LoginFormData.username, LoginFormData.password);
+      const loginResData = await userLoginHttp(LoginFormData.username, LoginFormData.password)
 
-        if (loginResData) {
-            setLocalKey(AuthKey, loginResData?.token);
-            notification.success({
-                content: '提示：',
-                meta: '登录成功！ 即将进行系统，请稍等',
-                duration: 2000,
-                onAfterLeave: () => {
-                    router.push({ name: 'PermissionCommonIndex' });
-                },
-            });
-        } else {
-            notification.error({
-                content: '提示：',
-                meta: '用户名或密码错误',
-                duration: 3000,
-            });
-        }
-    });
-};
+      if (loginResData) {
+        setLocalKey(AuthKey, loginResData?.token)
+        notification.success({
+          content: '提示：',
+          meta: '登录成功！ 即将进行系统，请稍等',
+          duration: 2000,
+          onAfterLeave: () => {
+            router.push({ name: 'PermissionCommonIndex' })
+          }
+        })
+      } else {
+        notification.error({
+          content: '提示：',
+          meta: '用户名或密码错误',
+          duration: 3000
+        })
+      }
+    })
+  }
 </script>
 
 <style scoped lang="scss">
