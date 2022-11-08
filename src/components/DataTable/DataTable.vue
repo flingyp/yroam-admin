@@ -25,7 +25,7 @@
     IsHaveRawSingleLine?: boolean // 是否有行分割线
     IsHaveColumnSingleLine?: boolean // 是否有列分割线
     IsBorder?: boolean // 是否有边框
-    IsPagination?: false | PaginationProps // 是否分页
+    IsPagination?: PaginationProps // 是否分页
     TableSize?: 'small' | 'medium' | 'large' // 表格整体大小
     IsStriped?: boolean // 表格条纹
     TableMaxHeight: number | undefined // 设置数据内容最大高度来固定头部
@@ -39,7 +39,6 @@
 
   const props = withDefaults(defineProps<DataTableProps>(), {
     IsBorder: true,
-    IsPagination: false,
     IsHaveRawSingleLine: true,
     IsHaveColumnSingleLine: true,
     TableSize: 'medium',

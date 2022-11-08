@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
   import { fetchTableUser, MockTableUser } from '@https/index'
-  import type { DataTableColumns } from 'naive-ui'
+  import type { DataTableColumns, PaginationProps } from 'naive-ui'
   import { NButton, useMessage, NTag, NModal, NCard, NForm, NFormItem, NInput, NInputNumber, useDialog } from 'naive-ui'
   import { h, onMounted, ref, reactive } from 'vue'
 
@@ -135,7 +135,7 @@
   const message = useMessage()
   const dialog = useDialog()
   const IsShowLoading = ref(true)
-  const TablePagination = reactive({
+  const TablePagination = reactive<PaginationProps>({
     page: 1,
     pageSize: 15,
     showSizePicker: true,

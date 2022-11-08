@@ -1,11 +1,15 @@
 <template>
   <GlobalTab></GlobalTab>
   <main class="layout-container-main" v-if="!SystemRouterMenuStore.IsReloadPage">
-    <!-- TODO: 可以配置过渡动画 -->
-    <transition name="fade-slide" mode="out-in" appear>
-      <CommonIframe v-if="$route.meta.link === 'INTERNAL_LINK'"></CommonIframe>
-      <RouterView v-else style="padding: 10px"></RouterView>
-    </transition>
+    <RouterView style="padding: 10px" v-slot="{ Component, route }">
+      <!-- TODO: 可以配置过渡动画 -->
+      <Transition name="fade-slide" mode="out-in" appear>
+        <KeepAlive>
+          <CommonIframe v-if="$route.meta.link === 'INTERNAL_LINK'"></CommonIframe>
+          <Component v-else :is="Component" :key="route.path"></Component>
+        </KeepAlive>
+      </Transition>
+    </RouterView>
   </main>
   <div class="content-loading-container" v-else>
     <NSpin :show="SystemRouterMenuStore.IsReloadPage" size="medium">
