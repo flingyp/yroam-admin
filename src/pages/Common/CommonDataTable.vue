@@ -22,104 +22,116 @@
                     </NFormItem>
                 </NForm>
                 <div style="text-align: right">
-                    <NButton style="margin-right: 10px" secondary @click="() => ModifyInfoModal = false">取消</NButton>
+                    <NButton style="margin-right: 10px" secondary @click="() => (ModifyInfoModal = false)">取消</NButton>
                     <NButton type="info" @click="ModifyUserData">确定</NButton>
                 </div>
             </NCard>
         </NModal>
     </div>
-
 </template>
 
 <script setup lang="ts">
-import { tableMockHttp, UserDemo } from '@https/index';
+import { fetchTableUser, MockTableUser } from '@https/index';
 import type { DataTableColumns } from 'naive-ui';
 import {
-    NButton, useMessage, NTag, NModal, NCard, NForm, NFormItem, NInput, NInputNumber, useDialog,
+    NButton,
+    useMessage,
+    NTag,
+    NModal,
+    NCard,
+    NForm,
+    NFormItem,
+    NInput,
+    NInputNumber,
+    useDialog,
 } from 'naive-ui';
 import {
     h, onMounted, ref, reactive,
 } from 'vue';
 
-const createColumns = ({ play }: { play: (row: UserDemo, type: 'modify' | 'delete') => void }): DataTableColumns<UserDemo> => [
-    {
-        title: 'id',
-        key: 'id',
-        fixed: 'left',
-        width: 200,
-    },
-    {
-        title: '姓名',
-        key: 'username',
-        width: 100,
-    },
-    {
-        title: '年龄',
-        key: 'age',
-        width: 60,
-    },
-    {
-        title: '出生日期',
-        key: 'birthday',
-        width: 120,
-    },
-    {
-        title: '地址',
-        key: 'address',
-    },
-    {
-        title: '邮箱',
-        key: 'email',
-    },
-    {
-        title: '账号状态',
-        key: 'status',
-        width: 100,
-        render(row) {
-            const CurrentStatus = row.status === 1 ? 'success' : 'warning';
-            const CurrentLabel = row.status === 1 ? '正常' : '已禁用';
-            return h(
-                NTag,
-                {
-                    type: CurrentStatus,
-                },
-                { default: () => CurrentLabel },
-            );
+const createColumns = ({
+    play,
+}: {
+    play: (row: MockTableUser, type: 'modify' | 'delete') => void;
+}): DataTableColumns<MockTableUser> => [
+        {
+            title: 'id',
+            key: 'id',
+            fixed: 'left',
+            width: 200,
         },
-    },
-    {
-        title: '行为',
-        key: 'actions',
-        width: 200,
-        fixed: 'right',
-        render(row) {
-            return [
-                h(
-                    NButton,
+        {
+            title: '姓名',
+            key: 'username',
+            width: 100,
+        },
+        {
+            title: '年龄',
+            key: 'age',
+            width: 60,
+        },
+        {
+            title: '出生日期',
+            key: 'birthday',
+            width: 120,
+        },
+        {
+            title: '地址',
+            key: 'address',
+        },
+        {
+            title: '邮箱',
+            key: 'email',
+        },
+        {
+            title: '账号状态',
+            key: 'status',
+            width: 100,
+            render(row) {
+                const CurrentStatus = row.status === 1 ? 'success' : 'warning';
+                const CurrentLabel = row.status === 1 ? '正常' : '已禁用';
+                return h(
+                    NTag,
                     {
-                        type: 'primary',
-                        size: 'small',
-                        style: {
-                            marginRight: '6px',
+                        type: CurrentStatus,
+                    },
+                    { default: () => CurrentLabel },
+                );
+            },
+        },
+        {
+            title: '行为',
+            key: 'actions',
+            width: 200,
+            fixed: 'right',
+            render(row) {
+                return [
+                    h(
+                        NButton,
+                        {
+                            type: 'primary',
+                            size: 'small',
+                            style: {
+                                marginRight: '6px',
+                            },
+                            onClick: () => play(row, 'modify'),
                         },
-                        onClick: () => play(row, 'modify'),
-                    },
-                    { default: () => '修改' },
-                ),
-                h(
-                    NButton,
-                    {
-                        strong: true,
-                        tertiary: true,
-                        size: 'small',
-                        onClick: () => play(row, 'delete'),
-                    },
-                    { default: () => '删除' },
-                ),
-            ];
+                        { default: () => '修改' },
+                    ),
+                    h(
+                        NButton,
+                        {
+                            strong: true,
+                            tertiary: true,
+                            size: 'small',
+                            onClick: () => play(row, 'delete'),
+                        },
+                        { default: () => '删除' },
+                    ),
+                ];
+            },
         },
-    },
-];
+    ];
 
 const message = useMessage();
 const dialog = useDialog();
@@ -137,8 +149,8 @@ const TablePagination = reactive({
         TablePagination.page = 1;
     },
 });
-const Data = ref<UserDemo[]>([]);
-const ModifyModelData = reactive<UserDemo>({
+const Data = ref<MockTableUser[]>([]);
+const ModifyModelData = reactive<MockTableUser>({
     id: '',
     birthday: '',
     status: 0,
@@ -149,7 +161,7 @@ const ModifyModelData = reactive<UserDemo>({
 });
 const ModifyInfoModal = ref(false);
 const Columns = createColumns({
-    play(row: UserDemo, type: 'modify' | 'delete') {
+    play(row: MockTableUser, type: 'modify' | 'delete') {
         if (type === 'modify') {
             Object.assign(ModifyModelData, row);
             ModifyInfoModal.value = true;
@@ -160,7 +172,9 @@ const Columns = createColumns({
                 positiveText: '删除',
                 negativeText: '取消',
                 onPositiveClick: () => {
-                    const findUserIndex = Data.value.findIndex((item) => item.id === row.id);
+                    const findUserIndex = Data.value.findIndex(
+                        (item) => item.id === row.id,
+                    );
                     if (findUserIndex === -1) {
                         message.error('用户不存在');
                     } else {
@@ -189,7 +203,7 @@ const ModifyUserData = () => {
 };
 
 onMounted(async () => {
-    const TableData = await tableMockHttp();
+    const TableData = await fetchTableUser();
     if (TableData) {
         Data.value = TableData;
         IsShowLoading.value = false;

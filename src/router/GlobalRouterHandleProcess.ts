@@ -1,5 +1,4 @@
 import { useCommonType } from '@flypeng/tool';
-import { userInfoHttp } from '@https/SystemHttps';
 import {
     SystemAccountInfoStoreState,
     SystemRouterMenuStoreState,
@@ -11,6 +10,7 @@ import { SystemRoute } from 'configs';
 import { cloneDeep } from 'lodash';
 import { Store } from 'pinia';
 import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router';
+import { fetchUserInfo } from '@https/index';
 import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS';
 import { CONSTANT_ROUTERS, RedirectNotFoundRoute } from './modules/CONSTANT_ROUTERS';
 import {
@@ -41,7 +41,7 @@ const routeHandleGenerateMenuProcess = async (
     RouterInstance: Router,
 ) => {
     // 1. 获取用户信息
-    const responseUserInfo = await userInfoHttp();
+    const responseUserInfo = await fetchUserInfo();
 
     let Permissions: string[] = [];
 

@@ -19,6 +19,7 @@ module.exports = {
     'vue/no-v-model-argument': 0,
     'no-unused-vars': 0,
     'no-plusplus': 0,
+    'no-shadow': 0,
     'import/prefer-default-export': 0,
     'no-return-await': 0,
     'import/no-extraneous-dependencies': [
@@ -31,6 +32,7 @@ module.exports = {
       }
     ],
     'no-param-reassign': ['error', { props: false }],
+    'no-underscore-dangle': ['error', { "allowAfterThis": true, "allowAfterSuper": true, }],
     'max-len': 0,
     "indent": 0
   }
