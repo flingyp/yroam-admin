@@ -1,9 +1,8 @@
 <template>
   <GlobalTab></GlobalTab>
   <main class="layout-container-main" v-if="!SystemRouterMenuStore.IsReloadPage">
-    <!-- TODO: iframe外链 -->
-    <iframe v-if="route.meta.link === 'INTERNAL_LINK'" :src="route.meta.url"></iframe>
-    <RouterView v-else></RouterView>
+    <CommonIframe v-if="$route.meta.link === 'INTERNAL_LINK'"></CommonIframe>
+    <RouterView v-else style="padding: 10px"></RouterView>
   </main>
   <div class="content-loading-container" v-else>
     <NSpin :show="SystemRouterMenuStore.IsReloadPage" size="medium">
@@ -15,31 +14,23 @@
 <script setup lang="ts">
 import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue';
 import { NSpin } from 'naive-ui';
-import { useRoute } from 'vue-router';
+import { ref } from 'vue';
 
-import { useSystemRouterMenuStore } from '@store/index';
+import { useSystemRouterMenuStore, useSystemConfigStore } from '@store/index';
+import CommonIframe from './CommonIframe.vue';
 
-const route = useRoute();
+const SystemConfigStore = useSystemConfigStore();
 const SystemRouterMenuStore = useSystemRouterMenuStore();
+
+const ContainerHeight = ref(SystemConfigStore.MainContainerHeight);
 </script>
 
-<style scoped lang="scss">
-  .layout-container-main {
-    padding: 8px;
-  }
-
-  .content-loading-container {
-    width: 100%;
-    // TODO: 不能写死
-    height: calc(100vh - 64px - 64px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  iframe {
-    width: 100%;
-    height: calc(100vh - 64px - 64px);
-    border-radius: 4px;
-  }
+<style scoped>
+.content-loading-container {
+  width: 100%;
+  height: v-bind(ContainerHeight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

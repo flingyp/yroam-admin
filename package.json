@@ -2,7 +2,7 @@
   "name": "yroam-admin",
   "version": "0.8.0",
   "scripts": {
-    "dev": "vite",
+    "serve": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky install",

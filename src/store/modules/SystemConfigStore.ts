@@ -38,5 +38,8 @@ export const useSystemConfigStore = defineStore('SystemConfigStore', {
                 },
             };
         },
+        MainContainerHeight(state): string {
+            return `calc(100vh - ${state.HeaderHeight}px - ${state.FooterHeight}px - ${state.TabHeight}px)`;
+        },
     },
 });
