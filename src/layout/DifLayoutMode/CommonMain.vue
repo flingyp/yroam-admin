@@ -1,8 +1,11 @@
 <template>
   <GlobalTab></GlobalTab>
   <main class="layout-container-main" v-if="!SystemRouterMenuStore.IsReloadPage">
-    <CommonIframe v-if="$route.meta.link === 'INTERNAL_LINK'"></CommonIframe>
-    <RouterView v-else style="padding: 10px"></RouterView>
+    <!-- TODO: 可以配置过渡动画 -->
+    <transition name="fade-slide" mode="out-in" appear>
+      <CommonIframe v-if="$route.meta.link === 'INTERNAL_LINK'"></CommonIframe>
+      <RouterView v-else style="padding: 10px"></RouterView>
+    </transition>
   </main>
   <div class="content-loading-container" v-else>
     <NSpin :show="SystemRouterMenuStore.IsReloadPage" size="medium">
