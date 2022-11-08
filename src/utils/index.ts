@@ -1,2 +1,3 @@
-export * from './Colord';
-export * from './LocalStorage';
+export * from './Colord'
+export * from './HttpRequest'
+export * from './LocalStorage'

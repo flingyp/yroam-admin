@@ -1,15 +1,15 @@
-import { defineStore } from 'pinia';
-import { UserInfo } from '@/https/modules/SystemHttps';
+import { UserInfoRes } from '@https/index'
+import { defineStore } from 'pinia'
 
 export interface SystemAccountInfoStoreState {
-    user: UserInfo
+  user: UserInfoRes
 }
 
 export const useSystemAccountInfoStore = defineStore('SystemAccountInfoStore', {
-    state: (): SystemAccountInfoStoreState => {
-        const user: UserInfo = {};
-        return {
-            user,
-        };
-    },
-});
+  state: (): SystemAccountInfoStoreState => {
+    const user: UserInfoRes = {}
+    return {
+      user
+    }
+  }
+})

@@ -15,25 +15,25 @@
 </template>
 
 <script setup lang="ts">
-import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue';
-import { NSpin } from 'naive-ui';
-import { ref } from 'vue';
+  import GlobalTab from '@layout/LayoutComponent/GlobalTab.vue'
+  import { NSpin } from 'naive-ui'
+  import { ref } from 'vue'
 
-import { useSystemRouterMenuStore, useSystemConfigStore } from '@store/index';
-import CommonIframe from './CommonIframe.vue';
+  import { useSystemRouterMenuStore, useSystemConfigStore } from '@store/index'
+  import CommonIframe from './CommonIframe.vue'
 
-const SystemConfigStore = useSystemConfigStore();
-const SystemRouterMenuStore = useSystemRouterMenuStore();
+  const SystemConfigStore = useSystemConfigStore()
+  const SystemRouterMenuStore = useSystemRouterMenuStore()
 
-const ContainerHeight = ref(SystemConfigStore.MainContainerHeight);
+  const ContainerHeight = ref(SystemConfigStore.MainContainerHeight)
 </script>
 
 <style scoped>
-.content-loading-container {
-  width: 100%;
-  height: v-bind(ContainerHeight);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .content-loading-container {
+    width: 100%;
+    height: v-bind(ContainerHeight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>

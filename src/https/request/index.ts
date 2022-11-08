@@ -1,1 +1,1 @@
-export * from './RequestInstance';
+export * from './RequestInstance'

@@ -15,15 +15,15 @@
 </template>
 
 <script setup lang="ts">
-import GlobalFullyScreen from '@layout/LayoutComponent/GlobalFullyScreen.vue';
-import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue';
-import GlobalMenu from '@layout/LayoutComponent/GlobalMenu.vue';
-import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue';
-import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue';
+  import GlobalFullyScreen from '@layout/LayoutComponent/GlobalFullyScreen.vue'
+  import GlobalLogoTitle from '@layout/LayoutComponent/GlobalLogoTitle.vue'
+  import GlobalMenu from '@layout/LayoutComponent/GlobalMenu.vue'
+  import GlobalSettingIcon from '@layout/LayoutComponent/GlobalSettingIcon.vue'
+  import GlobalUserCenter from '@layout/LayoutComponent/GlobalUserCenter.vue'
 
-import { useSystemRouterMenuStore } from '@store/index';
+  import { useSystemRouterMenuStore } from '@store/index'
 
-const SystemRouterMenuStore = useSystemRouterMenuStore();
+  const SystemRouterMenuStore = useSystemRouterMenuStore()
 </script>
 
 <style scoped lang="scss">

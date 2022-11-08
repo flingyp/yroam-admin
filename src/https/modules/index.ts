@@ -1,2 +1,2 @@
-export * from './auth/SystemUser';
-export * from './mock/MockSystemTable';
+export * from './auth/SystemUser'
+export * from './mock/MockSystemTable'

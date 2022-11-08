@@ -1,16 +1,25 @@
 <template>
-    <NDataTable :columns="TableColumns" :data="TableData" :bordered="IsBorder" :single-line="ColumnSingleLine"
-        :single-column="RawSingleLine" :size="TableSize" :striped="IsStriped" :maxHeight="TableMaxHeight"
-        :scroll-x="ScrollX" :loading="IsLoading" :pagination="IsPagination" />
-
+  <NDataTable
+    :columns="TableColumns"
+    :data="TableData"
+    :bordered="IsBorder"
+    :single-line="ColumnSingleLine"
+    :single-column="RawSingleLine"
+    :size="TableSize"
+    :striped="IsStriped"
+    :maxHeight="TableMaxHeight"
+    :scroll-x="ScrollX"
+    :loading="IsLoading"
+    :pagination="IsPagination"
+  />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { NDataTable } from 'naive-ui';
-import type { PaginationProps } from 'naive-ui';
+  import { computed } from 'vue'
+  import { NDataTable } from 'naive-ui'
+  import type { PaginationProps } from 'naive-ui'
 
-interface DataTableProps {
+  interface DataTableProps {
     TableColumns: Array<any> // 表头数据
     TableData: Array<any> // 表格数据
     IsHaveRawSingleLine?: boolean // 是否有行分割线
@@ -22,13 +31,13 @@ interface DataTableProps {
     TableMaxHeight: number | undefined // 设置数据内容最大高度来固定头部
     ScrollX: number | undefined // 设置表格是否横向滚动
     IsLoading: boolean // 是否显示loading状态
-}
+  }
 
-interface DataTableEmits {
+  interface DataTableEmits {
     (e: 'update:IsLoading', show: boolean): boolean
-}
+  }
 
-const props = withDefaults(defineProps<DataTableProps>(), {
+  const props = withDefaults(defineProps<DataTableProps>(), {
     IsBorder: true,
     IsPagination: false,
     IsHaveRawSingleLine: true,
@@ -37,15 +46,14 @@ const props = withDefaults(defineProps<DataTableProps>(), {
     IsStriped: true,
     TableMaxHeight: undefined,
     ScrollX: undefined,
-    IsShowLoading: false,
-});
-defineEmits<DataTableEmits>();
+    IsShowLoading: false
+  })
+  defineEmits<DataTableEmits>()
 
-const RawSingleLine = computed(() => (!props.IsHaveRawSingleLine));
-const ColumnSingleLine = computed(() => (!props.IsHaveColumnSingleLine));
-
+  const RawSingleLine = computed(() => !props.IsHaveRawSingleLine)
+  const ColumnSingleLine = computed(() => !props.IsHaveColumnSingleLine)
 </script>
 
 <script lang="ts">
-export default { name: 'DataTable' };
+  export default { name: 'DataTable' }
 </script>
