@@ -1,6 +1,6 @@
 {
   "name": "yroam-admin",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "scripts": {
     "serve": "vite",
     "build": "vite build",

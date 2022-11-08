@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/flingyp/yroam-admin/compare/v0.8.0...v0.9.0) (2022-11-08)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 数据表格使用Mock数据 ([7c06250](https://github.com/flingyp/yroam-admin/commit/7c062500be765bded702b6737f3ad9d9a9899ac4))
+* **projects:** 完善表格组件固定头部、固定列和分页功能等 ([449ba3d](https://github.com/flingyp/yroam-admin/commit/449ba3dcb3540492048094321ac8e84921994d7c))
+
 ## [0.8.0](https://github.com/flingyp/yroam-admin/compare/v0.7.0...v0.8.0) (2022-11-05)
 
 
