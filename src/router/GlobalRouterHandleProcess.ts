@@ -3,7 +3,8 @@ import {
   SystemAccountInfoStoreState,
   SystemRouterMenuStoreState,
   useSystemAccountInfoStore,
-  useSystemRouterMenuStore
+  useSystemRouterMenuStore,
+  useSystemConfigStore
 } from '@store/index'
 import { getLocalKey } from '@utils/LocalStorage'
 import { SystemRoute } from 'configs'
@@ -15,10 +16,7 @@ import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
 import { CONSTANT_ROUTERS, RedirectNotFoundRoute } from './modules/CONSTANT_ROUTERS'
 import { filterRoutes, generateSystemMenu, mountRoute, transform, transformSystemRouteToRouteRecordRaw } from './utils'
 
-import { AuthKey, LoginRouteKey, NotFoundRouteKey, SystemHomeKey } from '@/CONSTANT'
-
-// TODO: 白名单后期放置在系统配置中
-const WhiteRouteList: string[] = [LoginRouteKey, NotFoundRouteKey]
+import { AuthKey, LoginRouteKey, SystemHomeKey } from '@/CONSTANT'
 
 // TODO: 后期需要在文档中接受相关逻辑
 
@@ -95,6 +93,7 @@ export default async (
   next: NavigationGuardNext,
   RouterInstance: Router
 ) => {
+  const SystemConfigStore = useSystemConfigStore()
   const SystemRouterMenuStore = useSystemRouterMenuStore()
   const SystemAccountInfoStore = useSystemAccountInfoStore()
 
@@ -131,7 +130,7 @@ export default async (
   } else {
     // 1.1：没有AccessToken的情况
     // 1.1.1：判断是否配置了白名单，如果配置了直接放行
-    const isAccess = WhiteRouteList.includes(to.name as string)
+    const isAccess = SystemConfigStore.WhiteRouteList.includes(to.name as string)
     // 1.1.2：没有配置白名单，跳转到登录页面
     if (isAccess) {
       next()

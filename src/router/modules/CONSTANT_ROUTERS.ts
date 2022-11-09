@@ -72,7 +72,8 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     name: 'Common-Page',
     component: 'Layout',
     meta: {
-      label: '常用页面'
+      label: '常用页面',
+      icon: 'material-InsertPageBreakOutlined'
     },
     children: [
       {

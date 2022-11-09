@@ -16,4 +16,5 @@ export interface SystemConfig {
   FooterHeight: number
   TabHeight: number
   TabIsFixed: boolean
+  WhiteRouteList: string[]
 }
