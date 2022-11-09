@@ -17,4 +17,5 @@ export interface SystemConfig {
   TabHeight: number
   TabIsFixed: boolean
   WhiteRouteList: string[]
+  RouteTransitionAnimation: string
 }

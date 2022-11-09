@@ -103,6 +103,13 @@
               :max="60"
             />
           </div>
+          <div class="global-page-item">
+            <span>页面切换动画</span>
+            <NSelect
+              v-model:value="SystemConfigStore.RouteTransitionAnimation"
+              :options="PageTransitionOptions"
+            ></NSelect>
+          </div>
         </div>
       </GlobalSettingContainer>
     </NDrawerContent>
@@ -111,7 +118,7 @@
 
 <script setup lang="ts">
   import type { DrawerPlacement } from 'naive-ui'
-  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch, NInputNumber } from 'naive-ui'
+  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch, NInputNumber, NSelect } from 'naive-ui'
   import { computed, ref } from 'vue'
 
   import { useSwitchTheme } from '@hooks/index'
@@ -186,9 +193,48 @@
     SystemConfigStore.PrimaryColor = value
     setLocalKey(ThemePrimaryColorKey, value)
   }
+
+  // 页面切换动画选项
+  const PageTransitionOptions = [
+    {
+      label: '消退',
+      value: 'fade'
+    },
+    {
+      label: '滑动消退',
+      value: 'fade-slide'
+    },
+    {
+      label: '向下滑动消退',
+      value: 'fade-bottom'
+    },
+    {
+      label: '向上滑动消退',
+      value: 'fade-top'
+    },
+    {
+      label: '放大消退',
+      value: 'fade-scale'
+    },
+    {
+      label: '缩放消退',
+      value: 'zoom-fade'
+    },
+    {
+      label: '缩放弹出',
+      value: 'zoom-out'
+    }
+  ]
 </script>
 
 <style scoped lang="scss">
+  .n-input-number {
+    width: 130px;
+  }
+  .n-select {
+    width: 130px;
+  }
+
   .global-setting-layout-container {
     width: 100%;
     display: grid;

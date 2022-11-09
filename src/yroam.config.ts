@@ -16,5 +16,6 @@ export default (): SystemConfig => ({
   FooterHeight: 64,
   TabHeight: 44,
   TabIsFixed: false,
-  WhiteRouteList: [LoginRouteKey, NotFoundRouteKey]
+  WhiteRouteList: [LoginRouteKey, NotFoundRouteKey],
+  RouteTransitionAnimation: 'fade'
 })
