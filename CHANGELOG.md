@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/flingyp/yroam-admin/compare/v0.9.0...v0.10.0) (2022-11-09)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **projects:** 处理项目中的异常错误 ([5fec1f5](https://github.com/flingyp/yroam-admin/commit/5fec1f561d8e547d27836126cc652bf3507cb4b7))
+
+
+### ✨ Features | 新功能
+
+* **projects:** 可全局配置页面切换动画 ([9dd09a0](https://github.com/flingyp/yroam-admin/commit/9dd09a038b0be90851df4f698f6b275dca980fc4))
+* **projects:** 添加路由过渡动画效果 ([b1cb92f](https://github.com/flingyp/yroam-admin/commit/b1cb92fbddbdb2a50fd475203b4211d60b87bcac))
+
 ## [0.9.0](https://github.com/flingyp/yroam-admin/compare/v0.8.0...v0.9.0) (2022-11-08)
 
 
