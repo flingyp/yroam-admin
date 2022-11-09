@@ -1,0 +1,1 @@
+import{_ as e,e as c,f as n}from"./index.7a2633fe.js";const o={};function r(t,s){return c(),n("div",null,"\u8D85\u7EA7\u7BA1\u7406\u5458\u6743\u9650\u9875\u9762")}const a=e(o,[["render",r]]);export{a as default};
