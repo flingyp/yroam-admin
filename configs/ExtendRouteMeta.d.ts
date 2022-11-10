@@ -16,5 +16,7 @@ declare module 'vue-router' {
     url?: string
     // 路由是否缓存（默认缓存）
     cache?: boolean
+    // 是否是单一路由
+    single?: boolean
   }
 }

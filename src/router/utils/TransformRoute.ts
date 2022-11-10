@@ -1,4 +1,5 @@
 import LayoutContainer from '@layout/BasicLayout/LayoutContainer.vue'
+import MultiRouteContainer from '@layout/BasicLayout/MultiRouteContainer.vue'
 import { SystemRoute } from 'configs'
 import { cloneDeep } from 'lodash'
 import { RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
