@@ -1,6 +1,6 @@
 <div align="center">
 	<a href="https://github.com/flingyp/yroam-admin">
-		<img alt="YRoam Admin Logo" width="140" src="https://s1.ax1x.com/2022/10/29/x5lPv8.png">
+		<img alt="YRoam Admin Logo" width="120" src="https://s1.ax1x.com/2022/10/29/x5lPv8.png">
 	</a>
 	<h1>YRoam Admin</h1>
 </div>
@@ -23,4 +23,4 @@
 
 ## 更新日志
 
-- [YRoam Admin-CHANGELOG](https://github.com/flingyp/yroam-admin/blob/main/CHANGELOG.md)
+- [CHANGELOG](https://github.com/flingyp/yroam-admin/blob/main/CHANGELOG.md)
