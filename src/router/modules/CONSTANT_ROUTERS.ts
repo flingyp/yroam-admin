@@ -21,21 +21,6 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     }
   },
   {
-    path: '/common',
-    name: 'PermissionCommon',
-    component: 'Layout',
-    children: [
-      {
-        path: '',
-        name: 'PermissionCommonIndex',
-        component: '@pages/Permission/CommonIndex.vue',
-        meta: {
-          label: '均可访问权限页面'
-        }
-      }
-    ]
-  },
-  {
     path: '/about',
     name: 'AboutPage',
     component: 'Layout',
@@ -46,7 +31,8 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         component: '@pages/SystemAbout.vue',
         meta: {
           label: '关于',
-          icon: 'material-AcUnitRound'
+          icon: 'material-AcUnitRound',
+          single: true
         }
       }
     ]
@@ -55,6 +41,9 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     path: '/naive',
     name: 'NaiveUI-Component',
     component: 'Layout',
+    meta: {
+      label: '组件示例'
+    },
     children: [
       {
         path: 'component',
@@ -141,6 +130,50 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
           icon: 'antd-FileExclamationOutlined',
           link: 'EXTERNAL_LINK',
           url: 'https://www.naiveui.com'
+        }
+      }
+    ]
+  },
+  {
+    path: '/multi-menu',
+    name: 'Multi--Menu',
+    component: 'Layout',
+    meta: {
+      label: '多级菜单'
+    },
+    children: [
+      {
+        path: 'secondary-menu-1',
+        name: 'SecondaryMenu1',
+        component: '@pages/MultiMenu/SecondaryMenu-1.vue',
+        meta: {
+          label: '二级菜单-1'
+        },
+        children: [
+          {
+            path: 'third-menu-1-1',
+            name: 'ThirdMenu1-1',
+            component: '@pages/MultiMenu/ThirdMenu-1-1.vue',
+            meta: {
+              label: '三级级菜单-1-1'
+            }
+          },
+          {
+            path: 'third-menu-1-2',
+            name: 'ThirdMenu1-2',
+            component: '@pages/MultiMenu/ThirdMenu-1-2.vue',
+            meta: {
+              label: '三级级菜单-1-2'
+            }
+          }
+        ]
+      },
+      {
+        path: 'secondary-menu-2',
+        name: 'SecondaryMenu2',
+        component: '@pages/MultiMenu/SecondaryMenu-2.vue',
+        meta: {
+          label: '二级菜单-2'
         }
       }
     ]
