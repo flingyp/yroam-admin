@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.10.1](https://github.com/flingyp/yroam-admin/compare/v0.10.0...v0.10.1) (2022-11-10)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 实现多级菜单 ([d6369cb](https://github.com/flingyp/yroam-admin/commit/d6369cb7a262085380abc464ab8ad1287477d1cc))
+
 ## [0.10.0](https://github.com/flingyp/yroam-admin/compare/v0.9.0...v0.10.0) (2022-11-09)
 
 
