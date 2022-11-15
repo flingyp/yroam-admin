@@ -53,6 +53,26 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
           label: 'NaiveUI 示例',
           icon: 'ionicons5-LogoWebComponent'
         }
+      },
+      {
+        path: 'echarts',
+        name: 'Echarts-ComponentContainer',
+        component: '@pages/Echarts/EchartsContainer.vue',
+        meta: {
+          label: 'Echarts图标',
+          icon: 'ionicons5-PieChartSharp'
+        },
+        children: [
+          {
+            path: 'pie',
+            name: 'Echarts-PieChart',
+            component: '@pages/Echarts/CommonChart.vue',
+            meta: {
+              label: '常用图表',
+              icon: 'ionicons5-PieChartSharp'
+            }
+          }
+        ]
       }
     ]
   },

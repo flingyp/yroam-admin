@@ -47,7 +47,7 @@
   import { useRouter } from 'vue-router'
   import { fetchUserLogin } from '@https/index'
 
-  import { AuthKey } from '@/CONSTANT'
+  import { AuthKey, SystemHomeKey } from '@/CONSTANT'
 
   const router = useRouter()
 
@@ -89,7 +89,7 @@
           meta: '登录成功！ 即将进行系统，请稍等',
           duration: 2000,
           onAfterLeave: () => {
-            router.push({ name: 'PermissionCommonIndex' })
+            router.push({ name: SystemHomeKey })
           }
         })
       } else {
