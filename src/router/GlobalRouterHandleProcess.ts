@@ -58,16 +58,16 @@ const routeHandleGenerateMenuProcess = async (
   const TransformToAsyncRouters = transformSystemRouteToRouteRecordRaw(FilterSuccessAsyncRouters)
   const TransformToConstantRouters = transformSystemRouteToRouteRecordRaw(CONSTANT_ROUTERS)
 
-  // 3. 挂载路由
-  TransformToAsyncRouters.forEach(AsyncRoute => {
-    // TODO: 过滤掉外链的路由不让被挂载
-    mountRoute(AsyncRoute, RouterInstance)
-  })
-
   // 4. 生成菜单
   const GenerateSuccessSystemMenu = generateSystemMenu([...TransformToConstantRouters, ...TransformToAsyncRouters])
 
-  // 5. 初始化相关状态管理商店
+  // 5. 挂载异步路由
+  TransformToAsyncRouters.forEach(AsyncRoute => {
+    if (AsyncRoute.meta?.link === 'EXTERNAL_LINK') return
+    mountRoute(AsyncRoute, RouterInstance)
+  })
+
+  // 6. 初始化相关状态管理商店
   SystemRouterMenuStore.AsyncSystemRouters = FilterSuccessAsyncRouters
   SystemRouterMenuStore.ConstantSystemRouters = CONSTANT_ROUTERS
   SystemRouterMenuStore.AsyncRouters = TransformToAsyncRouters
