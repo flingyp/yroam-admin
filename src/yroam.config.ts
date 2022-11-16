@@ -1,4 +1,4 @@
-import { SystemConfig } from 'configs'
+import { SystemConfig } from '@configs'
 import { LoginRouteKey, NotFoundRouteKey } from '@/CONSTANT'
 
 export default (): SystemConfig => ({
@@ -15,7 +15,7 @@ export default (): SystemConfig => ({
   SiderWidth: 272,
   FooterHeight: 64,
   TabHeight: 44,
-  TabIsFixed: false,
+  TabIsFixed: true,
   WhiteRouteList: [LoginRouteKey, NotFoundRouteKey],
   RouteTransitionAnimation: 'fade'
 })
