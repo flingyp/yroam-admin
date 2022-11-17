@@ -17,5 +17,6 @@ export default (): SystemConfig => ({
   TabHeight: 44,
   TabIsFixed: true,
   WhiteRouteList: [LoginRouteKey, NotFoundRouteKey],
-  RouteTransitionAnimation: 'fade'
+  RouteTransitionAnimation: 'fade',
+  HandleRoute: 'SERVER'
 })

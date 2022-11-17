@@ -1,5 +1,6 @@
 export type ThemeModeType = 'LIGHT' | 'DARK'
 export type LayoutModeType = 'TOP_MODE' | 'TOP_SIDER_MODE' | 'SIDER_TOP_MODE'
+export type HandleRouteType = 'WEB' | 'SERVER'
 
 export interface SystemConfig {
   SystemName: string
@@ -18,4 +19,5 @@ export interface SystemConfig {
   TabIsFixed: boolean
   WhiteRouteList: string[]
   RouteTransitionAnimation: string
+  HandleRoute: HandleRouteType
 }

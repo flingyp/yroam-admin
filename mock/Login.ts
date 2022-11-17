@@ -67,71 +67,35 @@ const SysUserRouters = (token: string) => {
         name: 'Permission',
         component: 'Layout',
         meta: {
-          title: '菜单权限控制',
-          icon: 'icon-park-outline:permissions',
-          cache: false
-        },
-        children: [
-          {
-            path: 'root',
-            name: 'RootPermission',
-            component: 'permissions/RootPermission',
-            meta: {
-              title: '超级管理员可见',
-              icon: 'icon-park-outline:permissions',
-              cache: false
-            }
-          },
-          {
-            path: 'com',
-            name: 'ComPermission',
-            component: 'permissions/ComPermission',
-            meta: {
-              title: '超级管理员、普通用户可见',
-              icon: 'icon-park-outline:permissions',
-              cache: false
-            }
-          },
-          {
-            path: 'button',
-            name: 'ButtonPermission',
-            component: 'permissions/ButtonPermission',
-            meta: {
-              title: '按钮权限控制',
-              icon: 'icon-park-outline:permissions',
-              cache: false
-            }
-          }
-        ]
-      },
-      {
-        path: '/sysModule',
-        name: 'SysModule',
-        component: 'Layout',
-        meta: {
-          title: '系统管理',
-          icon: 'eos-icons:system-ok',
-          cache: true
+          label: '前端权限测试',
+          icon: 'material-AccessAlarmOutlined'
         },
         children: [
           {
             path: 'user',
-            name: 'SysModule-User',
-            component: 'SysModule/user',
+            name: 'Permission-User',
+            component: '@pages/Permission/UserIndex.vue',
             meta: {
-              title: '用户管理',
-              icon: 'eos-icons:system-ok',
-              cache: true
+              label: '普通用户权限页面',
+              permissions: ['sys:user:*']
             }
           },
           {
             path: 'role',
-            name: 'SysModule-Role',
-            component: 'SysModule/role',
+            name: 'Permission-Role',
+            component: '@pages/Permission/RoleIndex.vue',
             meta: {
-              title: '角色管理',
-              icon: 'eos-icons:system-ok',
-              cache: true
+              label: '超级管理员权限页面',
+              permissions: ['sys:root:*'],
+              icon: 'ionicons5-BagCheck'
+            }
+          },
+          {
+            path: 'button',
+            name: 'Permission-Button',
+            component: '@pages/Permission/ButtonIndex.vue',
+            meta: {
+              label: '按钮级权限指令控制'
             }
           }
         ]
@@ -146,39 +110,35 @@ const SysUserRouters = (token: string) => {
         name: 'Permission',
         component: 'Layout',
         meta: {
-          title: '菜单权限控制',
-          icon: 'icon-park-outline:permissions',
-          cache: false
+          label: '前端权限测试',
+          icon: 'material-AccessAlarmOutlined'
         },
         children: [
           {
             path: 'user',
-            name: 'UserPermission',
-            component: 'permissions/UserPermission',
+            name: 'Permission-User',
+            component: '@pages/Permission/UserIndex.vue',
             meta: {
-              title: '普通用户可见',
-              icon: 'icon-park-outline:permissions',
-              cache: false
+              label: '普通用户权限页面',
+              permissions: ['sys:user:*']
             }
           },
           {
-            path: 'com',
-            name: 'ComPermission',
-            component: 'permissions/ComPermission',
+            path: 'role',
+            name: 'Permission-Role',
+            component: '@pages/Permission/RoleIndex.vue',
             meta: {
-              title: '超级管理员、普通用户可见',
-              icon: 'icon-park-outline:permissions',
-              cache: false
+              label: '超级管理员权限页面',
+              permissions: ['sys:root:*'],
+              icon: 'ionicons5-BagCheck'
             }
           },
           {
             path: 'button',
-            name: 'ButtonPermission',
-            component: 'permissions/ButtonPermission',
+            name: 'Permission-Button',
+            component: '@pages/Permission/ButtonIndex.vue',
             meta: {
-              title: '按钮权限控制',
-              icon: 'icon-park-outline:permissions',
-              cache: false
+              label: '按钮级权限指令控制'
             }
           }
         ]
@@ -200,7 +160,7 @@ export default [
     response: ({ headers }: any) => SysUserInfo(headers.token)
   },
   {
-    url: '/dev/auth/getRouters',
+    url: '/dev/auth/asyncRouters',
     method: 'post',
     response: ({ headers }: any) => SysUserRouters(headers.token)
   }

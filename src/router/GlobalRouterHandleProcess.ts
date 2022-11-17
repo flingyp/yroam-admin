@@ -1,3 +1,4 @@
+import { SystemConfig } from '@configs'
 import { useCommonType } from '@flypeng/tool'
 import {
   SystemAccountInfoStoreState,
@@ -11,7 +12,7 @@ import { SystemRoute } from 'configs'
 import { cloneDeep } from 'lodash'
 import { Store } from 'pinia'
 import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
-import { fetchUserInfo } from '@https/index'
+import { fetchUserInfo, fetchUserAsyncRouters } from '@https/index'
 import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
 import { CONSTANT_ROUTERS, RedirectNotFoundRoute } from './modules/CONSTANT_ROUTERS'
 import { filterRoutes, generateSystemMenu, mountRoute, transform, transformSystemRouteToRouteRecordRaw } from './utils'
@@ -30,6 +31,7 @@ import { AuthKey, LoginRouteKey, SystemHomeKey } from '@/CONSTANT'
  *  5. 初始化相关状态管理
  */
 const routeHandleGenerateMenuProcess = async (
+  SystemConfigStore: Store<'SystemConfigStore', SystemConfig, {}, {}>,
   SystemRouterMenuStore: Store<'SystemRouterMenuStore', SystemRouterMenuStoreState, {}, {}>,
   SystemAccountInfoStore: Store<'SystemAccountInfoStore', SystemAccountInfoStoreState, {}, {}>,
   RouterInstance: Router
@@ -44,14 +46,19 @@ const routeHandleGenerateMenuProcess = async (
     Permissions = responseUserInfo.permissions ? responseUserInfo.permissions : []
   }
 
-  // TODO: 判断当前项目是前端控制路由权限还是后端控制（目前默认是前端控制路由）
-
   // 2. 筛选异步路由
   let SystemAsyncRouters: SystemRoute[] = []
 
-  SystemAsyncRouters = cloneDeep(ASYNC_ROUTERS)
+  // 2.1 控制处理系统异步路由的方式
+  if (SystemConfigStore.HandleRoute === 'WEB') {
+    // Get Async Route by ASYNC_ROUTERS file
+    SystemAsyncRouters = cloneDeep(ASYNC_ROUTERS)
+  } else {
+    // Get Async Route by Network Request
+    SystemAsyncRouters = await fetchUserAsyncRouters()
+  }
 
-  // 2.1 过滤成功的系统异步路由
+  // 2.2 过滤成功的系统异步路由
   const FilterSuccessAsyncRouters = filterRoutes(SystemAsyncRouters, Permissions)
 
   // 3. 转换为VueRouter路由
@@ -105,14 +112,24 @@ export default async (
     if (from.name === LoginRouteKey && to.name !== LoginRouteKey) {
       // 1.0.1 从登录页跳转进来
       if (!SystemRouterMenuStore.IsMountedRouter) {
-        await routeHandleGenerateMenuProcess(SystemRouterMenuStore, SystemAccountInfoStore, RouterInstance)
+        await routeHandleGenerateMenuProcess(
+          SystemConfigStore,
+          SystemRouterMenuStore,
+          SystemAccountInfoStore,
+          RouterInstance
+        )
         SystemRouterMenuStore.IsMountedRouter = true
         next({ path: to.fullPath, replace: true })
       }
     } else if (from.name === undefined && to.name !== LoginRouteKey) {
       // 1.0.2 不是从登录页来的，去的也不是登录页（场景：刷新页面的情况）
       if (!SystemRouterMenuStore.IsMountedRouter) {
-        await routeHandleGenerateMenuProcess(SystemRouterMenuStore, SystemAccountInfoStore, RouterInstance)
+        await routeHandleGenerateMenuProcess(
+          SystemConfigStore,
+          SystemRouterMenuStore,
+          SystemAccountInfoStore,
+          RouterInstance
+        )
         SystemRouterMenuStore.IsMountedRouter = true
         next({ path: to.fullPath, replace: true })
       }
