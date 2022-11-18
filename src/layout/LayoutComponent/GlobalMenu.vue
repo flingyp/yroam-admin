@@ -47,7 +47,7 @@
   }
 
   const MenuInverted = computed(() => {
-    if (props.mode === 'horizontal') return SystemConfigStore.HeaderInverted
-    return SystemConfigStore.SiderInverted
+    if (props.mode === 'horizontal') return SystemConfigStore.SystemViewConfig.HeaderInverted
+    return SystemConfigStore.SystemViewConfig.SiderInverted
   })
 </script>

@@ -37,8 +37,8 @@
     return false
   })
 
-  const isFixed = computed(() => SystemConfigStore.TabIsFixed)
-  const TabHeight = computed(() => SystemConfigStore.TabHeight)
+  const isFixed = computed(() => SystemConfigStore.SystemViewConfig.TabIsFixed)
+  const TabHeight = computed(() => SystemConfigStore.SystemViewConfig.TabHeight)
 
   const TabMenuSettingOptions: DropdownOption[] = reactive([
     {

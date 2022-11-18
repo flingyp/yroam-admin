@@ -1,7 +1,11 @@
 <template>
   <!-- 'TOP_MODE' | 'TOP_SIDER_MODE' | 'SIDER_TOP_MODE' -->
   <NLayout :has-sider="isSiderTopMode">
-    <NLayoutHeader bordered v-if="isTopMode || isTopSiderMode" :inverted="SystemConfigStore.HeaderInverted">
+    <NLayoutHeader
+      bordered
+      v-if="isTopMode || isTopSiderMode"
+      :inverted="SystemConfigStore.SystemViewConfig.HeaderInverted"
+    >
       <slot name="header">默认头部</slot>
     </NLayoutHeader>
 
@@ -10,7 +14,7 @@
       collapse-mode="width"
       :collapsed="SystemConfigStore.SiderCollapse"
       :native-scrollbar="false"
-      :inverted="SystemConfigStore.SiderInverted"
+      :inverted="SystemConfigStore.SystemViewConfig.SiderInverted"
       v-if="isSiderTopMode"
     >
       <slot name="sider">默认侧边栏</slot>
@@ -21,7 +25,7 @@
     </NLayoutContent>
 
     <NLayout v-if="!isTopMode" :has-sider="isTopSiderMode">
-      <NLayoutHeader bordered :inverted="SystemConfigStore.HeaderInverted" v-if="isSiderTopMode">
+      <NLayoutHeader bordered :inverted="SystemConfigStore.SystemViewConfig.HeaderInverted" v-if="isSiderTopMode">
         <slot name="header">默认头部</slot>
       </NLayoutHeader>
 
@@ -30,7 +34,7 @@
         collapse-mode="width"
         :collapsed="SystemConfigStore.SiderCollapse"
         :native-scrollbar="false"
-        :inverted="SystemConfigStore.SiderInverted"
+        :inverted="SystemConfigStore.SystemViewConfig.SiderInverted"
         v-if="isTopSiderMode"
       >
         <slot name="sider">默认侧边栏</slot>
@@ -40,12 +44,16 @@
         <slot name="content">默认内容</slot>
       </NLayoutContent>
 
-      <NLayoutFooter bordered :inverted="SystemConfigStore.FooterInverted" v-if="isSiderTopMode">
+      <NLayoutFooter bordered :inverted="SystemConfigStore.SystemViewConfig.FooterInverted" v-if="isSiderTopMode">
         <slot name="footer">默认底部</slot>
       </NLayoutFooter>
     </NLayout>
 
-    <NLayoutFooter bordered :inverted="SystemConfigStore.FooterInverted" v-if="isTopMode || isTopSiderMode">
+    <NLayoutFooter
+      bordered
+      :inverted="SystemConfigStore.SystemViewConfig.FooterInverted"
+      v-if="isTopMode || isTopSiderMode"
+    >
       <slot name="footer">默认底部</slot>
     </NLayoutFooter>
   </NLayout>
@@ -62,10 +70,10 @@
   const isTopSiderMode = computed(() => SystemConfigStore.LayoutMode === 'TOP_SIDER_MODE')
   const isSiderTopMode = computed(() => SystemConfigStore.LayoutMode === 'SIDER_TOP_MODE')
 
-  const isHeaderHeight = computed(() => SystemConfigStore.HeaderHeight)
-  const isFooterHeight = computed(() => SystemConfigStore.FooterHeight)
+  const isHeaderHeight = computed(() => SystemConfigStore.SystemViewConfig.HeaderHeight)
+  const isFooterHeight = computed(() => SystemConfigStore.SystemViewConfig.FooterHeight)
 
-  const isSiderWidth = computed(() => SystemConfigStore.SiderWidth)
+  const isSiderWidth = computed(() => SystemConfigStore.SystemViewConfig.SiderWidth)
   const isSiderHeight = computed(() => {
     if (isTopSiderMode.value) return `calc(100vh - ${isHeaderHeight.value}px - ${isFooterHeight.value}px)`
     if (isSiderTopMode.value) return '100vh'

@@ -58,28 +58,28 @@
         </div>
       </GlobalSettingContainer>
 
-      <GlobalSettingContainer title="系统界面功能">
+      <GlobalSettingContainer title="系统界面配置">
         <div class="global-page-container">
           <div class="global-page-item">
             <span>侧边栏反转色</span>
-            <NSwitch v-model:value="SystemConfigStore.SiderInverted"></NSwitch>
+            <NSwitch v-model:value="SystemConfigStore.SystemViewConfig.SiderInverted"></NSwitch>
           </div>
           <div class="global-page-item">
             <span>顶部栏反转色</span>
-            <NSwitch v-model:value="SystemConfigStore.HeaderInverted"></NSwitch>
+            <NSwitch v-model:value="SystemConfigStore.SystemViewConfig.HeaderInverted"></NSwitch>
           </div>
           <div class="global-page-item">
             <span>底部栏反转色</span>
-            <NSwitch v-model:value="SystemConfigStore.FooterInverted"></NSwitch>
+            <NSwitch v-model:value="SystemConfigStore.SystemViewConfig.FooterInverted"></NSwitch>
           </div>
           <div class="global-page-item">
             <span>Tab栏是否固定</span>
-            <NSwitch v-model:value="SystemConfigStore.TabIsFixed"></NSwitch>
+            <NSwitch v-model:value="SystemConfigStore.SystemViewConfig.TabIsFixed"></NSwitch>
           </div>
           <div class="global-page-item">
             <span>顶部栏高度</span>
             <NInputNumber
-              v-model:value="SystemConfigStore.HeaderHeight"
+              v-model:value="SystemConfigStore.SystemViewConfig.HeaderHeight"
               placeholder="Min 44, Max 84"
               :min="44"
               :max="84"
@@ -88,7 +88,7 @@
           <div class="global-page-item">
             <span>侧边栏宽度</span>
             <NInputNumber
-              v-model:value="SystemConfigStore.SiderWidth"
+              v-model:value="SystemConfigStore.SystemViewConfig.SiderWidth"
               placeholder="Min 220, Max 320"
               :min="220"
               :max="320"
@@ -97,7 +97,7 @@
           <div class="global-page-item">
             <span>底部栏高度</span>
             <NInputNumber
-              v-model:value="SystemConfigStore.FooterHeight"
+              v-model:value="SystemConfigStore.SystemViewConfig.FooterHeight"
               placeholder="Min 44, Max 84"
               :min="44"
               :max="84"
@@ -106,7 +106,7 @@
           <div class="global-page-item">
             <span>Tab栏高度</span>
             <NInputNumber
-              v-model:value="SystemConfigStore.TabHeight"
+              v-model:value="SystemConfigStore.SystemViewConfig.TabHeight"
               placeholder="Min 40, Max 60"
               :min="40"
               :max="60"
@@ -115,7 +115,7 @@
           <div class="global-page-item">
             <span>页面切换动画</span>
             <NSelect
-              v-model:value="SystemConfigStore.RouteTransitionAnimation"
+              v-model:value="SystemConfigStore.SystemViewConfig.RouteTransitionAnimation"
               :options="PageTransitionOptions"
             ></NSelect>
           </div>

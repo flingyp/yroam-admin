@@ -1,7 +1,7 @@
 <template>
   <div class="top-sider-header-container">
     <div class="top-sider-header-left">
-      <GlobalLogoTitle :style="{ width: SystemConfigStore.SiderWidth + 'px' }"> </GlobalLogoTitle>
+      <GlobalLogoTitle :style="{ width: SystemConfigStore.SystemViewConfig.SiderWidth + 'px' }"> </GlobalLogoTitle>
       <GlobalBreadCrumb></GlobalBreadCrumb>
     </div>
     <div class="top-sider-header-right">

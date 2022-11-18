@@ -2,7 +2,7 @@
   <GlobalTab></GlobalTab>
   <main class="layout-container-main" v-if="!SystemRouterMenuStore.IsReloadPage">
     <RouterView style="padding: 10px" v-slot="{ Component, route }">
-      <Transition :name="SystemConfigStore.RouteTransitionAnimation" mode="out-in" appear>
+      <Transition :name="SystemConfigStore.SystemViewConfig.RouteTransitionAnimation" mode="out-in" appear>
         <KeepAlive>
           <CommonIframe v-if="$route.meta.link === 'INTERNAL_LINK'"></CommonIframe>
           <Component v-else :is="Component" :key="route.path"></Component>
