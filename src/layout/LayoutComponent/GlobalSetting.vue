@@ -7,6 +7,15 @@
     @after-leave="closeDrawerAfter"
   >
     <NDrawerContent title="系统设置" closable>
+      <GlobalSettingContainer title="系统名称">
+        <NInput
+          v-model:value="SystemConfigStore.SystemName"
+          type="text"
+          placeholder="系统名称"
+          style="width: 130px; text-align: center"
+        />
+      </GlobalSettingContainer>
+
       <GlobalSettingContainer title="主题模式">
         <div>
           <NSwitch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
@@ -118,7 +127,7 @@
 
 <script setup lang="ts">
   import type { DrawerPlacement } from 'naive-ui'
-  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch, NInputNumber, NSelect } from 'naive-ui'
+  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch, NInputNumber, NSelect, NInput } from 'naive-ui'
   import { computed, ref } from 'vue'
 
   import { useSwitchTheme } from '@hooks/index'

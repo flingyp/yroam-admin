@@ -1,7 +1,7 @@
 <template>
   <div class="global-logo-title-container">
     <img src="@assets/Img/YRoamLogo.png" alt="YRoam Logo" />
-    <h1 v-show="isCollapse">YRoam Admin</h1>
+    <span v-show="isCollapse">{{ SystemConfigStore.SystemName }}</span>
   </div>
 </template>
 
@@ -19,21 +19,20 @@
 
 <style scoped lang="scss">
   .global-logo-title-container {
-    height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 
     & > img {
-      width: 30px;
-      height: 30px;
-      margin-right: 6px;
-      vertical-align: bottom;
+      width: 25px;
     }
 
-    & > h1 {
+    & > span {
+      margin-left: 4px;
+      margin-top: 6px;
+      font-size: 20px;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-size: 24px;
     }
   }
 </style>

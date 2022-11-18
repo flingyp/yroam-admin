@@ -16,8 +16,8 @@ import { fetchUserInfo, fetchUserAsyncRouters } from '@https/index'
 import { ASYNC_ROUTERS } from './modules/ASYNC_ROUTERS'
 import { CONSTANT_ROUTERS, RedirectNotFoundRoute } from './modules/CONSTANT_ROUTERS'
 import { filterRoutes, generateSystemMenu, mountRoute, transform, transformSystemRouteToRouteRecordRaw } from './utils'
-
 import { AuthKey, LoginRouteKey, SystemHomeKey } from '@/CONSTANT'
+import { WhiteRouteList, HandleRoute } from '@/yroam.config'
 
 // TODO: 后期需要在文档中接受相关逻辑
 
@@ -50,7 +50,7 @@ const routeHandleGenerateMenuProcess = async (
   let SystemAsyncRouters: SystemRoute[] = []
 
   // 2.1 控制处理系统异步路由的方式
-  if (SystemConfigStore.HandleRoute === 'WEB') {
+  if (HandleRoute === 'WEB') {
     // Get Async Route by ASYNC_ROUTERS file
     SystemAsyncRouters = cloneDeep(ASYNC_ROUTERS)
   } else {
@@ -147,7 +147,7 @@ export default async (
   } else {
     // 1.1：没有AccessToken的情况
     // 1.1.1：判断是否配置了白名单，如果配置了直接放行
-    const isAccess = SystemConfigStore.WhiteRouteList.includes(to.name as string)
+    const isAccess = WhiteRouteList.includes(to.name as string)
     // 1.1.2：没有配置白名单，跳转到登录页面
     if (isAccess) {
       next()

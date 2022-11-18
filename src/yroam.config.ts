@@ -1,6 +1,12 @@
-import { SystemConfig } from '@configs'
+import { HandleRouteType, SystemConfig } from '@configs'
 import { LoginRouteKey, NotFoundRouteKey } from '@/CONSTANT'
 
+// 系统白名单路由列表
+export const WhiteRouteList: string[] = [LoginRouteKey, NotFoundRouteKey]
+// 系统异步路由控制方式
+export const HandleRoute: HandleRouteType = 'WEB'
+
+// 系统设置
 export default (): SystemConfig => ({
   SystemName: 'YRoam Admin',
   ThemeMode: 'LIGHT',
@@ -16,7 +22,5 @@ export default (): SystemConfig => ({
   FooterHeight: 64,
   TabHeight: 44,
   TabIsFixed: true,
-  WhiteRouteList: [LoginRouteKey, NotFoundRouteKey],
-  RouteTransitionAnimation: 'fade',
-  HandleRoute: 'SERVER'
+  RouteTransitionAnimation: 'fade'
 })
