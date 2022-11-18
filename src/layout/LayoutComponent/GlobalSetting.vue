@@ -121,27 +121,45 @@
           </div>
         </div>
       </GlobalSettingContainer>
+
+      <GlobalSettingContainer title="拷贝系统配置">
+        <div class="global-setting-copy-button">
+          <NButton type="info" @click="CopySystemConfig">拷贝系统配置</NButton>
+          <NButton @click="ResetSystemConfig">重置系统配置</NButton>
+        </div>
+      </GlobalSettingContainer>
     </NDrawerContent>
   </NDrawer>
 </template>
 
 <script setup lang="ts">
   import type { DrawerPlacement } from 'naive-ui'
-  import { NButton, NColorPicker, NDrawer, NDrawerContent, NSwitch, NInputNumber, NSelect, NInput } from 'naive-ui'
+  import {
+    NButton,
+    NColorPicker,
+    NDrawer,
+    NDrawerContent,
+    NSwitch,
+    NInputNumber,
+    NSelect,
+    NInput,
+    useMessage
+  } from 'naive-ui'
   import { computed, ref } from 'vue'
 
   import { useSwitchTheme } from '@hooks/index'
   import { useSystemConfigStore } from '@store/index'
   import { setLocalKey } from '@utils/index'
-  import { LayoutModeType } from '@configs'
+  import { LayoutModeType, SystemConfig } from '@configs'
+  import { useCopyContent, useDeepClone } from '@flypeng/tool'
   import GlobalSettingContainer from './GlobalSettingContainer.vue'
-
-  import { ThemePrimaryColorKey } from '@/CONSTANT'
+  import { ThemeKey, ThemePrimaryColorKey } from '@/CONSTANT'
 
   const placement = ref<DrawerPlacement>('right')
 
   const SystemConfigStore = useSystemConfigStore()
   const { setThemeMode } = useSwitchTheme()
+  const message = useMessage()
 
   const closeDrawerAfter = () => {
     if (SystemConfigStore.SettingDrawer) {
@@ -171,7 +189,6 @@
       value: '顶部菜单混合'
     }
   ]
-
   const changeLayoutMode = (mode: LayoutModeType) => {
     SystemConfigStore.LayoutMode = mode
   }
@@ -234,6 +251,44 @@
       value: 'zoom-out'
     }
   ]
+
+  // 拷贝系统配置
+  const CopySystemConfig = () => {
+    const SystemConfigContent: SystemConfig = useDeepClone(SystemConfigStore.$state)
+    SystemConfigContent.SettingDrawer = false
+    SystemConfigContent.SiderCollapse = false
+    useCopyContent(JSON.stringify(SystemConfigContent))
+    message.success('复制成功，将剪贴板上的内容粘贴至 yroam.config.ts 系统配置中')
+  }
+
+  // 重置系统配置
+  const ResetSystemConfig = () => {
+    const DefaultSystemConfig: SystemConfig = {
+      SystemName: 'YRoam Admin',
+      ThemeMode: 'LIGHT',
+      LayoutMode: 'SIDER_TOP_MODE',
+      PrimaryColor: '#7B1FA2',
+      SystemViewConfig: {
+        SiderInverted: false,
+        HeaderInverted: false,
+        FooterInverted: false,
+        TabIsFixed: true,
+        HeaderHeight: 64,
+        SiderWidth: 272,
+        FooterHeight: 64,
+        TabHeight: 44,
+        RouteTransitionAnimation: 'fade'
+      },
+      SettingDrawer: false,
+      SiderCollapse: false
+    }
+    DefaultSystemConfig.SettingDrawer = true
+    // 设置明亮主题
+    setThemeMode('LIGHT')
+    setLocalKey(ThemePrimaryColorKey, DefaultSystemConfig.PrimaryColor)
+    SystemConfigStore.$state = DefaultSystemConfig
+    message.success('系统配置已重置为默认配置，如需要替换当前配置请重新拷贝')
+  }
 </script>
 
 <style scoped lang="scss">
@@ -281,12 +336,21 @@
 
   .global-page-container {
     width: 100%;
-
     .global-page-item {
       margin: 8px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+  }
+
+  .global-setting-copy-button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & > .n-button:not(:last-child) {
+      margin-bottom: 10px;
     }
   }
 </style>

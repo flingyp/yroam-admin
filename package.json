@@ -16,7 +16,7 @@
     "release:prepatch": "standard-version --release-as prepatch"
   },
   "dependencies": {
-    "@flypeng/tool": "^2.0.1",
+    "@flypeng/tool": "^2.2.0",
     "@vueuse/core": "^9.4.0",
     "axios": "^1.1.3",
     "colord": "^2.9.3",
