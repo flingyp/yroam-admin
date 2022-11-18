@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/flingyp/yroam-admin/compare/v0.10.1...v0.11.0) (2022-11-18)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 处理系统所有外链路由不需要被挂载到路由上 ([db47eda](https://github.com/flingyp/yroam-admin/commit/db47eda071163f94b47f92218e03a5c7c206a3f4))
+* **projects:** 集成Echart图表 ([f0bc240](https://github.com/flingyp/yroam-admin/commit/f0bc240e372fdb870ba38eda96465d7ed9b51482))
+* **projects:** 添加后端控制系统路由方式 ([1d994f3](https://github.com/flingyp/yroam-admin/commit/1d994f33f9037088de804e8c83f2a1a87c5104a1))
+* **projects:** 添加系统系统配置功能 ([1630721](https://github.com/flingyp/yroam-admin/commit/1630721f6cfe463f3b6a35447a63649ce60b7713))
+* **projects:** 系统配置添加系统名称设置 ([58f10e3](https://github.com/flingyp/yroam-admin/commit/58f10e34046dc7bff8c4e040ad9ec640f85e79b8))
+
 ### [0.10.1](https://github.com/flingyp/yroam-admin/compare/v0.10.0...v0.10.1) (2022-11-10)
 
 
