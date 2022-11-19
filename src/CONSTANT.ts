@@ -6,3 +6,4 @@ export const ThemeKey = 'theme'
 export const ThemePrimaryColorKey = 'primary-color'
 export const TabMenuKey = 'tab-menu'
 export const DefaultMenuIcon = 'Person' // 默认菜单图标
+export const LocalSystemConfigKey = 'local-system-config' // 本地系统配置

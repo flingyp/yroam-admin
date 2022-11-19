@@ -26,6 +26,6 @@ export interface SystemConfig {
   LayoutMode: LayoutModeType // 布局模式
   PrimaryColor: string // 主题颜色
   SystemViewConfig: SystemViewConfigType
-  SettingDrawer: boolean // 系统设置抽屉是否打开
-  SiderCollapse: boolean // 左侧侧边栏是否打开
+  SettingDrawer: boolean // 系统设置抽屉是否打开（默认false）
+  SiderCollapse: boolean // 左侧侧边栏是否打开（默认false）
 }
