@@ -1,6 +1,6 @@
 <template>
-  <ViconsIcon icon="FullscreenOutlined" source="antd" :size="18" v-if="!isFullscreen" @click="enter" />
-  <ViconsIcon icon="FullscreenExitOutlined" source="antd" :size="18" v-else @click="exit" />
+  <IconPark icon="full-screen" :size="16" v-if="!isFullscreen" @click="enter" />
+  <IconPark icon="off-screen" :size="16" v-else @click="exit" />
 </template>
 
 <script setup lang="ts">

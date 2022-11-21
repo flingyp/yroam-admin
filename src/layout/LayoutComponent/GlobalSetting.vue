@@ -20,10 +20,10 @@
         <div>
           <NSwitch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
             <template #checked>
-              <ViconsIcon icon="MoonOutline" source="ionicons5" :size="16"></ViconsIcon>
+              <IconPark icon="moon" :size="14" />
             </template>
             <template #unchecked>
-              <ViconsIcon icon="PartlySunnyOutline" source="ionicons5" :size="16"></ViconsIcon>
+              <IconPark icon="sun" :size="14" />
             </template>
           </NSwitch>
         </div>

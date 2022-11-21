@@ -1,10 +1,6 @@
-import { createVNode } from 'vue'
-import ViconsIcon from './ViconsIcon/ViconsIcon.vue'
+import { createVNode, h } from 'vue'
+import IconPark from './IconPark/IconPark.vue'
 
-export const renderIcon = (icon: string, source: string, color?: string, size?: number) => () =>
-  createVNode(ViconsIcon, {
-    icon,
-    source,
-    color,
-    size
-  })
+export function renderIcon(iconLabel: string, size?: number) {
+  return () => h(IconPark, { icon: iconLabel })
+}

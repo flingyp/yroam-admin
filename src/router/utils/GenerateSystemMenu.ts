@@ -32,10 +32,10 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
 
       // 设置图标
       if (!handleRoute.meta?.icon) {
-        menu.icon = renderIcon('Person', 'ionicons5')
+        menu.icon = renderIcon('emotion-happy')
       } else {
-        const [source, iconLabel] = handleRoute.meta.icon.split('-')
-        menu.icon = renderIcon(iconLabel, source)
+        const iconLabel = handleRoute.meta.icon
+        menu.icon = renderIcon(iconLabel)
       }
 
       // 外链地址

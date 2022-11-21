@@ -110,8 +110,7 @@ const SysUserRouters = (token: string) => {
         name: 'Permission',
         component: 'Layout',
         meta: {
-          label: '前端权限测试',
-          icon: 'material-AccessAlarmOutlined'
+          label: '前端权限测试'
         },
         children: [
           {
@@ -129,8 +128,7 @@ const SysUserRouters = (token: string) => {
             component: '@pages/Permission/RoleIndex.vue',
             meta: {
               label: '超级管理员权限页面',
-              permissions: ['sys:root:*'],
-              icon: 'ionicons5-BagCheck'
+              permissions: ['sys:root:*']
             }
           },
           {
