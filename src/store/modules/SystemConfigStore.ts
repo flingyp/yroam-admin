@@ -18,11 +18,11 @@ export const useSystemConfigStore = defineStore('SystemConfigStore', {
   state: (): SystemConfig => {
     let DefaultSystemConfig = defineConfig()
     const LocalSystemConfig = JSON.parse(getLocalKey(LocalSystemConfigKey) || '{}') as SystemConfig
-    LocalSystemConfig.SettingDrawer = false
-    LocalSystemConfig.SiderCollapse = false
     if (Object.keys(LocalSystemConfig).length !== 0) {
       DefaultSystemConfig = LocalSystemConfig
     }
+    LocalSystemConfig.SettingDrawer = false
+    LocalSystemConfig.SiderCollapse = false
     return DefaultSystemConfig
   },
   getters: {

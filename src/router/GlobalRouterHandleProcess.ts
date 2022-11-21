@@ -1,5 +1,5 @@
 import { SystemConfig } from '@configs'
-import { useCommonType } from '@flypeng/tool'
+import { useCommonType, useDeepClone } from '@flypeng/tool'
 import {
   SystemAccountInfoStoreState,
   SystemRouterMenuStoreState,
@@ -9,7 +9,6 @@ import {
 } from '@store/index'
 import { getLocalKey } from '@utils/LocalStorage'
 import { SystemRoute } from 'configs'
-import { cloneDeep } from 'lodash'
 import { Store } from 'pinia'
 import { NavigationGuardNext, RouteLocationNormalized, Router } from 'vue-router'
 import { fetchUserInfo, fetchUserAsyncRouters } from '@https/index'
@@ -52,7 +51,7 @@ const routeHandleGenerateMenuProcess = async (
   // 2.1 控制处理系统异步路由的方式
   if (HandleRoute === 'WEB') {
     // Get Async Route by ASYNC_ROUTERS file
-    SystemAsyncRouters = cloneDeep(ASYNC_ROUTERS)
+    SystemAsyncRouters = useDeepClone(ASYNC_ROUTERS)
   } else {
     // Get Async Route by Network Request
     SystemAsyncRouters = await fetchUserAsyncRouters()
