@@ -3,6 +3,11 @@ import { resolve } from 'path'
 import type { ConfigEnv, UserConfigExport } from 'vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import clearConsole from 'vite-plugin-clear-console'
+import { name, version } from './package.json'
+
+const templateTitle = name
+const templateVersion = version
 
 export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
   base: './',
@@ -24,15 +29,6 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
   server: {
     host: true,
     cors: true
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          lodash: ['lodash']
-        }
-      }
-    }
   },
   css: {
     preprocessorOptions: {
@@ -56,6 +52,14 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
         `,
       watchFiles: true,
       logger: true
+    }),
+    clearConsole({
+      inject: {
+        path: './src/main.ts',
+        template: [
+          `console.log('%c${templateTitle}%cV${templateVersion}', 'padding: 2px 6px; border-radius: 4px 0 0 4px; color: #fff; background: #606060; font-weight: bold;','padding: 2px 6px; border-radius: 0 4px 4px 0; color: #fff; background: #42c02e; font-weight: bold;')`
+        ]
+      }
     })
   ]
 })

@@ -9,53 +9,25 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "isolatedModules": true,
+    "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@configs": [
-        "./configs/index.d.ts"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
-      "@https/*": [
-        "src/https/*"
-      ],
-      "@layout/*": [
-        "src/layout/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@store/*": [
-        "src/store/*"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@router/*": [
-        "src/router/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
+      "@/*": ["src/*"],
+      "@configs": ["./configs/index.d.ts"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@https/*": ["src/https/*"],
+      "@layout/*": ["src/layout/*"],
+      "@styles/*": ["src/styles/*"],
+      "@store/*": ["src/store/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@router/*": ["src/router/*"],
+      "@components/*": ["src/components/*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "configs/**/*",
-  ],
+  "include": ["src/**/*", "configs/**/*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
