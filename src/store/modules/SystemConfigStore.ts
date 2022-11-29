@@ -5,7 +5,7 @@ import { defineStore } from 'pinia'
 
 import { getDifSceneColor } from '@store/utils/index'
 
-import { ThemeKey, ThemePrimaryColorKey } from '@/CONSTANT'
+import { ThemeKey, ThemePrimaryColorKey, LocalSystemConfigKey } from '@/CONSTANT'
 import defineConfig from '@/yroam.config'
 
 // TODO: info、success、warning、error 颜色应该可自定义
@@ -16,14 +16,13 @@ const ErrorColorMap = getDifSceneColor('#FF4838', 'error')
 
 export const useSystemConfigStore = defineStore('SystemConfigStore', {
   state: (): SystemConfig => {
-    const DefaultSystemConfig = defineConfig()
-    // 本地有主题模式修改默认配置
-    const LocalThemeMode = getLocalKey(ThemeKey) as ThemeModeType
-    if (LocalThemeMode) DefaultSystemConfig.ThemeMode = LocalThemeMode
-    // 本地有主题色值缓存修改默认配置
-    const LocalThemePrimaryColor = getLocalKey(ThemePrimaryColorKey)
-    if (LocalThemePrimaryColor) DefaultSystemConfig.PrimaryColor = LocalThemePrimaryColor
-
+    let DefaultSystemConfig = defineConfig()
+    const LocalSystemConfig = JSON.parse(getLocalKey(LocalSystemConfigKey) || '{}') as SystemConfig
+    if (Object.keys(LocalSystemConfig).length !== 0) {
+      DefaultSystemConfig = LocalSystemConfig
+    }
+    LocalSystemConfig.SettingDrawer = false
+    LocalSystemConfig.SiderCollapse = false
     return DefaultSystemConfig
   },
   getters: {

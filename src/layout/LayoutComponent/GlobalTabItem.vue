@@ -1,14 +1,13 @@
 <template>
   <div class="global-tab-item-container" :style="ActiveKey ? ActiveTabStyle : {}">
     <span>{{ menu.label }}</span>
-    <ViconsIcon
+    <IconPark
       v-show="SystemRouterMenuStore.TabMenusKey.length > 1"
       class="item-icon"
-      icon="CloseOutlined"
-      source="material"
-      :size="14"
+      icon="close"
+      :size="12"
       @click.stop="deleteTabItem(menu.key as string)"
-    ></ViconsIcon>
+    ></IconPark>
   </div>
 </template>
 
@@ -66,7 +65,8 @@
 
     & > .item-icon {
       width: 0;
-      transition: width 0.25s linear;
+      overflow: hidden;
+      transition: width 0.2s linear;
     }
 
     &:hover > .item-icon {

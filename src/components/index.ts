@@ -4,8 +4,9 @@ import ThemeSwitch from './ThemeSwitch/ThemeSwitch.vue'
 import ViconsIcon from './ViconsIcon/ViconsIcon.vue'
 import DataTable from './DataTable/DataTable.vue'
 import EchartContainer from './EchartContainer/EchartContainer.vue'
+import IconPark from './IconPark/IconPark.vue'
 
-const ComponentList = [ViconsIcon, SvgIcon, ThemeSwitch, DataTable, EchartContainer]
+const ComponentList = [SvgIcon, ThemeSwitch, DataTable, EchartContainer, IconPark]
 
 export const registerGlobalComponent = (app: App) => {
   ComponentList.forEach(component => {

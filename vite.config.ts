@@ -25,6 +25,15 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
     host: true,
     cors: true
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          lodash: ['lodash']
+        }
+      }
+    }
+  },
   css: {
     preprocessorOptions: {
       scss: {

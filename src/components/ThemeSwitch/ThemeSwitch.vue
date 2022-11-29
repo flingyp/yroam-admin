@@ -1,9 +1,9 @@
 <template>
   <div @click="switchThemeMode" v-if="CurrentThemeMode === 'LIGHT'">
-    <ViconsIcon icon="PartlySunnyOutline" source="ionicons5"></ViconsIcon>
+    <IconPark icon="sun" :size="14" />
   </div>
   <div @click="switchThemeMode" v-if="CurrentThemeMode === 'DARK'">
-    <ViconsIcon icon="MoonOutline" source="ionicons5"></ViconsIcon>
+    <IconPark icon="moon" :size="14"></IconPark>
   </div>
 </template>
 

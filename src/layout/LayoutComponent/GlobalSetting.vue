@@ -20,10 +20,10 @@
         <div>
           <NSwitch v-model:value="ThemeModeActive" size="medium" @update:value="changeThemeMode">
             <template #checked>
-              <ViconsIcon icon="MoonOutline" source="ionicons5" :size="16"></ViconsIcon>
+              <IconPark icon="moon" :size="14" />
             </template>
             <template #unchecked>
-              <ViconsIcon icon="PartlySunnyOutline" source="ionicons5" :size="16"></ViconsIcon>
+              <IconPark icon="sun" :size="14" />
             </template>
           </NSwitch>
         </div>
@@ -145,21 +145,24 @@
     NInput,
     useMessage
   } from 'naive-ui'
-  import { computed, ref } from 'vue'
-
+  import { computed, ref, watch } from 'vue'
   import { useSwitchTheme } from '@hooks/index'
   import { useSystemConfigStore } from '@store/index'
   import { setLocalKey } from '@utils/index'
   import { LayoutModeType, SystemConfig } from '@configs'
   import { useCopyContent, useDeepClone } from '@flypeng/tool'
   import GlobalSettingContainer from './GlobalSettingContainer.vue'
-  import { ThemeKey, ThemePrimaryColorKey } from '@/CONSTANT'
+  import { ThemePrimaryColorKey, LocalSystemConfigKey } from '@/CONSTANT'
 
   const placement = ref<DrawerPlacement>('right')
 
   const SystemConfigStore = useSystemConfigStore()
   const { setThemeMode } = useSwitchTheme()
   const message = useMessage()
+
+  watch(SystemConfigStore.$state, () => {
+    setLocalKey(LocalSystemConfigKey, JSON.stringify(SystemConfigStore.$state))
+  })
 
   const closeDrawerAfter = () => {
     if (SystemConfigStore.SettingDrawer) {

@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash'
+import { useDeepClone } from '@flypeng/tool'
 import { MenuOption } from 'naive-ui'
 import { RouteRecordRaw } from 'vue-router'
 
@@ -14,7 +14,7 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
   routes.forEach(route => {
     if (route.meta?.isShow === undefined || route.meta.isShow === true) {
       const menu: MenuOption = {}
-      let handleRoute = cloneDeep(route)
+      let handleRoute = useDeepClone(route) as RouteRecordRaw
 
       // 处理子菜单
       if (handleRoute.children) {
@@ -32,10 +32,10 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
 
       // 设置图标
       if (!handleRoute.meta?.icon) {
-        menu.icon = renderIcon('Person', 'ionicons5')
+        menu.icon = renderIcon('emotion-happy')
       } else {
-        const [source, iconLabel] = handleRoute.meta.icon.split('-')
-        menu.icon = renderIcon(iconLabel, source)
+        const iconLabel = handleRoute.meta.icon
+        menu.icon = renderIcon(iconLabel)
       }
 
       // 外链地址

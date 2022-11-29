@@ -10,7 +10,7 @@
     </div>
     <div class="global-tab-right-container">
       <NDropdown trigger="hover" :options="TabMenuSettingOptions" @select="selectTabSetting">
-        <ViconsIcon icon="MenuOutline" source="ionicons5" :size="20" style="cursor: pointer; padding: 4px" />
+        <IconPark icon="hamburger-button" :size="20" style="cursor: pointer; padding: 4px" />
       </NDropdown>
     </div>
   </div>

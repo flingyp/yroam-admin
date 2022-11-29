@@ -1,7 +1,7 @@
 import LayoutContainer from '@layout/BasicLayout/LayoutContainer.vue'
 import MultiRouteContainer from '@layout/BasicLayout/MultiRouteContainer.vue'
 import { SystemRoute } from 'configs'
-import { cloneDeep } from 'lodash'
+import { useDeepClone } from '@flypeng/tool'
 import { RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
 import { globFileModule } from '.'
 
@@ -40,7 +40,7 @@ export const transform = (Route: SystemRoute): RouteRecordRaw => {
  * @returns
  */
 export const transformSystemRouteToRouteRecordRaw = (SystemRoutes: SystemRoute[]): RouteRecordRaw[] => {
-  const SystemRouteClone = cloneDeep(SystemRoutes)
+  const SystemRouteClone = useDeepClone(SystemRoutes) as SystemRoute[]
   const SystemRouteRecordRaw: RouteRecordRaw[] = []
 
   SystemRouteClone.forEach(Route => {
