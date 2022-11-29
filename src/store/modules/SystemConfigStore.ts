@@ -5,14 +5,13 @@ import { defineStore } from 'pinia'
 
 import { getDifSceneColor } from '@store/utils/index'
 
-import { ThemeKey, ThemePrimaryColorKey, LocalSystemConfigKey } from '@/CONSTANT'
+import { ThemeKey, ThemePrimaryColorKey, LocalSystemConfigKey, SceneColorMap } from '@/CONSTANT'
 import defineConfig from '@/yroam.config'
 
-// TODO: info、success、warning、error 颜色应该可自定义
-const InfoColorMap = getDifSceneColor('#687FFF', 'info')
-const SuccessColorMap = getDifSceneColor('#61D132', 'success')
-const WarningColorMap = getDifSceneColor('#FFA500', 'warning')
-const ErrorColorMap = getDifSceneColor('#FF4838', 'error')
+const InfoColorMap = getDifSceneColor(SceneColorMap.info, 'info')
+const SuccessColorMap = getDifSceneColor(SceneColorMap.success, 'success')
+const WarningColorMap = getDifSceneColor(SceneColorMap.warning, 'warning')
+const ErrorColorMap = getDifSceneColor(SceneColorMap.error, 'error')
 
 export const useSystemConfigStore = defineStore('SystemConfigStore', {
   state: (): SystemConfig => {

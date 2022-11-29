@@ -2,7 +2,6 @@ import { useSystemConfigStore } from '@store/index'
 import { getLocalKey, setLocalKey } from '@utils/LocalStorage'
 import { ThemeModeType } from 'configs'
 
-// TODO: 需要完善，闭包的特性无法响应性的获取本地存储的值
 export const useSwitchTheme = () => {
   const SystemConfigStore = useSystemConfigStore()
 

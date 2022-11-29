@@ -1,5 +1,5 @@
 import { HandleRouteType, SystemConfig } from '@configs'
-import { LoginRouteKey, NotFoundRouteKey } from '@/CONSTANT'
+import { LoginRouteKey, NotFoundRouteKey, SceneColorMap } from '@/CONSTANT'
 
 // 系统白名单路由列表
 export const WhiteRouteList: string[] = [LoginRouteKey, NotFoundRouteKey]
@@ -11,7 +11,7 @@ export default (): SystemConfig => ({
   SystemName: 'YRoam Admin',
   ThemeMode: 'LIGHT',
   LayoutMode: 'SIDER_TOP_MODE',
-  PrimaryColor: '#7B1FA2',
+  PrimaryColor: SceneColorMap.primary,
   SystemViewConfig: {
     SiderInverted: false,
     HeaderInverted: false,
