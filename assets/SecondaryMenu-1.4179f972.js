@@ -1,1 +1,0 @@
-import{_ as o,c as n,e as t,f as c,p as r}from"./index.518657d9.js";import"./lodash.f0dd3654.js";const s={};function a(_,p){const e=r("RouterView");return n(),t("div",null,[c(e)])}const l=o(s,[["render",a]]);export{l as default};
