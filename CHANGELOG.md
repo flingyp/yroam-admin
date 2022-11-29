@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-0](https://github.com/flingyp/yroam-admin/compare/v0.11.0...v1.0.0-0) (2022-11-29)
+
+
+### ✨ Features | 新功能
+
+* **projects:** 使用IconPark图标，抛弃[@vicons](https://github.com/vicons)图标库 ([993b011](https://github.com/flingyp/yroam-admin/commit/993b0112d3d21224f6e65b9cc46b6d503f05f351))
+* **projects:** 系统配置支持本地持久化 ([d4af15b](https://github.com/flingyp/yroam-admin/commit/d4af15b5b36566a8a89ad51615b6cab86f7189c5))
+
 ## [0.11.0](https://github.com/flingyp/yroam-admin/compare/v0.10.1...v0.11.0) (2022-11-18)
 
 
