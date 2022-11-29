@@ -8,12 +8,7 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "lint": "eslint ./**/*.{js,jsx,ts,tsx,vue} --fix",
-    "release:major": "standard-version --release-as major",
-    "release:minor": "standard-version --release-as minor",
-    "release:patch": "standard-version --release-as patch",
-    "release:premajor": "standard-version --release-as premajor",
-    "release:preminor": "standard-version --release-as preminor",
-    "release:prepatch": "standard-version --release-as prepatch"
+    "release": "esno scripts/release.ts"
   },
   "dependencies": {
     "@flypeng/tool": "^2.2.0",
@@ -32,12 +27,14 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@types/inquirer": "^9.0.3",
     "@types/lodash": "^4.14.186",
     "@types/mockjs": "^1.0.7",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
     "@vitejs/plugin-vue": "^3.1.0",
+    "chalk": "^5.1.2",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.0.0",
@@ -49,7 +46,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.6.0",
+    "esno": "^0.16.3",
     "husky": "^8.0.0",
+    "inquirer": "^9.1.4",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "sass": "^1.55.0",
