@@ -1,13 +1,17 @@
 <template>
   <div class="global-logo-title-container">
     <img src="@assets/Img/YRoamLogo.png" alt="YRoam Logo" />
-    <span v-show="isCollapse">{{ SystemConfigStore.SystemName }}</span>
+    <a v-show="isCollapse" @click="router.push({ name: SystemHomeKey })">{{ SystemConfigStore.SystemName }}</a>
   </div>
 </template>
 
 <script setup lang="ts">
   import { useSystemConfigStore } from '@store/index'
   import { computed } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { SystemHomeKey } from '@/CONSTANT'
+
+  const router = useRouter()
 
   const SystemConfigStore = useSystemConfigStore()
 
@@ -28,11 +32,12 @@
       width: 25px;
     }
 
-    & > span {
+    & > a {
       margin-left: 4px;
       margin-top: 6px;
-      font-size: 20px;
+      font-size: 22px;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      cursor: pointer;
     }
   }
 </style>
