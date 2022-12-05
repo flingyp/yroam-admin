@@ -17,6 +17,8 @@
   import { ThemeModeType } from '@configs'
   import { echartInstance, ECOption } from './EchartImport'
 
+  defineOptions({ name: 'EchartContainer' })
+
   const props = defineProps<{
     config: ECOption
     width: number
@@ -62,9 +64,4 @@
   window.addEventListener('resize', () => {
     chartResize()
   })
-</script>
-<script lang="ts">
-  export default {
-    name: 'EchartContainer'
-  }
 </script>

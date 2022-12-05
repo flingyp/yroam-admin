@@ -12,6 +12,8 @@
   import { useSystemConfigStore } from '@store/index'
   import { computed } from 'vue'
 
+  defineOptions({ name: 'ThemeSwitch' })
+
   const SystemConfigStore = useSystemConfigStore()
   const { getThemeMode, setThemeMode } = useSwitchTheme()
 
@@ -24,10 +26,4 @@
   }
 
   const CurrentThemeMode = computed(() => SystemConfigStore.ThemeMode)
-</script>
-
-<script lang="ts">
-  export default {
-    name: 'ThemeSwitch'
-  }
 </script>

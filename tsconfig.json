@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
+		"types": ["unplugin-vue-define-options/macros-global"],
     "paths": {
       "@/*": ["src/*"],
       "@configs": ["./configs/index.d.ts"],
@@ -27,6 +28,11 @@
       "@components/*": ["src/components/*"]
     }
   },
+	"vueCompilerOptions": {
+		"plugins": [
+			"@vue-macros/volar/define-options"
+		]
+	},
   "include": ["src/**/*", "configs/**/*"],
   "references": [
     {

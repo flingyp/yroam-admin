@@ -19,6 +19,8 @@
   import { NDataTable } from 'naive-ui'
   import type { PaginationProps } from 'naive-ui'
 
+  defineOptions({ name: 'DataTable' })
+
   interface DataTableProps {
     TableColumns: Array<any> // 表头数据
     TableData: Array<any> // 表格数据
@@ -51,8 +53,4 @@
 
   const RawSingleLine = computed(() => !props.IsHaveRawSingleLine)
   const ColumnSingleLine = computed(() => !props.IsHaveColumnSingleLine)
-</script>
-
-<script lang="ts">
-  export default { name: 'DataTable' }
 </script>

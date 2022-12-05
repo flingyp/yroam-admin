@@ -11,6 +11,9 @@ module.exports = {
     sourceType: 'module',
     parser: '@typescript-eslint/parser'
   },
+  globals: {
+    defineOptions: 'writable'
+  },
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     'vue/no-multiple-template-root': 0, // 关闭对Vue文件唯一节点的检测

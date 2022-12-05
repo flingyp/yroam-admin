@@ -1,9 +1,10 @@
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
-import type { ConfigEnv, UserConfigExport } from 'vite'
+import type { ConfigEnv, defineConfig, UserConfigExport } from 'vite'
 import { viteMockServe } from 'vite-plugin-mock'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import clearConsole from 'vite-plugin-clear-console'
+import DefineOptions from 'unplugin-vue-define-options/vite'
 import { name, version } from './package.json'
 
 const templateTitle = name
@@ -39,6 +40,7 @@ export default ({ mode, command }: ConfigEnv): UserConfigExport => ({
   },
   plugins: [
     vue(),
+    DefineOptions(),
     createSvgIconsPlugin({
       iconDirs: [resolve(process.cwd(), 'src/assets/Svg')],
       symbolId: 'icon-[dir]-[name]'

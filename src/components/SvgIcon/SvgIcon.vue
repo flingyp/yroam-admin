@@ -7,6 +7,8 @@
 <script setup lang="ts">
   import { computed } from 'vue'
 
+  defineOptions({ name: 'SvgIcon' })
+
   const props = defineProps({
     prefix: {
       type: String,
@@ -22,9 +24,4 @@
     }
   })
   const symbolId = computed(() => `#${props.prefix}-${props.name}`)
-</script>
-<script lang="ts">
-  export default {
-    name: 'SvgIcon'
-  }
 </script>
