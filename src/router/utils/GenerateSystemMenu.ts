@@ -31,11 +31,8 @@ export const generateSystemMenu = (routes: RouteRecordRaw[]): MenuOption[] => {
       menu.key = handleRoute.name as string
 
       // 设置图标
-      if (!handleRoute.meta?.icon) {
-        menu.icon = renderIcon('emotion-happy')
-      } else {
-        const iconLabel = handleRoute.meta.icon
-        menu.icon = renderIcon(iconLabel)
+      if (handleRoute.meta?.icon) {
+        menu.icon = renderIcon(handleRoute.meta.icon)
       }
 
       // 外链地址
