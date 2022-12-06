@@ -54,6 +54,14 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         }
       },
       {
+        path: 'icon',
+        name: 'IconPark-ComponentContainer',
+        component: '@pages/IconPark/IconPark.vue',
+        meta: {
+          label: 'IconPark 图标'
+        }
+      },
+      {
         path: 'echarts',
         name: 'Echarts-ComponentContainer',
         component: '@pages/Echarts/EchartsContainer.vue',
