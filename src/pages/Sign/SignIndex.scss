@@ -1,0 +1,89 @@
+.sign-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('@assets/Svg/LoginBg.svg');
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.06;
+    z-index: -1;
+  }
+
+  & > .sign__form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px 40px;
+    border-radius: 8px;
+    background-color: var(--login-form-background);
+    border: 1px solid var(--login-form-background);
+    display: flex;
+    align-items: center;
+
+    & > .sign__left-container {
+      flex: 1;
+      height: 200px;
+      margin-right: 60px;
+    }
+
+    & > .sign__right-container {
+      flex: 1;
+    }
+  }
+
+  & > .sign__system-title-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 4%;
+    left: 2%;
+
+    & > img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    & > p {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  & > .sign__theme-switch-container {
+    position: absolute;
+    cursor: pointer;
+    top: 4%;
+    right: 2%;
+  }
+
+  // 大屏幕
+  @media (min-width: 992px) and (max-width: 1200px) {
+  }
+
+  // 中等屏幕
+  @media (min-width: 768px) and (max-width: 992px) {
+    .sign__form-container {
+      padding: 40px 20px;
+    }
+    .sign__left-container {
+      display: none;
+    }
+  }
+  // 小屏幕
+  @media (max-width: 768px) {
+    .sign__form-container {
+      padding: 40px 20px;
+    }
+    .sign__left-container {
+      display: none;
+    }
+  }
+}

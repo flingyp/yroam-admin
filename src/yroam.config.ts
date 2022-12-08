@@ -2,7 +2,8 @@ import { HandleRouteType, SystemConfig } from '@configs'
 import { LoginRouteKey, NotFoundRouteKey, SceneColorMap } from '@/CONSTANT'
 
 // 系统白名单路由列表
-export const WhiteRouteList: string[] = [LoginRouteKey, NotFoundRouteKey]
+// TODO: SignIndex 是正在开发的第二个登录页面
+export const WhiteRouteList: string[] = [LoginRouteKey, NotFoundRouteKey, 'SignIndex']
 // 系统异步路由控制方式
 export const HandleRoute: HandleRouteType = 'WEB'
 

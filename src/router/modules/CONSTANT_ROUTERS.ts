@@ -12,6 +12,14 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
     }
   },
   {
+    path: '/sign',
+    name: 'SignIndex',
+    component: '@pages/Sign/SignIndex.vue',
+    meta: {
+      isShow: false
+    }
+  },
+  {
     path: '/404',
     name: 'NotFound',
     component: '@pages/Common/NotFound.vue',
