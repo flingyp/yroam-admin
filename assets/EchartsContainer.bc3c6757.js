@@ -1,1 +1,0 @@
-import{_ as o,c as t,e as n,f as c,p as r}from"./index.f6be212b.js";const s={};function a(_,f){const e=r("RouterView");return t(),n("div",null,[c(e)])}const l=o(s,[["render",a]]);export{l as default};
