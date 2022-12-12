@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1-0](https://github.com/flingyp/yroam-admin/compare/v1.0.0-0...v1.0.1-0) (2022-12-12)
+
+
+### ✨ Features | 新功能
+
+* don't set default icon of system  menus ([9215d4d](https://github.com/flingyp/yroam-admin/commit/9215d4d54a864bcbfcf88de5c5b4a8febf5da814))
+* GlobalLogoTitle 可跳转配置的首页路由 ([efc67cb](https://github.com/flingyp/yroam-admin/commit/efc67cbd129829fa77630eab5a686b4f75ea8cc2))
+* **projects:** add IconPark page show ([d845f5c](https://github.com/flingyp/yroam-admin/commit/d845f5c9377b04d0f03fa804c40b2a23597392eb))
+
 ## [1.0.0-0](https://github.com/flingyp/yroam-admin/compare/v0.11.0...v1.0.0-0) (2022-11-29)
 
 
