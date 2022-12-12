@@ -11,7 +11,7 @@
     "release": "esno scripts/release.ts"
   },
   "dependencies": {
-    "@flypeng/tool": "^4.0.0",
+    "@flypeng/tool": "^4.0.1",
     "@icon-park/vue-next": "^1.4.2",
     "@vueuse/core": "^9.6.0",
     "axios": "^1.2.1",
