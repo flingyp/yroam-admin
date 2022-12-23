@@ -198,6 +198,7 @@
 
   // 系统主题色
   const PrimaryColorList = [
+    '#0071bc',
     '#f44336',
     '#e91e63',
     '#9c27b0',

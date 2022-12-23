@@ -12,7 +12,7 @@ export const LocalSystemConfigKey = 'local-system-config' // 本地系统配置
 
 // 系统用户可以自定义系统相关色值
 export const SceneColorMap: Record<ColorType, string> = {
-  primary: '#7B1FA2',
+  primary: '#0071bc',
   info: '#687FFF',
   success: '#61D132',
   warning: '#FFA500',

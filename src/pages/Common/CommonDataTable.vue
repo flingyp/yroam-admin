@@ -156,7 +156,6 @@
     username: '',
     age: 0,
     email: '',
-
     address: ''
   })
   const ModifyInfoModal = ref(false)
