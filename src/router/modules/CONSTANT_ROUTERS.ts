@@ -107,11 +107,11 @@ export const CONSTANT_ROUTERS: SystemRoute[] = [
         }
       },
       {
-        path: 'table',
-        name: 'Common-Table',
-        component: '@pages/Common/CommonDataTable.vue',
+        path: 'curd',
+        name: 'Common-CURD',
+        component: '@pages/Common/CURD.vue',
         meta: {
-          label: '数据表格'
+          label: 'CURD组件'
         }
       }
     ]

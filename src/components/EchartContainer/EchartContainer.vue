@@ -19,11 +19,13 @@
 
   defineOptions({ name: 'EchartContainer' })
 
-  const props = defineProps<{
+  interface EchartContainerProps {
     config: ECOption
     width: number
     height: number
-  }>()
+  }
+
+  const props = defineProps<EchartContainerProps>()
 
   const chartRef = ref<Element>()
 
