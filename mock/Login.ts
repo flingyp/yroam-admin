@@ -68,7 +68,7 @@ const SysUserRouters = (token: string) => {
         component: 'Layout',
         meta: {
           label: '前端权限测试',
-          icon: 'material-AccessAlarmOutlined'
+          icon: 'all-application'
         },
         children: [
           {

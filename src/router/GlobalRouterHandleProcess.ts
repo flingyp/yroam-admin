@@ -47,18 +47,19 @@ const routeHandleGenerateMenuProcess = async (
 
   // 2. 筛选异步路由
   let SystemAsyncRouters: SystemRoute[] = []
+  let FilterSuccessAsyncRouters: SystemRoute[] = []
 
   // 2.1 控制处理系统异步路由的方式
+  // 2.2 过滤成功的系统异步路由 (通过SEVER的方式应该尽量让后台服务返回对应的数据接口形式)
   if (HandleRoute === 'WEB') {
     // Get Async Route by ASYNC_ROUTERS file
     SystemAsyncRouters = useDeepClone(ASYNC_ROUTERS)
+    FilterSuccessAsyncRouters = filterRoutes(SystemAsyncRouters, Permissions)
   } else {
     // Get Async Route by Network Request
     SystemAsyncRouters = await fetchUserAsyncRouters()
+    FilterSuccessAsyncRouters = SystemAsyncRouters
   }
-
-  // 2.2 过滤成功的系统异步路由
-  const FilterSuccessAsyncRouters = filterRoutes(SystemAsyncRouters, Permissions)
 
   // 3. 转换为VueRouter路由
   const TransformToAsyncRouters = transformSystemRouteToRouteRecordRaw(FilterSuccessAsyncRouters)
