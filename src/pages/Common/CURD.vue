@@ -25,6 +25,7 @@
         </div>
       </template>
     </CommonCurd>
+
     <NModal v-model:show="modifyInfoModal">
       <NCard style="width: 600px" title="修改用户" :bordered="false" size="huge" role="dialog" aria-modal="true">
         <NForm
@@ -65,82 +66,13 @@
   import { fetchTableUser, MockTableUser } from '@https/index'
   import { renderIcon } from '@components/index'
 
-  type SearchKey = 'userid' | 'username' | 'useremail'
-  interface Search {
-    label: string
-    key: SearchKey
-    placeholder: string
-    value: string
-  }
-
-  const searchList = reactive<Search[]>([
-    {
-      label: '用户ID',
-      key: 'userid',
-      placeholder: '请输入用户ID',
-      value: ''
-    },
-    {
-      label: '用户姓名',
-      key: 'username',
-      placeholder: '请输入用户姓名',
-      value: ''
-    },
-    {
-      label: '用户邮箱',
-      key: 'useremail',
-      placeholder: '请输入用户邮箱',
-      value: ''
-    }
-  ])
-
-  // 点击搜索
-  const search = () => {}
-  // 点击重置
-  const reset = () => {
-    searchList.forEach(item => {
-      item.value = ''
-    })
-  }
-
-  // 点击新增
-  const addData = () => {}
-  // 点击修改
-  const modifyData = () => {}
-  // 点击删除
-  const deleteData = () => {}
-
   const message = useMessage()
   const dialog = useDialog()
-  const tableLoading = ref(false)
-  const modifyInfoModal = ref(false)
-  const modifyModelData = reactive<MockTableUser>({
-    id: '',
-    birthday: '',
-    status: 0,
-    username: '',
-    age: 0,
-    email: '',
-    address: ''
-  })
-  const tablePagination = reactive<PaginationProps>({
-    page: 1,
-    pageSize: 10,
-    showSizePicker: true,
-    pageSizes: [5, 10, 15, 20],
-    onChange: (page: number) => {
-      tablePagination.page = page
-    },
-    onUpdatePageSize: (pageSize: number) => {
-      tablePagination.pageSize = pageSize
-      tablePagination.page = 1
-    }
-  })
-  const tableData = ref<MockTableUser[]>([])
+  type PlayActions = 'modify' | 'delete'
   const createColumns = ({
     play
   }: {
-    play: (row: MockTableUser, type: 'modify' | 'delete') => void
+    play: (row: MockTableUser, type: PlayActions) => void
   }): DataTableColumns<MockTableUser> => [
     {
       title: 'id',
@@ -219,9 +151,38 @@
         ]
       }
     }
-  ]
+  ] // 创建表头的函数
+
+  /**
+   * 表格部分
+   */
+  const tableLoading = ref(false) // 表格是否Loading
+  const modifyInfoModal = ref(false) // 修改信息模态框
+  const modifyModelData = reactive<MockTableUser>({
+    id: '',
+    birthday: '',
+    status: 0,
+    username: '',
+    age: 0,
+    email: '',
+    address: ''
+  })
+  const tablePagination = reactive<PaginationProps>({
+    page: 1,
+    pageSize: 10,
+    showSizePicker: true,
+    pageSizes: [5, 10, 15, 20],
+    onChange: (page: number) => {
+      tablePagination.page = page
+    },
+    onUpdatePageSize: (pageSize: number) => {
+      tablePagination.pageSize = pageSize
+      tablePagination.page = 1
+    }
+  }) // 分页配置
+  const tableData = ref<MockTableUser[]>([]) // 表格数据
   const tableColumns = createColumns({
-    play(row: MockTableUser, type: 'modify' | 'delete') {
+    play(row: MockTableUser, type: PlayActions) {
       if (type === 'modify') {
         Object.assign(modifyModelData, row)
         modifyInfoModal.value = true
@@ -246,8 +207,9 @@
         })
       }
     }
-  })
+  }) // 表头部分
 
+  // 修改用户数据
   const modifyUserData = () => {
     tableData.value.forEach(item => {
       if (item.id === modifyModelData.id) {
@@ -259,6 +221,55 @@
       modifyInfoModal.value = false
     }, 1000)
   }
+
+  /**
+   * 搜索部分
+   */
+  type SearchKeys = 'userid' | 'username' | 'useremail'
+  interface Search {
+    label: string
+    key: SearchKeys
+    placeholder: string
+    value: string
+  }
+  const searchList = reactive<Search[]>([
+    {
+      label: '用户ID',
+      key: 'userid',
+      placeholder: '请输入用户ID',
+      value: ''
+    },
+    {
+      label: '用户姓名',
+      key: 'username',
+      placeholder: '请输入用户姓名',
+      value: ''
+    },
+    {
+      label: '用户邮箱',
+      key: 'useremail',
+      placeholder: '请输入用户邮箱',
+      value: ''
+    }
+  ])
+  // 点击搜索
+  const search = () => {}
+  // 点击重置
+  const reset = () => {
+    searchList.forEach(item => {
+      item.value = ''
+    })
+  }
+
+  /**
+   * 操作按钮部分
+   */
+  // 点击新增
+  const addData = () => {}
+  // 点击修改
+  const modifyData = () => {}
+  // 点击删除
+  const deleteData = () => {}
 
   onMounted(async () => {
     const TableData = await fetchTableUser()
